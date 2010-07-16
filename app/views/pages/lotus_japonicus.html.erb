@@ -4,7 +4,15 @@ The euchromatic region has been sequenced BAC/TAC by BAC/TAC and selected TAC mi
 
 <h1>Resources</h1>
 <p>
-	<%= image_tag "lotus.png", :class => "right", :width => "250px", :alt => "Lotus japonicus" %>
+	<div class="photo">
+		<% title = "Lotus japonicus" %>
+		<% caption = "Lotus japonicus accession Miyakojima MG-20" %>
+		<%= link_to image_tag("lotus.png", :class => "right", :width => "250px", :alt => title), "#lotus" %>
+	</div>
+	<div id="lotus" style="display: none;">
+		<%= image_tag "lotus.png", :class => "right", :alt => title %>
+		<p class="caption"><%= caption %></p>
+	</div>
 	
 	<strong>Genome assembly and annotations</strong><br />
 	&nbsp;&nbsp;<%= link_to "Genome release 2009", "ftp://ftp.kazusa.or.jp/pub/lotus/", :target => "_blank" %><br />
