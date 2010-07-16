@@ -5,7 +5,15 @@ Illumina/Solexa paired short sequence reads.</p>
 
 <h1>Resources</h1>
 <p>
-	<%= image_tag "medicago.png", :class => "right", :width => "250px", :alt => "Medicago truncatula" %>
+	<div class="photo">
+		<% title = "Medicago truncatula" %>
+		<% caption = "Medicago truncatula cultivar Jemalong A17 leaf" %>
+		<%= link_to image_tag("medicago.png", :class => "right", :width => "250px", :alt => title), "#medicago" %>
+	</div>
+	<div id="medicago" style="display: none;">
+		<%= image_tag "medicago.png", :class => "right", :alt => title %>
+		<p class="caption"><%= caption %></p>
+	</div>
 	
 	<strong>Genome assembly and annotations</strong><br />
 	&nbsp;&nbsp;<%= link_to "Genome release version 3.0", "http://www.medicago.org/genome/downloads/Mt3/", :target => "_blank" %><br />
