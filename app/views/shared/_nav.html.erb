@@ -1,0 +1,52 @@
+<ul class="level1" id="root">
+	<% if request.path != "/"%>
+		<li><%= link_to "Home", root_path %></li> 
+		<li class="sep">|</li>
+	<% end %>
+	<li><%= link_to "About", page_path('about') %></li> 
+	<li class="sep">|</li>
+	<li><%= link_to "News", news_articles_path %></li> 
+	<li class="sep">|</li>
+	<li>
+		<a href="#">Search</a> 
+		<ul class="level2"> 
+			<li><%= link_to "Search by sequence", "http://search.comparative-legumes.org/seqqle/new" %></li> 
+		</ul> 
+	</li> 
+	<li class="sep">|</li>
+	<li>
+		<a href="#">Maps</a> 
+		<ul class="level2"> 
+			<li><%= link_to "Comparative map views", "http://cmap.comparative-legumes.org/index.html" %></li> 
+		</ul> 
+	</li> 
+	<li class="sep">|</li>
+	<li>
+		<a href="#">Reference Species</a> 
+		<ul class="level2"> 
+			<li><%= link_to "Glycine max", page_path('glycine_max') %></li>
+			<li><%= link_to "Medicago truncatula", page_path('medicago_truncatula') %></li>
+			<li><%= link_to "Lotus japonicus", page_path('lotus_japonicus') %></li>
+		</ul> 
+	</li>
+	<li class="sep">|</li>
+	<li>
+		<a href="#">Research Community</a> 
+		<ul class="level2"> 
+			<li><%= link_to "Links", page_path('links') %></li>
+			<li><%= link_to "Participating groups", page_path('participating_groups') %></li>
+		</ul> 
+	</li>
+	<li class="sep">|</li>
+	<li>
+		<a href="#">LIS Classic</a> 
+		<ul class="level2"> 
+			<li><%= link_to "Genomes", "http://lis.comparative-legumes.org/lisg/lis_summary.html?page_type=genomic" %></li>
+			<li><%= link_to "Transcripts", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=transcript" %></li>
+			<li><%= link_to "Maps", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=cmap" %></li>
+			<li><%= link_to "Pathways", "http://soybase.ncgr.org/cgi-bin/ace/generic/search/soybase?class=Reaction_or_pathway" %></li>
+		</ul> 
+	</li>
+	<li class="sep">|</li>
+	<li><%= link_to "Collaborators", page_path('collaborators') %></li> 
+</ul> 

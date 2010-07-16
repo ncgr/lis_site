@@ -1,0 +1,6 @@
+log/
+tmp/
+.tmp_*
+*.log
+public/images/
+vendor/plugins/

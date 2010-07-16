@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Legume Information System</title>
+		<link rel="alternate" type="application/rss+xml" title="News Articles" href="/news_articles.rss" />
+		<%= javascript_include_tag :all %>
+		<%= stylesheet_link_tag :all %>
+	</head>
+	<body>
+		<div id="main">
+			<div id="content">
+				<div id="logo">
+					Place LIS Logo Here<br />
+					<div style="padding: 5px 0 10px 940px">
+						<%= link_to image_tag("feed.png", :alt => "RSS Feed"), news_articles_url(:rss) %>
+					</div>
+				</div>
+				<div id="nav">
+					<%= render :partial => "shared/nav" %>
+				</div>
+				<div id="frame">
+					<div id="leftcol">
+						<%= yield %>
+					</div>
+					<div id="rightcol">
+						<%= yield :news %>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+			<%= render :partial => "shared/footer" %>
+		</div>
+	</body>
+</html>

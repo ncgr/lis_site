@@ -1,0 +1,4 @@
+<h1><%=h @article.title %></h1>
+<span class="pubDate"><%= display_time(@article.timestamp) %></span><br />
+<%= @article.body %>
+<p class="right"><%= link_to "&laquo; Back", news_articles_path %></p>

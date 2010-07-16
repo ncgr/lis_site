@@ -1,0 +1,31 @@
+<h1>Overview</h1>
+<p>The Legume Information System is one component in a global network of data providers in support of 
+legume bioinformatic research. A key objective of LIS is to help bring diverse data sets together in 
+useful ways. The data repositories and tools below are important contributions to this network. Please 
+contact us at <%= mail_to "lis_feedback@ncgr.org", "lis_feedback@ncgr.org", :encode => "javascript" %> 
+if you have a resource that should be listed here.</p>
+
+<p>
+	<strong>Broad bioinformatic resources or tools</strong><br />
+	&nbsp;&nbsp;<%= link_to "Phytozome at JGI", "http://www.phytozome.net/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Synteny Mapping and Analysis Program at U AZ", "http://www.symapdb.org/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Legume bioinformatics at INRA", "http://www.legoo.org/", :target => "_blank" %><br />
+	
+	<strong>Soybean resources</strong><br />
+	&nbsp;&nbsp;<%= link_to "SoyBase at ISU (USDA-ARS)", "http://soybase.org/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Phytozome soybean portal", "http://www.phytozome.net/soybean.php", :target => "_blank" %><br />
+	&nbsp;&nbsp;(also see <%= link_to "Glycine max", page_path("glycine_max") %>)<br />
+	
+	<strong>Medicago resources</strong><br />
+	&nbsp;&nbsp;<%= link_to "Medicago.org at UMN", "http://medicago.org/genome/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Medicago at JCVI", "http://jcvi.org/cgi-bin/medicago/index.cgi", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "The Medicago truncatula project at MIPS", "http://mips.helmholtz-muenchen.de/plant/medi/index.jsp", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Medicago at Noble Foundation", "http://www.noble.org/medicago/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "TRUNCATULIX at Bielefeld DE", "http://lily.cebitec.uni-bielefeld.de/truncatulix/app", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Medicago Biological Resource Center at INRA", "http://www1.montpellier.inra.fr/BRC-MTR/accueil.php", :target => "_blank" %><br />
+	&nbsp;&nbsp;(also see <%= link_to "Medicago truncatula", page_path("medicago_truncatula") %>)<br />
+	
+	<strong>Lotus resources</strong><br />
+	&nbsp;&nbsp;<%= link_to "The Lotus genome project at Kazusa", "http://www.kazusa.or.jp/lotus/", :target => "_blank" %><br />
+	&nbsp;&nbsp;(also see <%= link_to "Lotus japonicus", page_path("lotus_japonicus") %>)
+</p>
