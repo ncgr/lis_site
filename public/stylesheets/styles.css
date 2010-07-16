@@ -183,23 +183,29 @@ ol.web li {
 
 #singlecol {
 	margin: 10px;
-	padding: 0 25px 25px 15px;
+	padding: 0 10px 25px 15px;
 	
 	background-color: #ffffff;
-	
-	width: 905px;
+	width : 100%
 	height: auto;
 	
 	float: left;
 }
 
+/** IE 7 hack *sigh* **/
+#interior {
+	padding-right: 135px;
+	position: relative;
+	width: 85%;
+}
+
 #leftcol {
 	margin: 10px 5px 10px 10px;
-	padding: 0 10px 25px 10px;
+	padding: 0 15px 25px 15px;
 	
 	background-color: #ffffff;
 	
-	width: 590px;
+	width: 580px;
 	height: auto;
 	
 	float: left;
@@ -207,11 +213,11 @@ ol.web li {
 
 #rightcol {
 	margin: 10px 10px 10px 5px;
-	padding: 0 10px 25px 10px;
+	padding: 0 15px 25px 15px;
 	
 	background-color: #ffffff;
 	
-	width: 300px;
+	width: 295px;
 	height: auto;
 	
 	float: right;
