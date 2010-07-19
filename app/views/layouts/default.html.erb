@@ -24,7 +24,7 @@
 					<div id="singlecol">
 						<div id="interior">
 							<script type="text/javascript"> 
-								$(document).observe('dom:loaded', function() {
+								document.observe('dom:loaded', function() {
 									$$("div.photo a").each(function(el) { 
 										new FancyZoom(el, {edgy:true}); 
 									})
