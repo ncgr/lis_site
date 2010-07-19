@@ -41,8 +41,8 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: lis_production
+  database: lis_rails
   pool: 5
-  username: root
-  password: 
-  host: localhost
+  username: lis-admin
+  password: 715comL3g
+  host: 172.19.68.147

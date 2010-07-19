@@ -1,2 +1,39 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+/**
+ * Creates the accordion effect for the home page.
+ */
+
+// Current Element id
+var currentId = null;
+
+// Expand and contract each accordion link's content. 
+Effect.Accordion = function (contentId) {
+    var slideDown = 0.5;
+    var slideUp = 0.5;
+    var id = "";		// Element id of the link.
+    
+    contentId = $(contentId);
+    text = ["Read More", "Close"]	// Change the link text on slide.
+
+    contentLinkId = contentId.identify() + '_toggle';
+    
+    if (currentId != contentId) {
+        if (currentId == null) {
+            new Effect.SlideDown(contentId, {duration: slideDown});
+            $(contentLinkId).update(text[1]);
+        } else {	
+        	currentLinkId = currentId.identify() + '_toggle';
+            
+        	new Effect.SlideUp(currentId, {duration: slideUp});
+            $(currentLinkId).update(text[0]);
+            new Effect.SlideDown(contentId, {duration: slideDown});
+            $(contentLinkId).update(text[1]);
+        }
+        currentId = contentId; 
+    } else {
+    	currentLinkId = currentId.identify() + '_toggle';
+        
+    	new Effect.SlideUp(currentId, {duration: slideUp});
+        $(currentLinkId).update(text[0]);
+        currentId = null;
+    }
+};
