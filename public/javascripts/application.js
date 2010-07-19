@@ -7,13 +7,12 @@ var currentId = null;
 
 // Expand and contract each accordion link's content. 
 Effect.Accordion = function (contentId) {
-    var slideDown = 0.5;
-    var slideUp = 0.5;
-    var id = "";		// Element id of the link.
+    var slideDown = 1.0;
+    var slideUp = 1.0;
     
     contentId = $(contentId);
-    text = ["Read More", "Close"]	// Change the link text on slide.
-
+    
+    text = ["Read More", "Close"];
     contentLinkId = contentId.identify() + '_toggle';
     
     if (currentId != contentId) {
@@ -25,6 +24,7 @@ Effect.Accordion = function (contentId) {
             
         	new Effect.SlideUp(currentId, {duration: slideUp});
             $(currentLinkId).update(text[0]);
+            
             new Effect.SlideDown(contentId, {duration: slideDown});
             $(contentLinkId).update(text[1]);
         }
@@ -34,6 +34,7 @@ Effect.Accordion = function (contentId) {
         
     	new Effect.SlideUp(currentId, {duration: slideUp});
         $(currentLinkId).update(text[0]);
+        
         currentId = null;
     }
 };
