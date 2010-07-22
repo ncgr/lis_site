@@ -3,8 +3,10 @@
 	<% num = @articles.length; i = 1 %>
 	<% @articles.each do |n| %>
 		<p><span class="title"><%=h n.title %></span><br />
-			<span class="pubDate"><%= display_time(n.timestamp) %></span></p>
-		<%= truncate(n.body, :length => 500) %>
+			<span class="pubDate"><%= display_time(n.timestamp) %></span>
+		</p>
+		<div style="clear: both;"></div>
+		<%= truncate_html(n.body, :length => 500) %>
 		<p class="right"><%= link_to "Read More &raquo;", news_article_path(n) %></p>
 		<% if i < num %>
 			<hr />

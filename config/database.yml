@@ -45,4 +45,4 @@ production:
   pool: 5
   username: lis-admin
   password: 715comL3g
-  host: 172.19.68.147
+  host: 172.19.68.116
