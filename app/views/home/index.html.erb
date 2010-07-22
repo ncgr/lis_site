@@ -7,7 +7,7 @@
 				<span class="pubDate"><%= display_time(n.timestamp) %></span>
 			</p>
 			<div style="clear: both;"></div>
-			<%= truncate(n.body, :length => 200) %>
+			<%= truncate_html(n.body, :length => 200) %>
 			<p class="right"><%= link_to "Read More &raquo;", news_article_path(n) %></p>
 			<% if i < num %>
 				<hr />

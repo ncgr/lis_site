@@ -9,7 +9,9 @@ class NewsArticlesController < ApplicationController
     layout "default"
     
     def index
+        # HTML
         @articles = NewsArticle.paginate_by_params(params[:page])
+        # RSS Feed
         @rss = NewsArticle.find(:all, :order => "timestamp DESC")
     end
     

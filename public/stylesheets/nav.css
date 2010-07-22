@@ -40,6 +40,10 @@
 	padding: 0.8em 0.7em 0.4em 0.9em;
 }
 
+#nav ul li a.no_cursor {
+	cursor: none;	
+}
+
 #nav  ul li a:hover {
 	color: #ffffff;
 	background: #ed303c;
