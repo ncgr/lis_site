@@ -113,7 +113,14 @@ p.center {
 	font-size: 12px;
 }
 
+ul.web, ol.web {
+	margin: 15px 20px 15px 40px;
+	padding: 0;
+}
+
 ul.web li {
+	margin: 0;
+	padding: 0 0 0 5px;
 	font-size: 14px;	
 	line-height: 18px;
 	letter-spacing: 1px;
@@ -122,6 +129,8 @@ ul.web li {
 }
 
 ol.web li {
+	margin: 0;
+	padding: 0 0 0 5px;
 	font-size: 14px;	
 	line-height: 18px;
 	letter-spacing: 1px;
