@@ -29,7 +29,7 @@ var Window = {
 }
  
 var FancyZoomBox = {
-  directory : '/images',
+  directory : '/new_site/images',
   zooming   : false,
   setup     : false,
   
@@ -196,12 +196,12 @@ var FancyZoomBox = {
   
   // prevents the thick black border that happens when appearing or fading png in IE
 	fixBackgroundsForIE: function() {
-    if (Prototype.Browser.IE7) { FancyZoomBox.switchBackgroundImagesTo('gif'); }
+    if (Prototype.Browser.IE7 || Prototype.Browser.IE8) { FancyZoomBox.switchBackgroundImagesTo('gif'); }
 	},
  
 	// swaps back to png's for prettier shadows
 	unfixBackgroundsForIE: function() {
-    if (Prototype.Browser.IE7) { FancyZoomBox.switchBackgroundImagesTo('png'); }
+    if (Prototype.Browser.IE7 || Prototype.Browser.IE8) { FancyZoomBox.switchBackgroundImagesTo('png'); }
 	}
 }
  
