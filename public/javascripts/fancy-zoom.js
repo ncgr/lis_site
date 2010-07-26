@@ -194,7 +194,7 @@ var FancyZoomBox = {
     close_img.writeAttribute('src', new_img);
   },
   
-  // prevents the thick black border that happens when appearing or fading png in IE
+  	// prevents the thick black border that happens when appearing or fading png in IE
 	fixBackgroundsForIE: function() {
     if (Prototype.Browser.IE7 || Prototype.Browser.IE8) { FancyZoomBox.switchBackgroundImagesTo('gif'); }
 	},
@@ -212,10 +212,10 @@ var FancyZoom = Class.create({
 	  this.element = $(element);
 		if (this.element) {
 		  this.element.content_div = $(this.element.readAttribute('href').gsub(/^#/, ''));
-  		this.element.content_div.hide();
-  		this.element.zoom_width = this.options.width;
-  		this.element.zoom_height = this.options.height;
-      this.element.observe('click', FancyZoomBox.show);
+		  this.element.content_div.hide();
+		  this.element.zoom_width = this.options.width;
+		  this.element.zoom_height = this.options.height;
+		  this.element.observe('click', FancyZoomBox.show);
 		}
 	}
 });
