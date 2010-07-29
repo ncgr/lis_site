@@ -41,7 +41,7 @@
 }
 
 #nav ul li a.no_cursor {
-	cursor: none;	
+	cursor: default;	
 }
 
 #nav  ul li a:hover {
