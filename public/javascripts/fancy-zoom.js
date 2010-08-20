@@ -29,7 +29,8 @@ var Window = {
 }
  
 var FancyZoomBox = {
-  directory : '/new_site/images',
+  directory : '/images',
+  //directory : '/new_site/images',
   zooming   : false,
   setup     : false,
   

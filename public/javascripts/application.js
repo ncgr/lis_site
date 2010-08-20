@@ -1,4 +1,14 @@
 /**
+ * Hide Accordions.
+ */
+function hideAccordions () {
+	var verticalAccordions = $$('.accordion_toggle');
+	verticalAccordions.each(function(accordion) {
+		$(accordion).hide();
+	});
+}
+
+/**
  * Creates the accordion effect for the home page.
  */
 

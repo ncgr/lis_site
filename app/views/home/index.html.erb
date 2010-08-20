@@ -93,14 +93,4 @@ plants to fill knowledge gaps across crop plant species and provide the ability 
 <script type="text/javascript">
 	document.observe('dom:loaded', hideAccordions);		// Hide accordions on page load
 	document.observe('unload', hideAccordions);			// Hide accordions on page unload
-	
-	/**
-	 * Hide Accordions.
-	 */
-	function hideAccordions () {
-		var verticalAccordions = $$('.accordion_toggle');
-		verticalAccordions.each(function(accordion) {
-			$(accordion).hide();
-		});
-	}
 </script>
