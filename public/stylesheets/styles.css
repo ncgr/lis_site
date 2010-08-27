@@ -18,9 +18,16 @@ a {
 a:hover {
 	color: #ed303c;
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 img {
+	border: none;
+}
+
+#rss {
+	margin: 0;
+	padding: 10px 0 65px 900px;
 	border: none;
 }
 
@@ -153,8 +160,8 @@ ol.web li {
 }
 
 #main {
-	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0;
@@ -162,6 +169,8 @@ ol.web li {
 }
 
 #logo {
+	margin: 10px 0 10px 15px;
+	padding: 0;
 	background-image: url(../images/logo.jpg);
 	background-repeat: no-repeat;
 }
@@ -189,11 +198,11 @@ ol.web li {
 }
 
 #singlecol {
-	margin: 10px;
+	margin: 0;
 	padding: 0 10px 25px 15px;
 	
 	background-color: #ffffff;
-	width : 920px;
+	width : 940px;
 	height: auto;
 	
 	float: left;
