@@ -27,8 +27,17 @@ img {
 
 #rss {
 	margin: 0;
-	padding: 10px 0 65px 900px;
+	padding: 10px 50px 2px 0;
 	border: none;
+	float: right;
+}
+
+#google_translate_element {
+	margin: 0;
+	padding: 2px 50px 2px 0;
+	float: right;
+	text-align: right;
+	clear: both;
 }
 
 img.right {
@@ -173,6 +182,7 @@ ol.web li {
 	padding: 0;
 	background-image: url(../images/logo.jpg);
 	background-repeat: no-repeat;
+	height: 115px;
 }
 
 #content {
@@ -188,7 +198,7 @@ ol.web li {
 
 /*** Frame contains the left and right columns ***/
 #frame {
-	margin: 15px;
+	margin: 10px 15px 15px 15px;
 	padding: 0;
 	
 	background-color: #f2e9e1;
