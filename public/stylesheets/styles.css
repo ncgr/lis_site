@@ -114,13 +114,19 @@ p {
 	margin-bottom: 14px;
 }
 
-p.right {
+.right {
 	text-align: right;	
 	font-size: 12px;
 	font-style: italic;
 }
 
-p.center {
+.small_right {
+	padding: 0 20px 0 0;
+	font-size: 12px;
+	text-align: right;
+}
+
+.center {
 	text-align: center;	
 	font-size: 12px;
 }
