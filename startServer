@@ -1,4 +1,5 @@
 #!/bin/bash
 
-./script/server --environment=development --port=7650 --debugger
+#./script/server --environment=development --port=7650 --debugger
+./script/server --environment=development --port=7650
 
