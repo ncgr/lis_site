@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   
   # Home page
   def index
-      @articles = NewsArticle.get_recent_news()
+      @articles = NewsArticle.get_recent_news(2)
   end
 
 end
