@@ -28,70 +28,53 @@
 <h1>Getting Started</h1>
 
 <p><span class="title">Gene to Function</span></p>
-<ul class="web">
+<ul class="web-nobullet">
 	<li>Do a <%= link_to "gene multi-target search", "http://search.comparative-legumes.org/seqqle/new" %> against genomic, expression, other databases: UniProt, Phytozome, PLAZA, MtGEA, Soybase, Mt-JCVI, Lj-Kazusa.</li>
 	<li>See your <%= link_to "gene(s) on whole-genome viewer", "http://search.comparative-legumes.org/seqqle/new" %> of soybean, Medicago and Lotus.</li>
 </ul>
-<p></p>
-
-<!-- 
-<div id="tool_1" class="accordion_toggle">
-	<div>
-	</div>
-</div>
-<p class="small_right"><a id="tool_1_toggle" onclick="new Effect.Accordion('tool_1');">Read More [+]</a></p> 
--->
 
 <p><span class="title">Trait to Gene</span></p>
-<ul class="web">
-	<li>Find markers or QTLs around your trait of interest in your species.</li>
-	<li>Find those markers on a reference genome sequence.</li>
+<ul class="web-nobullet">
+	<li>Find markers or QTLs around your trait of interest in your species. <a id="tool_1_toggle" class="small" onclick="new Effect.Accordion('tool_1');">More[+]</a></li>
+</ul>
+	<div id="tool_1" class="accordion_toggle">
+		<ul class="web-nobullet-indent">
+			<li>Genetic <%= link_to "maps and map comparisons", "http://cmap.comparative-legumes.org", :target => "_blank" %></li>
+			<li><%= link_to "QTLs and traits at SoyBase", "http://soybeanbreederstoolbox.org/search/search_results.php?category=QTLName", :target => "_blank" %></li>
+			<li><%= link_to "QTLs and traits at PhaseolusGenes", "http://phaseolusgenes.bioinformatics.ucdavis.edu/search", :target => "_blank" %></li>
+		</ul>
+	</div>
+<ul class="web-nobullet">
+	<li>Find those markers on a reference genome sequence. <a id="tool_2_toggle" class="small" onclick="new Effect.Accordion('tool_2');">More[+]</a></li>
+</ul>
+	<div id="tool_2" class="accordion_toggle">
+		<ul class="web-nobullet-indent">
+			<li>Markers for numerous species <%= link_to "on soybean at SoyBase", "http://soybeanbreederstoolbox.org/search/search_results.php?category=LocusName", :target => "_blank" %></li>
+			<li>Markers for Medicago truncatula and Cicer arietinum (chickpea) <%= link_to "on Medicago truncatula at JCVI", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago_imgag/", :target => "_blank" %></li>
+			<li>Markers for Lotus japonicus <%= link_to "on Lotus japonicus at Kazusa", "http://www.kazusa.or.jp/lotus/markerdb_index.html", :target => "_blank" %></li>
+		</ul>
+	</div>
+<ul class="web-nobullet">
 	<li>Select or design new markers for fine-mapping.</li>
-	<li>Examine gene functions and expression on the .refernece genomes.</li>
+	<li>Examine gene functions and expression on the refernece genomes.</li>
 </ul>
 
-<!-- 
-<div id="tool_2" class="accordion_toggle">
-	<div>
-	</div>
-</div>
-<p class="small_right"><a id="tool_2_toggle" onclick="new Effect.Accordion('tool_2');">Read More [+]</a></p> 
--->
-
 <p><span class="title">Process to Network of Genes</span></p>
-<ul class="web">
+<ul class="web-nobullet">
 	<li>Search for differential expression in gene expression databases.</li>
 	<li>Map those genes onto metabolic pathway pictures.</li>
 </ul>
 
-<!-- 
-<div id="tool_3" class="accordion_toggle">
-	<div>
-		<p></p>
-	</div>
-</div>
-<p class="small_right"><a id="tool_3_toggle" onclick="new Effect.Accordion('tool_3');">Read More [+]</a></p> 
--->
-
 <p><span class="title">Haplotype or GWAS</span></p>
-<ul class="web">
-	<li><%= link_to "Medicago hapmap project", "http://medicagohapmap.org/" %></li>
+<ul class="web-nobullet">
+	<li><%= link_to "Medicago truncatula HapMap project", "http://medicagohapmap.org/" %></li>
 	<li>Map those genes onto metabolic pathway pictures.</li>
 </ul>
-
-<!--
-<div id="tool_4" class="accordion_toggle">
-	<div>
-		<p></p>
-	</div>
-</div>
-<p class="small_right"><a id="tool_4_toggle" onclick="new Effect.Accordion('tool_4');">Read More [+]</a></p>
--->
 
 <p><span class="title">Your Project</span></p>
 <p>Have a project or data set not repersented here? Please <%= mail_to "lis_feedback@ncgr.org", "contact us", :encode => "javascript" %>.</p>
 
 <script type="text/javascript">
-	//document.observe('dom:loaded', hideAccordions);		// Hide accordions on page load
-	//document.observe('unload', hideAccordions);			// Hide accordions on page unload
+	document.observe('dom:loaded', hideAccordions);		// Hide accordions on page load
+	document.observe('unload', hideAccordions);			// Hide accordions on page unload
 </script>
