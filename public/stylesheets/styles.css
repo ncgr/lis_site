@@ -21,6 +21,11 @@ a:hover {
 	cursor: pointer;
 }
 
+a.small {
+	white-space: nowrap;
+	font-size: 12px;
+}
+
 img {
 	border: none;
 }
@@ -129,6 +134,36 @@ p {
 .center {
 	text-align: center;	
 	font-size: 12px;
+}
+
+ul.web-nobullet {
+	margin: 0 0 0 10px;
+	padding: 0;
+}
+
+ul.web-nobullet li {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;	
+	line-height: 18px;
+	letter-spacing: 1px;
+	list-style-type: none;
+	width: 90%;
+}
+
+ul.web-nobullet-indent {
+	margin: 10px 0 10px 10px;
+	padding: 0;
+}
+
+ul.web-nobullet-indent li {
+	margin: 0 0 0 10px;
+	padding: 0;
+	font-size: 14px;	
+	line-height: 18px;
+	letter-spacing: 1px;
+	list-style-type: none;
+	width: 90%;
 }
 
 ul.web, ol.web {
