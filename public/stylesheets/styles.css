@@ -226,6 +226,19 @@ ol.web li {
 	height: 115px;
 }
 
+#logo_left {
+	width: 450px;
+	height: 115px;
+	cursor: pointer;
+	float: left;
+}
+
+#logo_right {
+	width: 250px;
+	height: 115px;
+	float: right;
+}
+
 #content {
 	margin: 5px 15px 15px 15px;
 	padding: 0;
