@@ -123,11 +123,15 @@ MenuContainer.prototype = {
 	  this.parentMenu.closeAll(this);
 	  this.isOpen = true;
 	  if (this.menuType == "dropdown") {
-		Element.setStyle(this.element,{
-			left: (Position.positionedOffset(this.parent.element)[0]) + "px",
-			top: (Position.positionedOffset(this.parent.element)[1] + Element.getHeight(this.parent.element)) + "px"
-		});
-
+		  	/** Opera Specific Hack, Ken Seal - NCGR **/
+	  		height = Element.getHeight(this.parent.element);
+		  	if (Prototype.Browser.Opera) {
+		  		height = height / 2.3;
+			}
+		  	Element.setStyle(this.element,{
+				left: (Element.positionedOffset(this.parent.element)[0]) + "px",
+				top: (Element.positionedOffset(this.parent.element)[1] + height) + "px"
+			});
 	  } else if (this.menuType == "flyout") {
 	    var parentMenuBorders = this.parentMenu ? this.parentMenu.getBorders() : new Object();
 	    var thisBorders = this.getBorders();
