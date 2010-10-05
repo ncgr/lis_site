@@ -13,7 +13,7 @@
 	display: block;
 	margin: 0;
 	padding: 0;
-	line-height: 1em;
+	line-height: 17px;
 	list-style: none;
 	z-index: 90
 }
@@ -37,32 +37,33 @@
 	text-decoration: none;
 	color: #1c140d;
 	margin: 0;
-	padding: 0.8em 0.7em 0.4em 0.9em;
+	padding: 0.8em 0.5em 0.4em 0.5em;
 }
 
 #nav ul li a.no_cursor {
 	cursor: default;	
 }
 
-#nav  ul li a:hover {
+#nav ul li a:hover {
 	color: #ffffff;
 	background: #ed303c;
 	text-decoration: none;
 }
 
-#nav  ul li.sep {
+#nav ul li.sep {
 	color: #1c140d;
-	padding: 0.8em 0em 0.5em 0em;
+	padding: 0.8em 0 0.5em 0;
 }
 
-#nav  ul li a {
+#nav ul li a {
 	float: none;
 }
 
-#nav  ul.level2, #nav ul.level3 {
+#nav ul.level2, #nav ul.level3 {
+	margin: 0;
+	padding: 0;
+	top: 0;
 	position: absolute;
-	top: 0px;
-	left: 0px;
 	visibility: hidden;
 	border-left: 1px solid #f2e9e1;
 	border-top: 1px solid #f2e9e1;
@@ -70,7 +71,7 @@
 	background: #fff;
 }
 
-#nav  ul.level2 li, #nav ul.level3 li {
+#nav ul.level2 li, #nav ul.level3 li {
 	border-bottom: 1px solid #f2e9e1;
 	float: none;
 	margin: 0;
@@ -78,14 +79,14 @@
 	width: 200px;
 }
 
-#nav  ul.level2 li a, #nav ul.level3 li a {
+#nav ul.level2 li a, #nav ul.level3 li a {
+	margin: 0;
 	padding: 5px 9px 5px 5px;
 }
 
-#nav  ul.level2 li a:hover,#nav  ul.level3 li a:hover {
+#nav ul.level2 li a:hover,#nav  ul.level3 li a:hover {
 	font-weight: normal;
 	background-color: #ed303c;
-	background-image: none;
 }
 
 /*** End ***/

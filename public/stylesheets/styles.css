@@ -320,13 +320,6 @@ p.caption {
 }
 
 div#zoom.edgy {
-	-moz-background-clip: border;
-	-moz-background-inline-policy: continuous;
-	-moz-background-origin: padding;
-	-moz-border-radius-bottomleft: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
 	background: #FFFFFF none repeat scroll 0 0;
 	height: 600px;
 	width: 520px;
