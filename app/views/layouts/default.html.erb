@@ -44,16 +44,16 @@
 			</div>
 			<%= render :partial => "shared/footer" %>
 		</div>
+		<script type="text/javascript"> 
+			$("logo_left").observe("click", function() {
+				document.location.pathname="/";
+			});
+			
+			document.observe('dom:loaded', function() {
+				$$("div.photo a").each(function(el) { 
+					new FancyZoom(el, {edgy:true}); 
+				})
+			});
+		</script>
 	</body>
-	<script type="text/javascript"> 
-		$("logo_left").observe("click", function() {
-			document.location.pathname="/";
-		});
-		
-		document.observe('dom:loaded', function() {
-			$$("div.photo a").each(function(el) { 
-				new FancyZoom(el, {edgy:true}); 
-			})
-		});
-	</script>
 </html>
