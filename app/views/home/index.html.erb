@@ -1,10 +1,9 @@
 <% content_for :rightcol do %>
 	<h1>Welcome</h1>
-	<p>The mission of the Legume Information System is to improve the productivity of crop breeders and basic researchers in 
-	Fabaceae by expertise and up-to-date information bridging the reference species. The vision is to leverage data-rich model 
-	plants to fill knowledge gaps across crop plant species and provide the ability to traverse between interrelated data types.</p>
-	<p>Its usefulness depends upon your suggestions for improvement, feedback, and questions. Contact the team at 
-	<%= mail_to "lis_feedback@ncgr.org", "lis_feedback@ncgr.org", :encode => "javascript" %>.</p>
+	<p>The mission of LIS is to enable productive applied and basic research in the legumes by relating 
+	data from multiple crop and model species, and by helping researchers traverse among various data types. 
+	We would like to get your questions, suggestions, and contributions!
+	<%= mail_to "lis_feedback@ncgr.org", "lis_feedback@ncgr.org", :encode => "javascript" %></p>
 	<hr />
 	<h1>Recent News</h1>
 	<% unless @articles.blank? %>
@@ -103,7 +102,7 @@
 </ul>
 
 <p><span class="title">Your Project</span></p>
-<p>Have a project or data set not repersented here? Please <%= mail_to "lis_feedback@ncgr.org", "contact us", :encode => "javascript" %>.</p>
+<p>Have a project or data set not represented here? Please <%= mail_to "lis_feedback@ncgr.org", "contact us", :encode => "javascript" %>.</p>
 
 <script type="text/javascript">
 	document.observe('dom:loaded', hideAccordions);		// Hide accordions on page load
