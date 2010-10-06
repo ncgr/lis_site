@@ -131,7 +131,7 @@ MenuContainer.prototype = {
 		this.parentMenu.closeAll(this);
 		this.isOpen = true;
 		if (this.menuType == "dropdown") {
-			/** Opera Specific Hack, Ken Seal - NCGR * */
+			/** Opera Specific Hack, Ken Seal - NCGR **/
 			var height = Element.getHeight(this.parent.element);
 			if (Prototype.Browser.Opera) {
 				height = height / 2.3;
