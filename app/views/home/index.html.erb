@@ -29,27 +29,38 @@
 <p><span class="title">Gene to Function</span></p>
 <ul class="web-nobullet">
 	<li>
-		Do a <%= link_to "gene multi-target search", "http://search.comparative-legumes.org/seqqle/new" %> against genomic, expression, other databases: 
-		<%= link_to "UniProt", "http://www.uniprot.org/", :target => "_blank" %>, 
-		<%= link_to "Phytozome", "http://www.phytozome.org/", :target => "_blank" %>, 
-		<%= link_to "PLAZA", "http://bioinformatics.psb.ugent.be/plaza/", :target => "_blank" %>, 
-		<%= link_to "MtGEA", "http://mtgea.noble.org/v2/", :target => "_blank" %>, 
-		<%= link_to "Soybase", "http://soybase.org/", :target => "_blank" %>, 
-		<%= link_to "Mt-JCVI", "http://www.jcvi.org/cgi-bin/medicago/index.cgi", :target => "_blank" %>, 
-		<%= link_to "Lj-Kazusa", "http://www.kazusa.or.jp/lotus/", :target => "_blank" %>.
-	</li>
-	<li>
-		See your <%= link_to "gene(s) on a whole-genome viewer", "http://search.comparative-legumes.org/seqqle/new" %> of 
-		<%= link_to "soybean", "http://soybase.org/GlycineBlastPages/", :target => "_blank" %> or 
-		<%= link_to "Medicago", "http://medicago.org/genome/cvit_blast.php", :target => "_blank" %>.
+		Do a gene multi-target search against genomic, expression, other databases with the 
+		<%= link_to "LIS seqqle search tool", "http://search.comparative-legumes.org/seqqle/new" %>.
+		<a id="tool_1_toggle" class="small" onclick="new Effect.Accordion('tool_1');">More[+]</a>
 	</li>
 </ul>
+	<div id="tool_1" class="accordion_toggle">
+		<ul class="web-nobullet-indent">
+			<li>
+				Target databases for <%= link_to "seqqle", "http://search.comparative-legumes.org/seqqle/new" %>:
+				<%= link_to "UniProt", "http://www.uniprot.org/", :target => "_blank" %>, 
+				<%= link_to "Phytozome", "http://www.phytozome.org/", :target => "_blank" %>, 
+				<%= link_to "PLAZA", "http://bioinformatics.psb.ugent.be/plaza/", :target => "_blank" %>, 
+				<%= link_to "MtGEA", "http://mtgea.noble.org/v2/", :target => "_blank" %>, 
+				<%= link_to "Soybase", "http://soybase.org/", :target => "_blank" %>, 
+				<%= link_to "Mt-JCVI", "http://www.jcvi.org/cgi-bin/medicago/index.cgi", :target => "_blank" %>, 
+				<%= link_to "Lj-Kazusa", "http://www.kazusa.or.jp/lotus/", :target => "_blank" %>.
+			</li>
+			<!-- 
+			<li>
+				See your <%= link_to "gene(s) on a whole-genome viewer", "" %> of 
+				<%= link_to "soybean", "http://soybase.org/GlycineBlastPages/", :target => "_blank" %> or 
+				<%= link_to "Medicago", "http://medicago.org/genome/cvit_blast.php", :target => "_blank" %>.
+			</li>
+			-->
+		</ul>
+	</div>
 
 <p><span class="title">Trait to Gene</span></p>
 <ul class="web-nobullet">
-	<li>Find markers or QTLs around your trait of interest in your species. <a id="tool_1_toggle" class="small" onclick="new Effect.Accordion('tool_1');">More[+]</a></li>
+	<li>Find markers or QTLs around your trait of interest in your species. <a id="tool_2_toggle" class="small" onclick="new Effect.Accordion('tool_2');">More[+]</a></li>
 </ul>
-	<div id="tool_1" class="accordion_toggle">
+	<div id="tool_2" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li>Genetic <%= link_to "maps and map comparisons", "http://cmap.comparative-legumes.org", :target => "_blank" %></li>
 			<li><%= link_to "QTLs and traits at SoyBase", "http://soybeanbreederstoolbox.org/search/search_results.php?category=QTLName", :target => "_blank" %></li>
@@ -57,9 +68,9 @@
 		</ul>
 	</div>
 <ul class="web-nobullet">
-	<li>Find those markers on a reference genome sequence. <a id="tool_2_toggle" class="small" onclick="new Effect.Accordion('tool_2');">More[+]</a></li>
+	<li>Find those markers on a reference genome sequence. <a id="tool_3_toggle" class="small" onclick="new Effect.Accordion('tool_3');">More[+]</a></li>
 </ul>
-	<div id="tool_2" class="accordion_toggle">
+	<div id="tool_3" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li>Markers for numerous species <%= link_to "on soybean at SoyBase", "http://soybeanbreederstoolbox.org/search/search_results.php?category=LocusName", :target => "_blank" %></li>
 			<li>Markers for Medicago truncatula and Cicer arietinum (chickpea) <%= link_to "on Medicago truncatula at JCVI", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago_imgag/", :target => "_blank" %></li>
@@ -67,9 +78,9 @@
 		</ul>
 	</div>
 <ul class="web-nobullet">
-	<li>Examine gene functions and expression on the reference genomes. <a id="tool_3_toggle" class="small" onclick="new Effect.Accordion('tool_3');">More[+]</a></li>
+	<li>Examine gene functions and expression on the reference genomes. <a id="tool_4_toggle" class="small" onclick="new Effect.Accordion('tool_4');">More[+]</a></li>
 </ul>
-	<div id="tool_3" class="accordion_toggle">
+	<div id="tool_4" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li><%= link_to "On soybean at SoyBase", "http://soybase.org/gbrowse/cgi-bin/gbrowse/gmax1.01/?start=41401033;stop=41501032;ref=Gm13;width=1024;version=100;drag_and_drop=on;show_tooltips=on;grid=on;label=centromere:overview-pericentromere:overview-Glyma1-Phaseolus_vulgaris-Phaseolus_vulgaris_release_2-Cajanus_cajan-Chamaecrista_clean-Vigna_unguiculata-Lotus_japonicus_release_1-seed_development_transcript_count-seed_development_transcript_density", :target => "_blank" %></li>
 			<li><%= link_to "On Medicago truncatula at JCVI", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago_imgag/", :target => "_blank" %></li>
@@ -78,18 +89,18 @@
 
 <p><span class="title">Process to Network of Genes</span></p>
 <ul class="web-nobullet">
-	<li>Search for differential expression in gene expression databases. <a id="tool_4_toggle" class="small" onclick="new Effect.Accordion('tool_4');">More[+]</a></li>
+	<li>Search for differential expression in gene expression databases. <a id="tool_5_toggle" class="small" onclick="new Effect.Accordion('tool_5');">More[+]</a></li>
 </ul>
-	<div id="tool_4" class="accordion_toggle">
+	<div id="tool_5" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li><%= link_to "Soybean transcript atlas", "http://soybase.org/soyseq/", :target => "_blank" %></li>
 			<li><%= link_to "Medicago gene expression atlas", "http://mtgea.noble.org/v2/", :target => "_blank" %></li>
 		</ul>
 	</div>
 <ul class="web-nobullet">
-	<li>Map those genes onto metabolic pathway pictures. <a id="tool_5_toggle" class="small" onclick="new Effect.Accordion('tool_5');">More[+]</a></li>
+	<li>Map those genes onto metabolic pathway pictures. <a id="tool_6_toggle" class="small" onclick="new Effect.Accordion('tool_6');">More[+]</a></li>
 </ul>
-	<div id="tool_5" class="accordion_toggle">
+	<div id="tool_6" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li><%= link_to "SoyCyc soybean metabolic pathway database", "http://www.soybase.org:8082/", :target => "_blank" %></li>
 			<li><%= link_to "MedicCyc Medicago metabolic pathway database", "http://metacyc.org/", :target => "_blank" %></li>
