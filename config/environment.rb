@@ -41,4 +41,5 @@ Rails::Initializer.run do |config|
 end
 
 require 'will_paginate'
+require 'ruby-debug'
 require 'truncate_html'
