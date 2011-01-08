@@ -43,22 +43,15 @@
 	<div id="tool_1" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li>
-				Target databases for <%= link_to "seqqle", "http://search.comparative-legumes.org/seqqle/new" %>:
-				<%= link_to "UniProt", "http://www.uniprot.org/", :target => "_blank" %>, 
-				<%= link_to "Phytozome", "http://www.phytozome.org/", :target => "_blank" %>, 
-				<%= link_to "PLAZA", "http://bioinformatics.psb.ugent.be/plaza/", :target => "_blank" %>, 
-				<%= link_to "MtGEA", "http://mtgea.noble.org/v2/", :target => "_blank" %>, 
-				<%= link_to "Soybase", "http://soybase.org/", :target => "_blank" %>, 
-				<%= link_to "Mt-JCVI", "http://www.jcvi.org/cgi-bin/medicago/index.cgi", :target => "_blank" %>, 
-				<%= link_to "Lj-Kazusa", "http://www.kazusa.or.jp/lotus/", :target => "_blank" %>.
+				Target databases for <%= link_to "seqqle", "http://search.comparative-legumes.org/seqqle/new" %>:<br />
+				<%= link_to "Soybase GBrowse", "http://soybase.org/gbrowse/cgi-bin/gbrowse/gmax1.01/", :target => "_blank" %>, <br />
+				<%= link_to "Kazusa Lotus japonicus GBrowse", "http://gsv.kazusa.or.jp/cgi-bin/gbrowse/lotus/", :target => "_blank" %>, <br />
+				<%= link_to "JCVI Medicago truncatula GBrowse", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago/", :target => "_blank" %>, <br />
+				<%= link_to "LIS Medicago truncatula GBrowse", "http://medtr.comparative-legumes.org/gb2/gbrowse/current/", :target => "_blank" %>, <br />
+				<%= link_to "Medicago truncatula HapMap GBrowse", "http://www.medicagohapmap.org/cgi-bin/gbrowse/mthapmap/", :target => "_blank" %>, <br />
+				<%= link_to "Noble Foundation Medicago truncatula Gene Expression Atlas", "http://mtgea.noble.org/v2/", :target => "_blank" %>, <br />
+				<%= link_to "UniProt", "http://www.uniprot.org/", :target => "_blank" %>.
 			</li>
-			<!-- 
-			<li>
-				See your <%= link_to "gene(s) on a whole-genome viewer", "" %> of 
-				<%= link_to "soybean", "http://soybase.org/GlycineBlastPages/", :target => "_blank" %> or 
-				<%= link_to "Medicago", "http://medicago.org/genome/cvit_blast.php", :target => "_blank" %>.
-			</li>
-			-->
 		</ul>
 	</div>
 
@@ -79,8 +72,8 @@
 	<div id="tool_3" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li>Markers for numerous species <%= link_to "on soybean at SoyBase", "http://soybeanbreederstoolbox.org/search/search_results.php?category=LocusName", :target => "_blank" %></li>
-			<li>Markers for Medicago truncatula and Cicer arietinum (chickpea) <%= link_to "on Medicago truncatula at JCVI", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago_imgag/", :target => "_blank" %></li>
 			<li>Markers for Lotus japonicus <%= link_to "on Lotus japonicus at Kazusa", "http://www.kazusa.or.jp/lotus/markerdb_index.html", :target => "_blank" %></li>
+			<li>Markers for Medicago truncatula <%= link_to "on Medicago genome at LIS", "http://medtr.comparative-legumes.org/gb2/gbrowse/current/", :target => "_blank" %></li>
 		</ul>
 	</div>
 <ul class="web-nobullet">
@@ -89,7 +82,8 @@
 	<div id="tool_4" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li><%= link_to "On soybean at SoyBase", "http://soybase.org/gbrowse/cgi-bin/gbrowse/gmax1.01/?start=41401033;stop=41501032;ref=Gm13;width=1024;version=100;drag_and_drop=on;show_tooltips=on;grid=on;label=centromere:overview-pericentromere:overview-Glyma1-Phaseolus_vulgaris-Phaseolus_vulgaris_release_2-Cajanus_cajan-Chamaecrista_clean-Vigna_unguiculata-Lotus_japonicus_release_1-seed_development_transcript_count-seed_development_transcript_density", :target => "_blank" %></li>
-			<li><%= link_to "On Medicago truncatula at JCVI", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago_imgag/", :target => "_blank" %></li>
+			<li><%= link_to "On Medicago truncatula at JCVI", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago/", :target => "_blank" %></li>
+			<li><%= link_to "On Medicago truncatula at LIS", "http://medtr.comparative-legumes.org/gb2/gbrowse/current/", :target => "_blank" %></li>
 		</ul>
 	</div>
 
