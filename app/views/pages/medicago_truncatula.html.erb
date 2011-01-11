@@ -5,41 +5,41 @@ Illumina/Solexa paired short sequence reads.</p>
 
 <h1>Resources</h1>
 <p>
-	<div class="photo">
-		<% title = "Medicago truncatula" %>
-		<% caption = "Medicago truncatula cultivar Jemalong A17 leaf" %>
-		<%= link_to image_tag("medicago.png", :width => "250px", :alt => title), "#medicago" %>
-	</div>
-	<div id="medicago" style="display: none;">
-		<%= image_tag "medicago.png", :alt => title %>
-		<p class="caption"><%= caption %></p>
-	</div>
+	<% title = "Medicago truncatula" %>
+	<% caption = "Medicago truncatula cultivar Jemalong A17 leaf" %>
+	<%= link_to image_tag("medicago.png", :width => "250px", :alt => title, :class => "photo"), "#medicago", :class => "photo-link" %>
 	
 	<strong>Genome assembly and annotations</strong><br />
-	&nbsp;&nbsp;<%= link_to "Genome release version 3.0", "http://www.medicago.org/genome/downloads/Mt3/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Genome release version 3.0 n -->  Current genome assembly", "http://medicagohapmap.org/", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Genome Annotation Group (IMGAG)", "http://www.medicago.org/genome/IMGAG/", :target => "_blank" %><br />
 	
 	<strong>Genome browsers</strong><br />
-	&nbsp;&nbsp;<%= link_to "GBrowse at JCVI", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago_imgag/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Gene-focused GBrowse at JCVI (v3.0 and v3.5.1)", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Comparative-focused GBrowse at LIS (v3.5.1)", "http://medtr.comparative-legumes.org/gb2/gbrowse/3.5.1/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Variant-focused GBrowse at medicagohapmap.org (v3.0)", "http://www.medicagohapmap.org/cgi-bin/gbrowse/mthapmap", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "NCBI Map Viewer", "http://www.ncbi.nlm.nih.gov/projects/mapview/map_search.cgi?taxid=3880", :target => "_blank" %><br />
 	
 	<strong>Transcript assemblies</strong><br />
 	&nbsp;&nbsp;<%= link_to "Gene Index (MtGI) at DFCI", "http://compbio.dfci.harvard.edu/tgi/cgi-bin/tgi/gimain.pl?gudb=Medicago", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Transcript assemblies at JCVI", "ftp://ftp.tigr.org/pub/data/plantta/Medicago_truncatula/", :target => "_blank" %><br />
-	&nbsp;&nbsp;<%= link_to "Transcript assemblies at LIS / comparative-legumes.org", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=transcript", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Transcript assemblies at LIS Classic", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=transcript", :target => "_blank" %><br />
 	
 	<strong>Gene expression resources</strong><br />
 	&nbsp;&nbsp;<%= link_to "Gene Expression Atlas (MtGEA)", "http://mtgea.noble.org/v2/", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Affymetrix - GeneChip&reg; Medicago Genome Array", "http://www.affymetrix.com/browse/products.jsp?productId=131472&navMode=34000&navAction=jump&aId=productsNav", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "TRUNCATULIX at Bielefeld DE", "http://lily.cebitec.uni-bielefeld.de/truncatulix/app", :target => "_blank" %><br />
 	
 	<strong>Genome Sequencing Consortium and resources</strong><br />
 	&nbsp;&nbsp;<%= link_to "Sequencing Consortium", "http://en.wikipedia.org/wiki/Medicago_truncatula#Medicago_Truncatula_Sequencing_Consortium", :target => "_blank" %><br />
-	&nbsp;&nbsp;<%= link_to "Sequencing Resources", "http://www.medicago.org/genome/index.php", :target => "_blank" %><br />
-	&nbsp;&nbsp;<%= link_to "Genetic markers", "http://www.medicago.org/genome/downloads/Mt_genetic_markers_Oct_2009.txt/", :target => "_blank" %><br />
-	&nbsp;&nbsp;<%= link_to "BAC end sequences", "http://www.medicago.org/genome/downloads.php", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Sequencing Resources", "http://www.medicagohapmap.org/?genome", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "BAC end sequences", "http://www.jcvi.org/cgi-bin/medicago/index.cgi", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Stock Center at INRA", "http://www1.montpellier.inra.fr/BRC-MTR//", :target => "_blank" %><br />
-	&nbsp;&nbsp;<%= link_to "Mt Database at JCVI", "http://www.jcvi.org/cgi-bin/medicago/index.cgi", :target => "_blank" %>
+	&nbsp;&nbsp;<%= link_to "Medicago Database at JCVI", "http://www.jcvi.org/cgi-bin/medicago/index.cgi", :target => "_blank" %>
 </p>
+<div id="medicago" style="display: none;">
+	<%= image_tag "medicago.png", :alt => title %><br />
+	<span class="caption"><%= caption %></span>
+</div>
 
 <h1>Selected references</h1>
 <ul class="web">
