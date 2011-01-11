@@ -6,15 +6,9 @@ partially diploidized tetraploid, approximately 1.1G bp in size.</p>
 <h1>Resources</h1>
 
 <p>
-	<div class="photo">
-		<% title = "Glycine max" %>
-		<% caption = "Soybean flowers" %>
-		<%= link_to image_tag("soybean_flowers.png", :width => "250px", :alt => title), "#soybean" %>
-	</div>
-	<div id="soybean" style="display: none;">
-		<%= image_tag "soybean_flowers.png", :alt => title %>
-		<p class="caption"><%= caption %></p>
-	</div>
+	<% title = "Glycine max" %>
+	<% caption = "Soybean flowers" %>
+	<%= link_to image_tag("soybean_flowers.png", :width => "250px", :alt => title, :class => "photo"), "#soybean", :class => "photo-link" %>
 	
 	<strong>Genome assembly and annotations</strong><br />
 	&nbsp;&nbsp;<%= link_to "Genome assembly at phytozome", "ftp://ftp.jgi-psf.org/pub/JGI_data/phytozome/v4.1/Gmax/assembly/", :target => "_blank" %><br />
@@ -30,9 +24,13 @@ partially diploidized tetraploid, approximately 1.1G bp in size.</p>
 	<strong>Transcript assemblies</strong><br />
 	&nbsp;&nbsp;<%= link_to "Gene Index (GmGI) at DFCI", "http://compbio.dfci.harvard.edu/tgi/cgi-bin/tgi/gimain.pl?gudb=soybean", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Transcript assemblies at JCVI", "ftp://ftp.tigr.org/pub/data/plantta/Glycine_max/", :target => "_blank" %><br />
-	&nbsp;&nbsp;<%= link_to "Transcript assemblies at LIS / comparative-legumes.org", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=transcript", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Transcript assemblies at LIS Classic", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=transcript", :target => "_blank" %><br />
 	
 	<strong>Gene expression resources</strong><br />
 	&nbsp;&nbsp;<%= link_to "Soybean at PlexDB", "http://www.plexdb.org/plex.php?database=Soybean", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Soybean transcript and microarray data at SoyXpress", "http://soyxpress.agrenv.mcgill.ca/cgi-bin/soy/soybean.cgi", :target => "_blank" %>
 </p>
+<div id="soybean" style="display: none;">
+	<%= image_tag "soybean_flowers.png", :alt => title %><br />
+	<span class="caption"><%= caption %></span>
+</div>

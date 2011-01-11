@@ -50,7 +50,7 @@
 			});
 			
 			document.observe('dom:loaded', function() {
-				$$("div.photo a").each(function(el) { 
+				$$("a.photo-link").each(function(el) { 
 					new FancyZoom(el, {edgy:true}); 
 				})
 			});

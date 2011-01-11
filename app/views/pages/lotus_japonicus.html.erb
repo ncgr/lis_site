@@ -4,28 +4,22 @@ The euchromatic region has been sequenced BAC/TAC by BAC/TAC and selected TAC mi
 
 <h1>Resources</h1>
 <p>
-	<div class="photo">
-		<% title = "Lotus japonicus" %>
-		<% caption = "Lotus japonicus accession Miyakojima MG-20" %>
-		<%= link_to image_tag("lotus.png", :width => "250px", :alt => title), "#lotus" %>
-	</div>
-	<div id="lotus" style="display: none;">
-		<%= image_tag "lotus.png", :alt => title %>
-		<p class="caption"><%= caption %></p>
-	</div>
+	<% title = "Lotus japonicus" %>
+	<% caption = "Lotus japonicus accession Miyakojima MG-20" %>
+	<%= link_to image_tag("lotus.png", :width => "250px", :alt => title, :class => "photo"), "#lotus", :class => "photo-link" %>
 	
 	<strong>Genome assembly and annotations</strong><br />
-	&nbsp;&nbsp;<%= link_to "Genome release 2009", "ftp://ftp.kazusa.or.jp/pub/lotus/", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Genome release", "ftp://ftp.kazusa.or.jp/pub/lotus/", :target => "_blank" %><br />
 	
 	<strong>Genome browsers and maps</strong><br />
-	&nbsp;&nbsp;<%= link_to "GBrowse at Kazusa DNA Research Institut", "http://www.kazusa.or.jp/lotus/", :target => "_blank" %>e<br />
+	&nbsp;&nbsp;<%= link_to "GBrowse at Kazusa DNA Research Institute", "http://www.kazusa.or.jp/lotus/", :target => "_blank" %>e<br />
 	&nbsp;&nbsp;<%= link_to "NCBI Map Viewer", "http://www.ncbi.nlm.nih.gov/projects/mapview/map_search.cgi?taxid=34305", :target => "_blank" %><br />
 	
 	<strong>Gene expression and transcript assemblies</strong><br />
 	&nbsp;&nbsp;<%= link_to "Kazusa EST index", "http://est.kazusa.or.jp/en/plant/lotus/EST/", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Gene Index (LjGI) at DFCI", "http://compbio.dfci.harvard.edu/tgi/cgi-bin/tgi/gimain.pl?gudb=l_japonicus", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "Transcript assemblies at JCVI", "ftp://ftp.tigr.org/pub/data/plantta/Lotus_japonicus/", :target => "_blank" %><br />
-	&nbsp;&nbsp;<%= link_to "Transcript assemblies at LIS / comparative-legumes.org", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=transcript", :target => "_blank" %><br />
+	&nbsp;&nbsp;<%= link_to "Transcript assemblies at LIS Classic", "http://lis.comparative-legumes.org/lis/lis_summary.html?page_type=transcript", :target => "_blank" %><br />
 	
 	<strong>Other genome resources</strong><br />
 	&nbsp;&nbsp;<%= link_to "Proteome database", "http://www.cbs.dtu.dk/cgi-bin/lotus/db.cgi", :target => "_blank" %><br />
@@ -38,6 +32,10 @@ The euchromatic region has been sequenced BAC/TAC by BAC/TAC and selected TAC mi
 	&nbsp;&nbsp;<%= link_to "Newsletter", "http://www.inia.org.uy/sitios/lnl/index.html", :target => "_blank" %><br />
 	&nbsp;&nbsp;<%= link_to "RhizoBase", "http://genome.kazusa.or.jp/rhizobase/", :target => "_blank" %>
 </p>
+<div id="lotus" style="display: none;">
+	<%= image_tag "lotus.png", :alt => title %><br />
+	<span class="caption"><%= caption %></span>
+</div>
 
 <h1>Selected references</h1>
 
