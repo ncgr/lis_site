@@ -88,7 +88,7 @@ h2 {
 }
 
 h3 {
-	font-size: 22px;
+	font-size: 20px;
 	letter-spacing: 1px;
 	
 	margin-top: 14px;
@@ -305,7 +305,7 @@ ol.web li {
 	padding: 0 15px 25px 15px;
 	
 	background-color: #ffffff;
-	
+		
 	width: 295px;
 	height: auto;
 	
@@ -360,7 +360,7 @@ div#zoom.edgy #zoom_content {
 	
 	text-align: center;
 	
-	color: #1c140d;
+	color: #777;
 	font-size: 14px;
 }
 
