@@ -1,11 +1,11 @@
 <% content_for :rightcol do %>
-	<h2>Welcome</h2>
+	<h4>Welcome</h4>
 	<p>The mission of LIS is to enable productive applied and basic research in the legumes by relating 
 	data from multiple crop and model species, and by helping researchers traverse among various data types. 
 	We would like to get your questions, suggestions, and contributions!
 	<%= mail_to "lis_feedback@ncgr.org", "lis_feedback@ncgr.org", :encode => "javascript" %></p>
 	<hr />
-	<h2>Recent News</h2>
+	<h4>Recent News</h4>
 	<% unless @articles.blank? %>
 		<% @articles.each do |n| %>
 			<p><span class="pubDate"><%= display_time(n.timestamp) %></span></p>
@@ -17,7 +17,7 @@
 		<p>There are no news articles to view at this time. Please check back again soon.</p>
 	<% end %>
 	<hr />
-	<h2>Development</h2>
+	<h4>Development</h4>
 	<% unless @activities.blank? %>
 		<% @activities.each do |n| %>
 			<p><span class="pubDate"><%= n.date %></span></p>
@@ -32,18 +32,18 @@
 
 <h1>Getting Started</h1>
 
-<p><span class="title">Gene to Function</span></p>
+<p><span class="title">Gene &rarr; Function</span></p>
 <ul class="web-nobullet">
 	<li>
 		Do a gene multi-target search against genomic, expression, other databases with the 
-		<%= link_to "LIS seqqle search tool", "http://search.comparative-legumes.org/seqqle/new" %>.
+		<%= link_to "LIS Seqqle search tool", "http://search.comparative-legumes.org/seqqle/new" %>.
 		<a id="tool_1_toggle" class="small" onclick="new Effect.Accordion('tool_1');">More[+]</a>
 	</li>
 </ul>
 	<div id="tool_1" class="accordion_toggle">
 		<ul class="web-nobullet-indent">
 			<li>
-				Target databases for <%= link_to "seqqle", "http://search.comparative-legumes.org/seqqle/new" %>:<br />
+				Target databases for <%= link_to "Seqqle", "http://search.comparative-legumes.org/seqqle/new" %>:<br />
 				<%= link_to "Soybase GBrowse", "http://soybase.org/gbrowse/cgi-bin/gbrowse/gmax1.01/", :target => "_blank" %>, <br />
 				<%= link_to "Kazusa Lotus japonicus GBrowse", "http://gsv.kazusa.or.jp/cgi-bin/gbrowse/lotus/", :target => "_blank" %>, <br />
 				<%= link_to "JCVI Medicago truncatula GBrowse", "http://gbrowse.jcvi.org/cgi-bin/gbrowse/medicago/", :target => "_blank" %>, <br />
@@ -55,7 +55,7 @@
 		</ul>
 	</div>
 
-<p><span class="title">Trait to Gene</span></p>
+<p><span class="title">Trait &rarr; Gene</span></p>
 <ul class="web-nobullet">
 	<li>Find markers or QTLs around your trait of interest in your species. <a id="tool_2_toggle" class="small" onclick="new Effect.Accordion('tool_2');">More[+]</a></li>
 </ul>
@@ -87,7 +87,7 @@
 		</ul>
 	</div>
 
-<p><span class="title">Process to Network of Genes</span></p>
+<p><span class="title">Biological Process &rarr; Gene Network</span></p>
 <ul class="web-nobullet">
 	<li>Search for differential expression in gene expression databases. <a id="tool_5_toggle" class="small" onclick="new Effect.Accordion('tool_5');">More[+]</a></li>
 </ul>
