@@ -5,18 +5,20 @@
 }
 
 body {
-	background-color: #f2e9e1;
+	background-image: url(../images/bkgd.png);
+	background-repeat: repeat-x;
+	background-color: #363636;
 	color: #1c140d;
 	font-family: Tahoma, Geneva, sans-serif;	
 }
 
 a {
-	color: #ed303c;
+	color: #ff6600;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #ed303c;
+	color: #ff6600;
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -251,7 +253,7 @@ ol.web li {
 #content {
 	margin: 5px 15px 15px 15px;
 	padding: 0;
-	background-color: #cbe86b;
+	background-color: #c2df00;
 	
 	width: 100%;
 	
@@ -264,18 +266,18 @@ ol.web li {
 	margin: 10px 15px 15px 15px;
 	padding: 0;
 	
-	background-color: #f2e9e1;
+	background-color: #efede9;
 	
 	width: 965px;
 	overflow: hidden;
 }
 
 #singlecol {
-	margin: 0;
+	margin: 10px 5px 10px 10px;
 	padding: 0 10px 25px 15px;
 	
 	background-color: #ffffff;
-	width : 940px;
+	width : 920px;
 	height: auto;
 	
 	float: left;
