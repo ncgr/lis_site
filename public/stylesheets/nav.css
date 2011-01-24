@@ -12,7 +12,7 @@
 #nav  ul {
 	display: block;
 	margin: 0;
-	padding: 0;
+	padding: 0 0 0 10px;
 	line-height: 17px;
 	list-style: none;
 	z-index: 90
@@ -20,7 +20,7 @@
 
 #nav  ul li {
 	float: left;
-	margin: 0 3px 0 0;
+	margin: 0 1px 0 0;
 	padding: 0;
 	font-size: 14px;
 	letter-spacing: 0.5px;
@@ -46,7 +46,7 @@
 
 #nav ul li a:hover {
 	color: #ffffff;
-	background: #ed303c;
+	background: #ff6600;
 	text-decoration: none;
 }
 
@@ -86,7 +86,7 @@
 
 #nav ul.level2 li a:hover,#nav  ul.level3 li a:hover {
 	font-weight: normal;
-	background-color: #ed303c;
+	background-color: #ff6600;
 }
 
 /*** End ***/

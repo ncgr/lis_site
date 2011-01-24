@@ -18,7 +18,7 @@ Effect.Accordion = function (contentId) {
     
     contentId = $(contentId);
     
-    text = ["More[+]", "Close[-]"];
+    text = ["More [+]", "Close [-]"];
     contentLinkId = contentId.identify() + '_toggle';
 
     if ($(contentLinkId).innerHTML == text[0]) {
