@@ -6,8 +6,6 @@
 
 class NewsArticlesController < ApplicationController
     
-    layout "default"
-    
     def index
         # HTML
         @articles = NewsArticle.paginate_by_params(params[:page])
