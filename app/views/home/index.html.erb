@@ -1,16 +1,24 @@
 <% content_for :rightcol do %>
 	<h4>Welcome</h4>
-	<p>The mission of the Legume Information System is to enable productive applied and basic research in the
-        legumes by relating data from multiple crop and model species, and by helping researchers traverse among
-        various data types. We would like to get your questions, suggestions, and contributions!
+	<p>The mission of LIS is to facilitate discoveries and crop improvement in the legumes -- 
+	critical components of global agriculture. Please send us your questions, suggestions, 
+	and contributions! 
 	<%= mail_to "lis_feedback@ncgr.org", "lis_feedback@ncgr.org", :encode => "javascript" %></p>
+	<hr />
+	<h4>Meetings</h4>
+	<% unless @meetings.blank? %>
+	    <% @meetings.each do |m| %>
+           <p><%= link_to m.title, m.url %><br />
+		   <em><%= format_start_end_date(m.start_date, m.end_date) %></em></p>
+        <% end %>
+	<% else %>
+	   <p>There are no meetings to view at this time. Please check back again soon.</p>
+	<% end %>
 	<hr />
 	<h4>Recent News</h4>
 	<% unless @articles.blank? %>
 		<% @articles.each do |n| %>
-			<p><span class="pubDate"><%= display_time(n.timestamp) %></span></p>
-			<div style="clear: both;"></div>
-			<%= truncate_html(n.body, :length => 200) %>
+			<p><em><%= display_time(n.timestamp) %></em> -- <%= truncate_html(n.body.gsub(/\\n/, "</p><p>"), :length => 100) %></p>
 			<p class="small_right"><%= link_to "Read More &raquo;", news_article_path(n) %></p>
 		<% end %>
 	<% else %>
@@ -20,9 +28,7 @@
 	<h4>Development</h4>
 	<% unless @activities.blank? %>
 		<% @activities.each do |n| %>
-			<p><span class="pubDate"><%= n.date %></span></p>
-			<div style="clear: both;"></div>
-			<p><%= truncate(n.body, :length => 200) %></p>
+			<p><em><%= display_time(Time.parse(n.date)) %></em> -- <%= truncate(n.body, :length => 100) %></p>
 			<p class="small_right"><%= link_to "Read More &raquo;", development_activities_path %></p>
 		<% end %>
 	<% else %>
@@ -36,8 +42,7 @@
 <ul class="web-nobullet">
 	<li>
 		Do a gene multi-target search against genomic, expression, other databases with the 
-		<%= link_to "LIS Seqqle search tool", "http://search.comparative-legumes.org/seqqle/new" %>.
-		<br />
+		<%= link_to "LIS Seqqle search tool", "http://search.comparative-legumes.org/seqqle/new" %>. 
 		<a id="tool_1_toggle" class="small" onclick="new Effect.Accordion('tool_1');">More [+]</a>
 	</li>
 </ul>
@@ -59,7 +64,6 @@
 <p><span class="title">Trait &rarr; Gene</span></p>
 <ul class="web-nobullet">
 	<li>Find markers or QTLs around your trait of interest in your species. 
-	<br />
 	<a id="tool_2_toggle" class="small" onclick="new Effect.Accordion('tool_2');">More [+]</a></li>
 </ul>
 	<div id="tool_2" class="accordion_toggle">
@@ -71,7 +75,6 @@
 	</div>
 <ul class="web-nobullet">
 	<li>Find those markers on a reference genome sequence. 
-	<br />
 	<a id="tool_3_toggle" class="small" onclick="new Effect.Accordion('tool_3');">More [+]</a></li>
 </ul>
 	<div id="tool_3" class="accordion_toggle">
@@ -83,7 +86,6 @@
 	</div>
 <ul class="web-nobullet">
 	<li>Examine gene functions and expression on the reference genomes. 
-	<br />
 	<a id="tool_4_toggle" class="small" onclick="new Effect.Accordion('tool_4');">More [+]</a></li>
 </ul>
 	<div id="tool_4" class="accordion_toggle">
@@ -97,7 +99,6 @@
 <p><span class="title">Biological Process &rarr; Gene Network</span></p>
 <ul class="web-nobullet">
 	<li>Search for differential expression in gene expression databases. 
-	<br />
 	<a id="tool_5_toggle" class="small" onclick="new Effect.Accordion('tool_5');">More [+]</a></li>
 </ul>
 	<div id="tool_5" class="accordion_toggle">
@@ -108,7 +109,6 @@
 	</div>
 <ul class="web-nobullet">
 	<li>Map those genes onto metabolic pathway pictures. 
-	<br />
 	<a id="tool_6_toggle" class="small" onclick="new Effect.Accordion('tool_6');">More [+]</a></li>
 </ul>
 	<div id="tool_6" class="accordion_toggle">
@@ -124,7 +124,9 @@
 </ul>
 
 <p><span class="title">Your Project</span></p>
-<p>Have a project or data set not represented here? Please <%= mail_to "lis_feedback@ncgr.org", "contact us", :encode => "javascript" %>.</p>
+<ul class="web-nobullet">
+    <li>Have a project or data set not represented here? Please <%= mail_to "lis_feedback@ncgr.org", "contact us", :encode => "javascript" %>.</li>
+</ul>
 
 <script type="text/javascript">
 	document.observe('dom:loaded', hideAccordions);		// Hide accordions on page load

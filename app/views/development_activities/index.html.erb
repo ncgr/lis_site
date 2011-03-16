@@ -1,7 +1,7 @@
 <h1>Development Activity</h1>
 <% unless @activities.blank? %>
 	<% @activities.each do |n| %>
-		<p class="activity_date"><%= n.date %></p>
+		<p class="activity_date"><%= display_time(Time.parse(n.date)) %></p>
 		<p class="activity"><%= n.body %></p>
 	<% end %>
 	<%= will_paginate @activities %>
