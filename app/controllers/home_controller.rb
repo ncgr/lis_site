@@ -10,6 +10,7 @@ class HomeController < ApplicationController
   def index
       @articles = NewsArticle.get_recent_news
       @activities = DevelopmentActivity.get_recent_activities
+      @meetings = Meeting.get_recent_meetings
   end
 
 end

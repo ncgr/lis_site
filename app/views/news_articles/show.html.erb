@@ -1,4 +1,4 @@
 <h1><%=h @article.title %></h1>
 <span class="pubDate"><%= display_time(@article.timestamp) %></span><br />
-<%= @article.body %>
+<p><%= @article.body.gsub(/\\n/, "</p><p>") %></p>
 <p class="small_right"><%= link_to "&laquo; Recent News", news_articles_path %></p>

@@ -212,12 +212,21 @@ ol.web li {
 	font-size: 10px;	
 }
 
+.pubDateLeft {
+    font-size: 12px;    
+}
+
 .small {
 	font-size: 10px;
 }
 
 .text {
 	font-size: 14px;
+}
+
+.indent {
+	margin: 0;
+	padding: 0 0 0 5px;
 }
 
 #main {
@@ -291,12 +300,12 @@ ol.web li {
 }
 
 #leftcol {
-	margin: 10px 5px 10px 10px;
-	padding: 0 15px 25px 15px;
+	margin: 10px 0 10px 10px;
+	padding: 0 0 25px 10px;
 	
 	background-color: #ffffff;
 	
-	width: 580px;
+	width: 600px;
 	height: auto;
 	
 	float: left;
@@ -312,6 +321,10 @@ ol.web li {
 	height: auto;
 	
 	float: right;
+}
+
+#rightcol p {
+	font-size: 12px;
 }
 /*** End frame and cols ***/
 
