@@ -1,4 +1,4 @@
 #!/bin/bash
 
-./script/server --environment=development --port=7650 --debugger
+rails s --environment=development --port=7650 --debugger
 
