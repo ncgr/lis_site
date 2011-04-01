@@ -1,11 +1,7 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :news_articles, :development_activities
+LisSite::Application.routes.draw do
   
-  # Only serves static pages.
-  map.page ":page", :controller => "pages", :action => "show", :page => /[a-z_]+/
-  
-  map.root :controller => "home", :action => "index"
-  
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  resources :news_articles, :development_activities
+  resources :pages, :only => :show
+
+  root :to => "home#index"
 end

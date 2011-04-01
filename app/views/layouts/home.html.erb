@@ -1,45 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<title>Legume Information System</title>
-		<link rel="alternate" type="application/rss+xml" title="News Articles" href="news_articles.rss" />
-		<%= javascript_include_tag :all %>
-		<%= stylesheet_link_tag :all %>
-		<%= csrf_meta_tag %>
+        <link rel="alternate" type="application/rss+xml" title="News Articles" href="news_articles.rss" />
+        <%= javascript_include_tag :all %>
+        <%= stylesheet_link_tag :all %>
+        <%= csrf_meta_tag %>
 	</head>
 	<body>
 		<div id="main">
-			<div id="content">
-				<div id="logo">
-					<div id="rss">
-						<%= link_to image_tag("feed.png", :alt => "RSS Feed"), news_articles_url(:rss) %>
-					</div>
-					<div id="google_translate_element"></div>
-						<script type="text/javascript">
-							function googleTranslateElementInit() {
-							  new google.translate.TranslateElement({
-							    pageLanguage: 'en'
-							  }, 'google_translate_element');
-							}
-						</script>
-						<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-				</div>
-				<div id="nav">
-					<%= render :partial => "shared/nav" %>
-				</div>
-				<div id="frame">
-					<div id="leftcol">
-						<%= yield %>
-					</div>
-					<div id="rightcol">
-						<%= yield :rightcol %>
-					</div>
-					<div style="clear: both;"></div>
-				</div>
-			</div>
-			<%= render :partial => "shared/footer" %>
-		</div>
+            <div id="content">
+                <div id="logo">
+                    <div id="rss">
+                        <%= link_to image_tag("feed.png", :alt => "RSS Feed"), news_articles_url(:rss) %>
+                    </div>
+                    <div id="google_translate_element"></div>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                              new google.translate.TranslateElement({
+                                pageLanguage: 'en'
+                              }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                </div>
+                <div id="nav">
+                    <%= render :partial => "shared/nav" %>
+                </div>
+                <div id="frame">
+                    <div id="leftcol">
+                        <%= yield %>
+                    </div>
+                    <div id="rightcol">
+                        <%= yield :rightcol %>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+            <%= render :partial => "shared/footer" %>
+        </div>
 	</body>
 </html>
+
