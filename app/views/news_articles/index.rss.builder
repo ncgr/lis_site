@@ -12,7 +12,7 @@ xml.rss :version => "2.0" do
         for article in @rss
             xml.item do
                 xml.title article.title
-                xml.description article.body
+                xml.description article.body.gsub(/\\n/, ' ')
                 xml.pubDate article.timestamp.to_s(:rfc822)
                 xml.link news_article_url(article)
                 xml.guid news_article_url(article)

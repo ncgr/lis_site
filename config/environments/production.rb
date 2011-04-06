@@ -46,4 +46,7 @@ LisSite::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  ## Added by KAS ##
+  config.action_mailer.default_url_options = { :host => 'comparative-legumes.org' }
 end
