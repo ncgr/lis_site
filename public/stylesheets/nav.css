@@ -1,3 +1,24 @@
+/*** User Navigation Styles ***/
+
+#user-nav {
+    margin: 0;
+    padding: 0 2px 2px 0;
+    color: #fff;
+    float: right;
+    font-size: 14px;
+}
+
+#user-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#user-nav a:hover {
+    text-decoration: underline;
+}
+
+/*** End User Nav ***/
+
 /*** Navigation Styles ***/
 
 #nav {

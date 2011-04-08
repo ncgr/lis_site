@@ -1,0 +1,32 @@
+<% title 'Invitations' %>
+
+<h1>Invitations</h1>
+
+<%= paginate @invitations %> 
+
+<p class="right"><%= link_to raw('User Profiles &raquo;'), user_profiles_path %></p>
+
+<table>
+    <tr>
+        <th>Email</th>
+        <th>Invited By</th>
+        <th>Invitation Sent On</th>
+        <th>Action</th>
+    </tr>
+    <% i = 1 %>
+    <% @invitations.each do |user| %>
+        <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
+        <tr class="<%= style %>">
+            <td><%= user.username %></td>
+            <td><%= user.invited_by_id %></td>
+            <td><%= user.invitation_sent_at %></td>
+            <td>
+                <%= link_to 'Delete', user_profile_path(user), :method => :delete, :confirm => 'Really delete invitation %s?' % [ user.username ] %>
+            </td>
+        </tr>
+        <% i += 1 %>
+    <% end %>
+</table>
+
+<%= render :partial => "user_profiles/shared/links" %>
+

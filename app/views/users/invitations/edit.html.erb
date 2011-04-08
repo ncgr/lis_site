@@ -1,15 +1,16 @@
-<% title "Register" %>
-<h2>Register</h2>
+<% title "Create Your Account" %>
+<h2>Create Your Account</h2>
 
 <p>* Required Field</p>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => invitation_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-  
+    <%= f.hidden_field :invitation_token %>    
+
     <fieldset>
-        <legend>Create your username and password</legend>
-          <p>*<label>Email</label> <em>(Your email address is your username.)</em><br />
-          <%= f.text_field :username %></p>
+        <legend>Password</legend>
+          <p><label>Email</label> <em>(Your email address is your username.)</em><br />
+          <%= f.text_field :username, :disabled => true %></p>
         
           <p>*<label>Password</label> <em>(Your password must be 6-20 characters long.)</em><br />
           <%= f.password_field :password %></p>
@@ -26,7 +27,8 @@
             <p>*<label>Last Name</label><br />
             <%= f.text_field :last_name %></p>
           
-            <p><%= f.submit "Register", :class => "submit" %></p>
+            <p><%= f.submit "Create your account", :class => "submit" %></p>
     </fieldset>
 <% end %>
+
 
