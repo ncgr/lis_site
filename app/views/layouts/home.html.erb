@@ -9,6 +9,7 @@
 	</head>
 	<body>
 		<div id="main">
+            <%= render :partial => "shared/user_nav" %>
             <div id="content">
                 <div id="logo">
                     <div id="rss">
@@ -29,6 +30,9 @@
                 </div>
                 <div id="frame">
                     <div id="leftcol">
+                        <% flash.each do |name, msg| %>
+                            <%= content_tag :div, msg, :id => name %>
+                        <% end %>
                         <%= yield %>
                     </div>
                     <div id="rightcol">

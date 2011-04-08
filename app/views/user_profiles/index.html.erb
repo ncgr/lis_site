@@ -1,0 +1,38 @@
+<% title 'User Profiles' %>
+
+<h1>User Profiles</h1>
+
+<%= paginate @profiles %> 
+
+<p class="right"><%= link_to raw('View Invitations &raquo;'), invitations_user_profiles_path %></p>
+
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    <% i = 1 %>
+    <% @profiles.each do |user| %>
+        <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
+        <tr class="<%= style %>">
+            <td><%= user.first_name.capitalize %></td>
+            <td><%= user.last_name.capitalize %></td>
+            <td><%= user.username %></td>
+            <td><%= user.role.name %></td>
+            <td>
+                <%= link_to 'Manage Role', manage_role_user_profile_path(user) %>
+                <% if user != current_user %>
+                    &nbsp;|&nbsp;
+                    <%= link_to 'Delete', user_profile_path(user), :method => :delete, :confirm => 'Really delete user: %s %s?' % [ user.first_name, user.last_name ] %>
+                <% end %>
+            </td>
+        </tr>
+        <% i += 1 %>
+    <% end %>
+</table>
+
+<%= render :partial => "user_profiles/shared/links" %>
+

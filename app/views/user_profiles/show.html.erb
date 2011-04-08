@@ -1,0 +1,22 @@
+<% title 'Your Account' %>
+<% if @profile == current_user %>
+	<h2>Welcome <%= @profile.first_name %> <%= @profile.last_name %></h2>
+	<p>Use the links below to manage your account.</p>
+	<p><%= link_to "Edit your registration information", edit_user_information_registration_path %></p>
+<% end  %>
+
+<% if current_user.has_role? :superuser %>
+	<h3>Superuser Links</h3>
+	<p>
+        <%= link_to 'Manage users', user_profiles_path %><br />
+        <%= link_to 'Send email invitation', new_user_information_invitation_path %>
+    </p>
+<% end %>
+
+<% if current_user.has_role? :admin %>
+    <h3>Admin Links</h3>
+    <p>
+        <%= link_to 'Send email invitation', new_user_information_invitation_path %>
+    </p>
+<% end %>
+
