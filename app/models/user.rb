@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :timeoutable, :omniauthable
   # :database_authenticatable --> Replaced by cas_authenticatable <--
   # :validatable, :lockable, :rememberable, :registerable
-  devise :cas_authenticatable, :trackable
+  devise :cas_authenticatable, :trackable, :invitable
 
   #
   # Extra Attributes defined in Ruby CAS Server

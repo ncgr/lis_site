@@ -31,9 +31,11 @@ class UserInformation < ActiveRecord::Base
   # Only validate if we need to.
   #
   def should_validate
-    if !self.invitation_token.blank?
+    # Special case for sending invitations.
+    if !self.invitation_token.blank? && password.blank? && first_name.blank? && last_name.blank?
       return false
     end
+    # Catch the rest.
     if self.new_record? || !self.reset_password_token.blank? || !self.invitation_token.blank? || !password.blank?
       return true
     else
