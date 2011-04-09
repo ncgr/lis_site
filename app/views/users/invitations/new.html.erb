@@ -9,3 +9,5 @@
     <p><%= f.submit "Send an invitation" %></p>
 <% end %>
 
+<%= link_to "Return to your profile", user_profile_path(current_user.id) %>
+

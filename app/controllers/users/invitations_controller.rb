@@ -11,7 +11,7 @@ class Users::InvitationsController < Devise::InvitationsController
   # Override method to change redirect.
   #
   def create
-    self.resource = resource_class.invite!(params[resource_name], current_inviter)
+    self.resource = resource_class.invite!(params[resource_name], current_user)
     
     if resource.errors.empty?
       set_flash_message :notice, :send_instructions, :email => self.resource.email
@@ -37,25 +37,29 @@ class Users::InvitationsController < Devise::InvitationsController
   # Override method to change redirect.
   #
   def update
-    self.resource = resource_class.accept_invitation!(params[resource_name])
-
+    ## Hack to trick the validation. Needs to be refactored in the model. ##
     empty = true
-    [:first_name, :last_name, :password, :password_confirmation].each do |p|
-      empty = false unless self.resource[p].blank?
+    [:first_name, :last_name, :password].each do |p|
+      empty = false unless params[resource_name][p].blank?
     end
 
-    if resource.errors.empty? || empty
+    if empty
+      self.resource = resource_class.first(:conditions => { :invitation_token => params[resource_name][:invitation_token] })
+      flash[:notice] = "Please fill out the form to create an account."
+      render_with_scope :edit
+      return
+    end
+
+    ## end hack ##  
+
+    self.resource = resource_class.accept_invitation!(params[resource_name])
+
+    if resource.errors.empty?
       set_flash_message :notice, :updated
       redirect_to root_path
     else
       render_with_scope :edit
     end
-  end
-
-  protected
-
-  def current_inviter
-    UserInformation.new(current_user)
   end
 
 end

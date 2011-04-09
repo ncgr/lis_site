@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
         permission_denied 
         return false
       else
-        return UserInformation.new(current_user)
+        return current_user
       end
     end
     permission_denied
