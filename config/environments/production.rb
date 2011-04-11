@@ -49,4 +49,5 @@ LisSite::Application.configure do
 
   ## Added by KAS ##
   config.action_mailer.default_url_options = { :host => 'comparative-legumes.org' }
+  config.active_record.observers = :user_information_observer
 end
