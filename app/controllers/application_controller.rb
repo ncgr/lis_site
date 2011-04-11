@@ -14,8 +14,7 @@ class ApplicationController < ActionController::Base
         return current_user
       end
     end
-    permission_denied
-    return false
+    redirect_to new_user_session_path
   end
 
   # 
