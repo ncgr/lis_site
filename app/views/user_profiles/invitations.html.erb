@@ -10,7 +10,8 @@
     <tr>
         <th>Email</th>
         <th>Invited By</th>
-        <th>Invitation Sent On</th>
+        <th>Invitation Sent</th>
+        <th>Invitation Token</th>
         <th>Action</th>
     </tr>
     <% i = 1 %>
@@ -18,8 +19,9 @@
         <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
         <tr class="<%= style %>">
             <td><%= user.username %></td>
-            <td><%= user.invited_by_id %></td>
-            <td><%= user.invitation_sent_at %></td>
+            <td><%= find_user_name(user.invited_by_id) %></td>
+            <td><%= user.invitation_sent_at.to_s(:date_time_long) %></td>
+            <td><%= user.invitation_token %></td>
             <td>
                 <%= link_to 'Delete', user_profile_path(user), :method => :delete, :confirm => 'Really delete invitation %s?' % [ user.username ] %>
             </td>

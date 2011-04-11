@@ -3,7 +3,7 @@
 
 <p>* Required Field</p>
 
-<%= form_for(resource, :as => resource_name, :url => invitation_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:onsubmit => "processingOnSubmit()"}) do |f| %>
     <%= devise_error_messages! %>
     <%= f.hidden_field :invitation_token %>    
 
@@ -27,7 +27,7 @@
             <p>*<label>Last Name</label><br />
             <%= f.text_field :last_name %></p>
           
-            <p><%= f.submit "Create your account", :class => "submit" %></p>
+            <p><%= f.submit "Create your account", :class => "submit", :id => "submit" %></p>
     </fieldset>
 <% end %>
 

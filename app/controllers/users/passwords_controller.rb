@@ -8,7 +8,7 @@ class Users::PasswordsController < Devise::PasswordsController
   end
   
   # 
-  # Override create to redirect home after new password request.
+  # Override create to redirect home after new password request and edit on error.
   #
   def create
     self.resource = resource_class.send_reset_password_instructions(params[resource_name])
@@ -17,7 +17,7 @@ class Users::PasswordsController < Devise::PasswordsController
       set_flash_message(:notice, :send_instructions) if is_navigational_format?
       respond_with resource, :location => root_path
     else
-      respond_with_navigational(resource){ render_with_scope :new }
+      render_with_scope :new
     end
   end
 
@@ -28,16 +28,17 @@ class Users::PasswordsController < Devise::PasswordsController
     render_with_scope :edit
   end
 
-  # PUT /resource/password
+  # 
+  # Override update to redirect home after update and edit on error.
+  #
   def update
     self.resource = resource_class.reset_password_by_token(params[resource_name])
 
     if resource.errors.empty?
       set_flash_message(:notice, :updated) if is_navigational_format?
-      sign_in(resource_name, resource)
-      respond_with resource, :location => redirect_location(resource_name, resource)
+      respond_with resource, :location => root_path 
     else
-      respond_with_navigational(resource){ render_with_scope :edit }
+      render_with_scope :edit 
     end
   end
 

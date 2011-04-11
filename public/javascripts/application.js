@@ -29,3 +29,13 @@ Effect.Accordion = function (contentId) {
         $(contentLinkId).update(text[0]);
     }
 };
+
+/**
+ * Change value of the button and disable on submit.
+ */
+function processingOnSubmit () {
+    $('submit').value = 'Processing...';
+    Form.Element.disable('submit');
+    return true;
+}
+

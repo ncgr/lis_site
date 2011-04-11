@@ -14,8 +14,7 @@ LisSite::Application.configure do
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -25,5 +24,6 @@ LisSite::Application.configure do
 
   ## Added by KAS ##
   config.action_mailer.default_url_options = { :host => 'localhost:7650' }
+  config.active_record.observers = :user_information_observer
 end
 
