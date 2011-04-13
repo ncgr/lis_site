@@ -49,7 +49,10 @@ class UserInformation < ActiveRecord::Base
   def set_user_role
     role = Role.where({:name => "system_user"}).first
     raise "Error: unable to find role: system_user" unless role
-    self.update_attributes!({:role_id => role.id})
+    user_role = UserRole.new
+    user_role.role_id = role.id
+    user_role.user_id = self.id
+    user_role.save!
   end
 
   #

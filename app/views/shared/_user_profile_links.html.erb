@@ -1,3 +1,3 @@
-<% if current_user.has_role? :superuser %>
+<% if has_role? :superuser %>
     <p><%= link_to "Return to user profiles", user_profiles_path %></p>
 <% end %>

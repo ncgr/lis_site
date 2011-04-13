@@ -27,8 +27,8 @@ LisSite::Application.routes.draw do
   
   resources :user_profiles do
     member do
-      get :manage_role
-      put :update_role
+      get :manage_roles
+      put :update_roles
     end
     collection do
       get :invitations 
