@@ -3,6 +3,8 @@ class UserInformation < ActiveRecord::Base
 
   set_table_name "users"
 
+  before_save :format_user_information,
+    :if => :should_validate
   after_create :set_user_role
 
   devise :invitable, :database_authenticatable, :registerable,
@@ -41,6 +43,14 @@ class UserInformation < ActiveRecord::Base
     else
       return false
     end
+  end
+
+  #
+  # Format user information.
+  #
+  def format_user_information
+    self.first_name.capitalize!
+    self.last_name.capitalize!
   end
 
   # 
