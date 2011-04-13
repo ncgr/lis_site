@@ -9,6 +9,7 @@ gem 'devise', '~> 1.2.1'
 gem 'devise_invitable', '~> 0.4.1'
 gem 'rubycas-client', '~> 2.2.1'
 gem 'devise_cas_authenticatable'
+gem 'declarative_authorization', '~> 0.5.2'
 
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'

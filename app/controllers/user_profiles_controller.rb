@@ -2,13 +2,13 @@
 class UserProfilesController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :check_user_role, :except => :show
-  
+  filter_access_to :all
+
   # 
   # Superuser index
   #
   def index
-    @profiles = User.includes(:role).where("invitation_token IS NULL").order("last_name ASC, role_id ASC").page(params[:page])
+    @profiles = User.where("invitation_token IS NULL").order("last_name ASC").page(params[:page])
   end
 
   #
@@ -23,8 +23,8 @@ class UserProfilesController < ApplicationController
   # view all profiles.
   #
   def show
-    @profile = User.includes(:role).find(params[:id])
-    unless current_user.has_role? :superuser
+    @profile = User.find(params[:id])
+    unless has_role? :superuser
       if @profile != current_user
         permission_denied
         return
@@ -49,35 +49,39 @@ class UserProfilesController < ApplicationController
   # 
   # Manage user's role
   #
-  def manage_role
-    @roles = Role.all
-    @profile = User.includes(:role).find(params[:id])
+  def manage_roles
+    @profile = User.find(params[:id])
+    @all_roles = Role.all
   end
 
   #
   # Update user's role
   #
-  def update_role
+  def update_roles
     @profile = User.find(params[:id])
-    if @profile.update_attributes(:role_id => params[:role_id])
-      flash[:notice] = "User role updated successfully"
-      redirect_to user_profiles_path
-    else
-      flash[:error] = "Unable to update user role."
-      render :action => "manage_role"
-    end 
-  end
-
-  private
-
-  # 
-  # Must be superuser to access this controller.
-  #
-  def check_user_role
-    unless current_user.has_role? :superuser
-      permission_denied
-      return
+    @all_roles = Role.all
+    begin
+      UserRole.transaction do
+        UserRole.destroy_all(:user_id => @profile.id)
+        for role_id in params[:user_role]
+          new_role = @profile.user_roles.build
+          new_role.role_id = role_id
+          new_role.save!
+        end
+      end
+    rescue ActiveRecord::RecordInvalid => e
+      flash[:error] = 'Could not save user roles.'
+      render :action => 'manage_roles'
+    rescue => e
+      flash[:error] = 'Could not save user roles. %s' % e
+      # log backtrace
+      logger.error e.inspect
+      logger.error "backtrace:\n" + e.backtrace.join("\n")
+      render :action => 'manage_roles'
+      return      
     end
+    flash[:notice] = 'Successfully updated roles.'
+    redirect_to user_profiles_path
   end
 
 end

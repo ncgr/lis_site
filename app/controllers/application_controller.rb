@@ -1,13 +1,25 @@
+
 class ApplicationController < ActionController::Base
-  
+
+  before_filter :check_existing_cas_session
   protect_from_forgery
+
+  #
+  # Determine whether an existing CAS session was created by checking
+  # the cookie tgt (ticket generating ticket).
+  #
+  def check_existing_cas_session
+    unless request.cookies["tgt"].blank?
+      authenticate_user!
+    end
+  end
 
   #
   # Only admins may send invitations.
   #
   def authenticate_inviter!
     if user_signed_in?
-      unless (current_user.has_role? :superuser) || (current_user.has_role? :admin)
+      unless (has_role? :superuser) || (has_role? :admin)
         permission_denied 
         return false
       else
