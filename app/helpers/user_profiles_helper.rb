@@ -6,10 +6,11 @@ module UserProfilesHelper
   def find_user_name(id)
     user = User.find(id)
     if user
-      return "#{user.first_name.capitalize} #{user.last_name.capitalize}"
+      name = "#{user.first_name.capitalize} #{user.last_name.capitalize}"
     else
-      return "[Not found]"
+      name = "[Not found]"
     end
+    name
   end
 
 end

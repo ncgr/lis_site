@@ -32,6 +32,7 @@
 <% end %>
 
 <p>
-	<%= link_to "Cancel your account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %><br />
+	<%= link_to "Cancel your account?", registration_path(resource_name), :confirm => "Are you sure? This action can not be undone.", 
+        :method => :delete %><br />
 	<%= link_to "Return to your profile", user_profile_path(current_user.id) %>
 </p>

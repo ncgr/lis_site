@@ -2,7 +2,7 @@
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
   # ==> CAS Configuration
-  config.cas_base_url = "https://localhost:7777"
+  config.cas_base_url = "https://aztec.ncgr.org:7777"
   config.cas_create_user = false
 
   # ==> Mailer Configuration
@@ -121,7 +121,7 @@ Devise.setup do |config|
   # config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
-  # config.unlock_keys = [ :email ]
+  # config.unlock_keys = [ :username ]
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
@@ -135,7 +135,7 @@ Devise.setup do |config|
   # config.maximum_attempts = 10
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
+  # config.unlock_in = 0.25.hour
 
   # ==> Configuration for :recoverable
   #

@@ -15,13 +15,13 @@ class UserInformation < ActiveRecord::Base
   
   validates_format_of :username, 
     :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i,
-    :message => "Please enter a valid email address."
+    :message => " is invalid. Please enter a valid email address."
   validates_uniqueness_of :username,
-    :message => "The email address you entered already exists."
+    :message => " is invalid. The email address you entered already exists."
 
   validates_length_of :password, :in => 6..20,
     :if => :should_validate
-  validates_confirmation_of :password, :message => ' did not match.',
+  validates_confirmation_of :password, :message => " did not match.",
     :if => :should_validate
 
   validates_length_of :first_name, :minimum => 3,
