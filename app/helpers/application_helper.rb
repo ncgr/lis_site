@@ -3,7 +3,7 @@ module ApplicationHelper
   #
   # Insert page title
   #
-  def title( page_title )
+  def title(page_title)
     content_for(:title) { page_title }
   end
   
@@ -12,14 +12,14 @@ module ApplicationHelper
   #
   def display_time(timestamp)
     return nil if timestamp.blank?
-    return timestamp.strftime("%a, %b %d %Y, %H:%M")
+    timestamp.strftime("%a, %b %d %Y, %H:%M")
   end
   
   #
   # Date helper.
   #
   def display_date(date)
-    return date.strftime("%b %d, %Y")
+    date.strftime("%b %d, %Y")
   end
   
   #
@@ -34,7 +34,7 @@ module ApplicationHelper
     elsif s_date.year == e_date.year
       date = s_date.strftime("%b %d - ").to_s + e_date.strftime("%b %d, %Y").to_s
     end
-      return date
+      date
   end
   
 end

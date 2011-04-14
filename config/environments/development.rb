@@ -23,7 +23,7 @@ LisSite::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   ## Added by KAS ##
-  config.action_mailer.default_url_options = { :host => 'localhost:7650' }
+  config.action_mailer.default_url_options = { :host => 'aztec.ncgr.org:7650' }
   config.active_record.observers = :user_information_observer
 end
 
