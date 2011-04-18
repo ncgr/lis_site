@@ -15,12 +15,12 @@ authorization do
     
   role :superuser do
     includes :base
-    has_permission_on :user_profiles, :to => [:manage, :manage_roles, :invitations]
+    has_permission_on :user_profiles, :to => [:manage, :manage_roles]
   end
     
   role :admin do
     includes :base
-    has_permission_on :user_profiles, :to => [:read, :invitations]
+    has_permission_on :user_profiles, :to => [:read]
   end
 
   role :editor do
@@ -37,7 +37,6 @@ privileges do
   # Default privilege hierarchies to facilitate RESTful Rails apps.
   privilege :manage, :includes => [:create, :read, :update, :delete]
   privilege :manage_roles, :includes => :update_roles
-  privilege :invitations
   privilege :read, :includes => [:index, :show]
   privilege :create, :includes => :new
   privilege :update, :includes => :edit

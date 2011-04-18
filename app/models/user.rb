@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :timeoutable, :omniauthable
   # :database_authenticatable --> Replaced by cas_authenticatable <--
-  # :validatable, :lockable, :rememberable, :registerable
-  devise :cas_authenticatable, :trackable, :invitable
+  # :validatable, :lockable, :rememberable, :registerable, :invitable
+  devise :cas_authenticatable, :trackable
 
   #
   # Extra Attributes defined in Ruby CAS Server

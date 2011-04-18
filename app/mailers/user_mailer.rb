@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def registration_confirmation(user)
     @user = user
-    @url = "https://login.comparative-legumes.org"
+    @url = "https://cas.comparative-legumes.org"
     mail(:to => user.username, :subject => "LIS Registration Confirmation - DO NOT REPLY")
   end
 

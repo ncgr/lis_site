@@ -53,12 +53,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   #
-  # Destroy
+  # Override destroy to make sure User plus dependents are destroyed and an
+  # email is sent.
   #
   def destroy
-    resource.destroy
-    UserMailer.account_canceled(resource).deliver
-    respond_with resource, :location => destroy_user_session_path
+    user = User.find(resource.id)
+    user.destroy
+    UserMailer.account_canceled(user).deliver
+    respond_with user, :location => destroy_user_session_path
   end
 
   private
