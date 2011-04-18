@@ -16,8 +16,7 @@ CREATE  TABLE IF NOT EXISTS `development_activities` (
   `date` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
-ENGINE = MyISAM
-AUTO_INCREMENT = 130
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -35,8 +34,7 @@ CREATE  TABLE IF NOT EXISTS `meetings` (
   `start_date` DATE NULL DEFAULT NULL ,
   `end_date` DATE NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = MyISAM
-AUTO_INCREMENT = 4
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -52,8 +50,7 @@ CREATE  TABLE IF NOT EXISTS `news_articles` (
   `body` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL COMMENT 'Add \\n for a new line. Rails will replace \\n with HTML.' ,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
-ENGINE = MyISAM
-AUTO_INCREMENT = 6
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -68,7 +65,6 @@ CREATE  TABLE IF NOT EXISTS `roles` (
   `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -80,9 +76,9 @@ DROP TABLE IF EXISTS `users` ;
 
 CREATE  TABLE IF NOT EXISTS `users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
-  `username` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL DEFAULT '' ,
-  `encrypted_password` VARCHAR(128) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT '' ,
-  `password_salt` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
+  `username` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
+  `encrypted_password` VARCHAR(128) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
+  `password_salt` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
   `reset_password_token` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `remember_token` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `remember_created_at` DATETIME NULL DEFAULT NULL ,
@@ -110,7 +106,6 @@ CREATE  TABLE IF NOT EXISTS `users` (
   INDEX `index_users_on_invitation_token` (`invitation_token` ASC) ,
   INDEX `index_users_on_invited_by_id` (`invited_by_id` ASC) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -126,7 +121,6 @@ CREATE  TABLE IF NOT EXISTS `user_roles` (
   `role_id` INT(11) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 

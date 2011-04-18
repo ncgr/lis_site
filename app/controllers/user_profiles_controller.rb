@@ -8,14 +8,7 @@ class UserProfilesController < ApplicationController
   # Superuser index
   #
   def index
-    @profiles = User.where("invitation_token IS NULL").order("last_name ASC").page(params[:page])
-  end
-
-  #
-  # Superuser view unexcepted invitations.
-  #
-  def invitations
-    @invitations = User.where("invitation_token IS NOT NULL").order("invitation_sent_at DESC").page(params[:page])
+    @profiles = User.order("last_name ASC").page(params[:page])
   end
 
   # 

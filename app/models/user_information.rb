@@ -3,15 +3,14 @@ class UserInformation < ActiveRecord::Base
 
   set_table_name "users"
 
-  before_save :format_user_information,
-    :if => :should_validate
+  before_save :format_user_information, :if => :should_validate?
   after_create :set_user_role
 
-  devise :invitable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
     :recoverable, :encryptable, :encryptor => :authlogic_sha512
 
   attr_accessible :username, :password, :password_confirmation,
-    :first_name, :last_name, :role_id
+    :first_name, :last_name
   
   validates_format_of :username, 
     :with => /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i,
@@ -20,31 +19,27 @@ class UserInformation < ActiveRecord::Base
     :message => " is invalid. The email address you entered already exists."
 
   validates_length_of :password, :in => 6..20,
-    :if => :should_validate
+    :if => :should_validate?
   validates_confirmation_of :password, :message => " did not match.",
-    :if => :should_validate
+    :if => :should_validate?
 
   validates_length_of :first_name, :minimum => 3,
-    :if => :should_validate
+    :if => :should_validate?
   validates_length_of :last_name, :minimum => 3,
-    :if => :should_validate
+    :if => :should_validate?
 
   #
   # Only validate if we need to.
   #
-  def should_validate
-    # Special case for sending invitations.
-    if !self.invitation_token.blank? && password.blank? && first_name.blank? && last_name.blank?
-      return false
-    end
+  def should_validate?
     # Catch the rest.
-    if self.new_record? || !self.reset_password_token.blank? || !self.invitation_token.blank? || !password.blank?
+    if self.new_record? || !self.reset_password_token.blank? || !password.blank?
       return true
     else
       return false
     end
   end
-
+  
   #
   # Format user information.
   #

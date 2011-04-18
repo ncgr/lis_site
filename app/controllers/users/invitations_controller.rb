@@ -1,4 +1,6 @@
 
+## NOT IN USE ##
+
 class Users::InvitationsController < Devise::InvitationsController
 
   # GET /resource/invitation/new
