@@ -3,12 +3,17 @@ class User < ActiveRecord::Base
 
   has_many :user_roles, :dependent => :destroy
   has_many :roles, :through => :user_roles
+  
+  paginates_per 20
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :timeoutable, :omniauthable
   # :database_authenticatable --> Replaced by cas_authenticatable <--
   # :validatable, :lockable, :rememberable, :registerable, :invitable
   devise :cas_authenticatable, :trackable
+  
+  SORTABLE_COLUMNS = ["first_name", "last_name", "username", "roles.name"]
+  DEFAULT_ORDER    = "last_name ASC"
 
   #
   # Extra Attributes defined in Ruby CAS Server
