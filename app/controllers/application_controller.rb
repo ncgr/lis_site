@@ -14,21 +14,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  #
-  # Only admins may send invitations.
-  #
-  def authenticate_inviter!
-    if user_signed_in?
-      unless (has_role? :superuser) || (has_role? :admin)
-        permission_denied 
-        return false
-      else
-        return current_user
-      end
-    end
-    redirect_to new_user_session_path
-  end
-
   # 
   # I pitty the fool!
   #

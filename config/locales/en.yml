@@ -3,9 +3,4 @@
 
 en:
   hello: "Hello world"
-  views:
-    pagination:
-      previous: "&laquo; Previous"
-      next: "Next &raquo;"
-      truncate: "..."
   
