@@ -8,7 +8,9 @@ class UserProfilesController < ApplicationController
   # Superuser index
   #
   def index
-    @profiles = User.order("last_name ASC").page(params[:page])
+    order_by = check_kaminari_sort(User, params[:sort], params[:dir])
+    order_by = User::DEFAULT_ORDER if order_by.nil?
+    @profiles = User.order(order_by).includes(:roles).page(params[:page])
   end
 
   # 
