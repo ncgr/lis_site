@@ -49,5 +49,10 @@ LisSite::Application.configure do
 
   ## Added by KAS ##
   config.action_mailer.default_url_options = { :host => 'comparative-legumes.org' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "mail1.ncgr.org",
+    :port                 => 25
+  }
   config.active_record.observers = :user_information_observer
 end
