@@ -69,6 +69,13 @@ DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
 
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'superuser'),(2,'admin'),(3,'editor'),(4,'system_user');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 -- -----------------------------------------------------
 -- Table `users`
 -- -----------------------------------------------------
@@ -140,7 +147,11 @@ CREATE  TABLE IF NOT EXISTS `medtr_contents` (
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
-
+LOCK TABLES `medtr_contents` WRITE;
+/*!40000 ALTER TABLE `medtr_contents` DISABLE KEYS */;
+INSERT INTO `medtr_contents` VALUES (1,'','','','','');
+/*!40000 ALTER TABLE `medtr_contents` ENABLE KEYS */;
+UNLOCK TABLES;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
