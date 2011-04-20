@@ -52,7 +52,8 @@ LisSite::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address              => "mail1.ncgr.org",
-    :port                 => 25
+    :port                 => 25,
+    :enable_starttls_auto => false
   }
   config.active_record.observers = :user_information_observer
 end
