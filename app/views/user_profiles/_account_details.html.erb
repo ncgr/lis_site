@@ -1,0 +1,27 @@
+<p><strong>Account Details</strong></p>
+<table id="account-details">
+    <tr>
+        <td>Name:</td>
+        <td><%= @profile.first_name %> <%= @profile.last_name %></td>
+    </tr>
+	<tr>
+        <td>Username:</td>
+        <td><%= @profile.username %></td>
+    </tr>
+	<tr>
+        <td>Member since:</td>
+        <td><%= @profile.created_at.to_s(:long_date_no_time) %></td>
+    </tr>
+    <tr>
+        <td>Last updated at:</td>
+        <td><%= @profile.updated_at.to_s(:date_time_long) %></td>
+    </tr>
+    <tr>
+        <td>Last sign in at:</td>
+        <td><%= @profile.last_sign_in_at.to_s(:date_time_long) unless @profile.last_sign_in_at.nil? %></td>
+    </tr>
+    <tr>
+        <td>Last sign in IP:</td>
+        <td><%= @profile.last_sign_in_ip %></td>
+    </tr>
+</table>
