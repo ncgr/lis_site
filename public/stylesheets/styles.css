@@ -270,6 +270,23 @@ ol.web li {
 	overflow: hidden;
 }
 
+/*** Phylogenetic Tree ***/
+
+#tree-container {
+    margin: 25px 0 25px 25px;
+	padding: 0;	
+}
+
+#phylogenetic-tree {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	position: relative;
+	height: 450px;
+}
+
+/*** End Tree ***/
+
 /*** Frame contains the left and right columns ***/
 #frame {
 	margin: 10px 15px 15px 15px;

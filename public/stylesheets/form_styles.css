@@ -92,10 +92,10 @@ tr.even {
 	background-color: #f8f8ff;
 }
 
-table#account-info {
-	margin: 0;
+table#account-details {
+	margin: 0 0 0 10px;
     border: 0;
-    width: 60%;
+    width: 40%;
     border-collapse: collapse;
 }
 /*** End ***/
