@@ -1,11 +1,23 @@
-
+#
+# This model handles the registration and recovery of our users NOT 
+# the authentication. The authentication is handled by the model 
+# User which includes the devise module devise_cas_authenticatable.
+# See https://github.com/nbudin/devise_cas_authenticatable for more
+# information.
+#
 class UserInformation < ActiveRecord::Base
 
+  # Use the table users.
   set_table_name "users"
 
   before_save :format_user_information, :if => :should_validate?
   after_create :set_user_role
 
+  # Set devise modules
+  #
+  # NOTE: We are using authlogic_sha512 encryption because it's 
+  # compatible with Ruby CAS Server Authlogic encryptor.
+  # See https://github.com/gunark/rubycas-server for more information.
   devise :database_authenticatable, :registerable,
     :recoverable, :encryptable, :encryptor => :authlogic_sha512
 
@@ -61,7 +73,8 @@ class UserInformation < ActiveRecord::Base
   end
 
   #
-  # Devise expects email to be our username. Ruby CAS expects username to be username.
+  # Devise expects email to be our username. 
+  # Ruby CAS Server expects username to be username.
   # So...
   #
   def email

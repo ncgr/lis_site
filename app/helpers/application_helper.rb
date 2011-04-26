@@ -12,27 +12,30 @@ module ApplicationHelper
   #
   def display_time(timestamp)
     return nil if timestamp.blank?
-    timestamp.strftime("%a, %b %d %Y, %H:%M")
+    timestamp.to_s(:date_time_long)
   end
   
   #
   # Date helper.
   #
   def display_date(date)
-    date.strftime("%b %d, %Y")
+    date.to_s(:short_date_no_time)
   end
   
   #
-  # Start end date helper.
+  # Start and end date helper.
   #
   def format_start_end_date(s_date, e_date = nil)
-    if e_date.nil?
-      return dislpay_date(s_date)
-    end
+    
+    return dislpay_date(s_date) if e_date.nil?
+
+    # Format the dates based on month and year.
     if (s_date.mon == e_date.mon) && (s_date.year == e_date.year)
       date = s_date.strftime("%b %d-").to_s + e_date.strftime("%d, %Y").to_s
     elsif s_date.year == e_date.year
       date = s_date.strftime("%b %d - ").to_s + e_date.strftime("%b %d, %Y").to_s
+    else
+      date = s_date.strftime("%b %d, %Y - ").to_s + e_date.strftime("%b %d, %Y").to_s
     end
       date
   end

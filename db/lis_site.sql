@@ -16,7 +16,8 @@ CREATE  TABLE IF NOT EXISTS `development_activities` (
   `date` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB
+ENGINE = MyISAM
+AUTO_INCREMENT = 130
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -34,7 +35,8 @@ CREATE  TABLE IF NOT EXISTS `meetings` (
   `start_date` DATE NULL DEFAULT NULL ,
   `end_date` DATE NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB
+ENGINE = MyISAM
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -50,7 +52,8 @@ CREATE  TABLE IF NOT EXISTS `news_articles` (
   `body` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL COMMENT 'Add \\n for a new line. Rails will replace \\n with HTML.' ,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
-ENGINE = InnoDB
+ENGINE = MyISAM
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -65,15 +68,9 @@ CREATE  TABLE IF NOT EXISTS `roles` (
   `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
-
-
-LOCK TABLES `roles` WRITE;
-/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES (1,'superuser'),(2,'admin'),(3,'editor'),(4,'system_user');
-/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 -- -----------------------------------------------------
@@ -113,6 +110,7 @@ CREATE  TABLE IF NOT EXISTS `users` (
   INDEX `index_users_on_invitation_token` (`invitation_token` ASC) ,
   INDEX `index_users_on_invited_by_id` (`invited_by_id` ASC) )
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -128,6 +126,7 @@ CREATE  TABLE IF NOT EXISTS `user_roles` (
   `role_id` INT(11) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -144,14 +143,13 @@ CREATE  TABLE IF NOT EXISTS `medtr_contents` (
   `at_wikipedia` TEXT NULL ,
   `resources` TEXT NULL ,
   `selected_references` TEXT NULL ,
+  `file_name` VARCHAR(255) NULL ,
+  `updated_at` DATETIME NULL ,
+  `user_id` INT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
-LOCK TABLES `medtr_contents` WRITE;
-/*!40000 ALTER TABLE `medtr_contents` DISABLE KEYS */;
-INSERT INTO `medtr_contents` VALUES (1,'','','','','');
-/*!40000 ALTER TABLE `medtr_contents` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
