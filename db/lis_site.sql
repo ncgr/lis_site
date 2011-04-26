@@ -17,7 +17,6 @@ CREATE  TABLE IF NOT EXISTS `development_activities` (
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
-AUTO_INCREMENT = 130
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -36,7 +35,6 @@ CREATE  TABLE IF NOT EXISTS `meetings` (
   `end_date` DATE NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
-AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -53,7 +51,6 @@ CREATE  TABLE IF NOT EXISTS `news_articles` (
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
-AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -110,7 +107,6 @@ CREATE  TABLE IF NOT EXISTS `users` (
   INDEX `index_users_on_invitation_token` (`invitation_token` ASC) ,
   INDEX `index_users_on_invited_by_id` (`invited_by_id` ASC) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -126,7 +122,6 @@ CREATE  TABLE IF NOT EXISTS `user_roles` (
   `role_id` INT(11) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -140,7 +135,24 @@ CREATE  TABLE IF NOT EXISTS `medtr_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL ,
   `genome_summary` TEXT NULL ,
-  `at_wikipedia` TEXT NULL ,
+  `resources` TEXT NULL ,
+  `selected_references` TEXT NULL ,
+  `file_name` VARCHAR(255) NULL ,
+  `updated_at` DATETIME NULL ,
+  `user_id` INT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `phavu_contents`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `phavu_contents` ;
+
+CREATE  TABLE IF NOT EXISTS `phavu_contents` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `overview` TEXT NULL ,
+  `genome_summary` TEXT NULL ,
   `resources` TEXT NULL ,
   `selected_references` TEXT NULL ,
   `file_name` VARCHAR(255) NULL ,
@@ -154,3 +166,21 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `medtr_contents`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO medtr_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`) VALUES (1, '', '', '', '', NULL, NULL, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `phavu_contents`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO phavu_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+COMMIT;
