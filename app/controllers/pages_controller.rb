@@ -1,8 +1,3 @@
-#
-# Pages Controller
-# 
-# Author: Ken Seal - NCGR
-#
 
 class PagesController < ApplicationController
     

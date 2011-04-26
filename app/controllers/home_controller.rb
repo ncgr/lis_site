@@ -1,8 +1,3 @@
-#
-# Home Controller
-# 
-# Author: Ken Seal - NCGR
-#
 
 class HomeController < ApplicationController
   

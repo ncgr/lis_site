@@ -1,4 +1,6 @@
-
+#
+# Override Devise::RegistrationsController
+#
 class Users::RegistrationsController < Devise::RegistrationsController
 
   before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]

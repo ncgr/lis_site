@@ -1,4 +1,8 @@
-
+#
+# This model handles the authentication via the devise module
+# devise_cas_authenticatable. The model UserInformation handles
+# the user registration and recovery.
+#
 class User < ActiveRecord::Base
 
   has_many :user_roles, :dependent => :destroy
@@ -16,7 +20,7 @@ class User < ActiveRecord::Base
   DEFAULT_ORDER    = "last_name ASC"
 
   #
-  # Extra Attributes defined in Ruby CAS Server
+  # Extra Attributes defined in Ruby CAS Server.
   #
   def cas_extra_attributes=(extra_attributes)
     extra_attributes.each do |name, value|
@@ -30,7 +34,7 @@ class User < ActiveRecord::Base
   end
 
   #
-  # Declarative authorization method
+  # Declarative authorization method.
   #
   def role_symbols
     (roles || []).map {|r| r.name.to_sym}

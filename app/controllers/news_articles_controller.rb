@@ -1,8 +1,3 @@
-#
-# NewsArticles Controller
-# 
-# Author: Ken Seal - NCGR
-#
 
 class NewsArticlesController < ApplicationController
     

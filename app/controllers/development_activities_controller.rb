@@ -1,8 +1,3 @@
-#
-# DevelopmentActivities Controller
-# 
-# Author: Ken Seal - NCGR
-#
 
 class DevelopmentActivitiesController < ApplicationController
     
