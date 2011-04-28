@@ -12,23 +12,27 @@ CKEDITOR.editorConfig = function( config )
     config.toolbar_AdminToolbar =
 	[
 	    ['Source','-','Save','NewPage','Preview','-','Templates','Cut','Copy','PasteText'],
-	    ['Print', 'SpellChecker', 'Scayt','Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+	    ['Print', 'SpellChecker','Scayt','Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
 	    '/',
 	    ['Bold','Italic','Underline','Strike','-','Subscript','Superscript','NumberedList','BulletedList'],
 	    ['Outdent','Indent','Blockquote','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
 	    '/',
 	    ['Link','Unlink','Anchor','Table','HorizontalRule','SpecialChar','PageBreak'],
 	    '/',
-	    ['Styles','Format','Maximize', 'ShowBlocks','-','About']
+	    ['Styles','Format','Maximize','ShowBlocks','-','About']
 	];
     
 	config.toolbar = 'MemberToolbar';
 	config.toolbar_MemberToolbar =
 	[
-	    ['Cut','Copy','PasteText','Undo','Redo','-','Find','Replace','-','SelectAll'],
-	    '/',
-	    ['Bold','Italic','Strike','-','NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
-	    '/',
-	    ['Maximize','-','About'],
+	    ['Source','-','NewPage','Preview','-','Cut','Copy','PasteText'],
+        ['Print', 'SpellChecker','Scayt','Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+        '/',
+        ['Bold','Italic','Underline','Strike','-','Subscript','Superscript','NumberedList','BulletedList'],
+        ['Outdent','Indent','Blockquote','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+        '/',
+        ['Link','Unlink','Anchor','Table','HorizontalRule','SpecialChar','PageBreak'],
+        '/',
+        ['Maximize','ShowBlocks','-','About']
 	];
 };
