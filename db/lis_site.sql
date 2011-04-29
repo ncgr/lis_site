@@ -17,6 +17,7 @@ CREATE  TABLE IF NOT EXISTS `development_activities` (
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
+AUTO_INCREMENT = 130
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -35,6 +36,7 @@ CREATE  TABLE IF NOT EXISTS `meetings` (
   `end_date` DATE NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
+AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -51,6 +53,7 @@ CREATE  TABLE IF NOT EXISTS `news_articles` (
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -107,6 +110,7 @@ CREATE  TABLE IF NOT EXISTS `users` (
   INDEX `index_users_on_invitation_token` (`invitation_token` ASC) ,
   INDEX `index_users_on_invited_by_id` (`invited_by_id` ASC) )
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -122,6 +126,7 @@ CREATE  TABLE IF NOT EXISTS `user_roles` (
   `role_id` INT(11) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
+AUTO_INCREMENT = 11
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -162,10 +167,40 @@ CREATE  TABLE IF NOT EXISTS `phavu_contents` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `lotja_contents`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `lotja_contents` ;
+
+CREATE  TABLE IF NOT EXISTS `lotja_contents` (
+  `id` INT NOT NULL ,
+  `overview` TEXT NULL ,
+  `genome_summary` TEXT NULL ,
+  `resources` TEXT NULL ,
+  `selected_references` TEXT NULL ,
+  `file_name` VARCHAR(255) NULL ,
+  `updated_at` DATETIME NULL ,
+  `user_id` INT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `roles`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO roles (`id`, `name`) VALUES (1, 'superuser');
+INSERT INTO roles (`id`, `name`) VALUES (2, 'admin');
+INSERT INTO roles (`id`, `name`) VALUES (3, 'editor');
+INSERT INTO roles (`id`, `name`) VALUES (4, 'system_user');
+
+COMMIT;
 
 -- -----------------------------------------------------
 -- Data for table `medtr_contents`
@@ -182,5 +217,14 @@ COMMIT;
 START TRANSACTION;
 USE `lis_rails`;
 INSERT INTO phavu_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `lotja_contents`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO lotja_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;
