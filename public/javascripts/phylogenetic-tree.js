@@ -268,11 +268,7 @@ function parseNewick(s) {
     var x = s.lastIndexOf(":");
     if (x == -1) {
         s = extendTree(s);
-    } else if (s.lastIndexOf(":") < s.lastIndexOf(")")) { // meaning there are
-        // indicated
-        // distances, but
-        // not one for the
-        // root node
+    } else if (s.lastIndexOf(":") < s.lastIndexOf(")")) {
         s += "100:0.1";
     }
     document.write(s);
@@ -472,7 +468,7 @@ var DEPTH_CONST = 50;
 var DEPTH_CONST1 = 300;
 var DEPTH_CONST2 = 50;
 var HEIGHT_CONST = 18;
-var DRAW_COLOR = "#363636";
+var DRAW_COLOR = "#eee";
 var STROKE = 2;
 var FONT = "Tahoma";
 var FONT_SIZE = "12px";
@@ -498,6 +494,9 @@ speciesUrls["Vicia_faba"] = "http://vicfa.comparative-legumes.org";
 speciesUrls["Vigna_radiata"] = "http://vigra.comparative-legumes.org";
 speciesUrls["Vigna_unguiculata"] = "http://vigun.comparative-legumes.org";
 speciesUrls["Lotus_japonicus"] = "http://lotja.comparative-legumes.org";
+speciesUrls["Chamaecrista_fasciculata"] = "http://chafs.comparative-legumes.org";
+speciesUrls["Lupinus_albus"] = "http://lupal.comparative-legumes.org";
+speciesUrls["Trifolium_pratense"] = "http://tripr.comparative-legumes.org";
 
 /**
  * Draws phylogenetic tree.
