@@ -12,7 +12,7 @@ LisSite::Application.routes.draw do
     match "/user_information/sign_in", :to => redirect("/users/sign_in")
   end
 
-  resources :news_articles, :development_activities
+  resources :news_articles, :development_activities, :meetings
   
   resources :user_profiles do
     member do

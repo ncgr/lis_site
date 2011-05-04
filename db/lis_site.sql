@@ -16,8 +16,7 @@ CREATE  TABLE IF NOT EXISTS `development_activities` (
   `date` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
-ENGINE = MyISAM
-AUTO_INCREMENT = 130
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -30,13 +29,11 @@ DROP TABLE IF EXISTS `meetings` ;
 CREATE  TABLE IF NOT EXISTS `meetings` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `title` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
-  `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `url` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `start_date` DATE NULL DEFAULT NULL ,
   `end_date` DATE NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
-ENGINE = MyISAM
-AUTO_INCREMENT = 4
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -52,8 +49,7 @@ CREATE  TABLE IF NOT EXISTS `news_articles` (
   `body` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL COMMENT 'Add \\n for a new line. Rails will replace \\n with HTML.' ,
   `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
-ENGINE = MyISAM
-AUTO_INCREMENT = 6
+ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -110,7 +106,6 @@ CREATE  TABLE IF NOT EXISTS `users` (
   INDEX `index_users_on_invitation_token` (`invitation_token` ASC) ,
   INDEX `index_users_on_invited_by_id` (`invited_by_id` ASC) )
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
 
@@ -132,6 +127,19 @@ COLLATE = utf8_bin;
 
 
 -- -----------------------------------------------------
+-- Table `legumes`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `legumes` ;
+
+CREATE  TABLE IF NOT EXISTS `legumes` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(255) NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `medtr_contents`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `medtr_contents` ;
@@ -145,6 +153,7 @@ CREATE  TABLE IF NOT EXISTS `medtr_contents` (
   `file_name` VARCHAR(255) NULL ,
   `updated_at` DATETIME NULL ,
   `user_id` INT NULL ,
+  `legume_id` INT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -163,6 +172,7 @@ CREATE  TABLE IF NOT EXISTS `phavu_contents` (
   `file_name` VARCHAR(255) NULL ,
   `updated_at` DATETIME NULL ,
   `user_id` INT NULL ,
+  `legume_id` INT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -175,12 +185,52 @@ DROP TABLE IF EXISTS `lotja_contents` ;
 CREATE  TABLE IF NOT EXISTS `lotja_contents` (
   `id` INT NOT NULL ,
   `overview` TEXT NULL ,
+  `season` VARCHAR(255) NULL ,
+  `economic_type` VARCHAR(255) NULL ,
+  `economic_importance` TEXT NULL ,
+  `nodulation_type` VARCHAR(255) NULL ,
+  `nodulation_information` TEXT NULL ,
+  `scientific_importance` TEXT NULL ,
+  `origin_lat` VARCHAR(255) NULL ,
+  `origin_long` VARCHAR(255) NULL ,
+  `flowering_type` VARCHAR(255) NULL ,
+  `flowering_information` TEXT NULL ,
+  `pollination_type` VARCHAR(255) NULL ,
+  `pollination_information` TEXT NULL ,
+  `self_incompatibility` VARCHAR(255) NULL ,
+  `inbreeding` VARCHAR(255) NULL ,
+  `wiki_link` VARCHAR(255) NULL ,
   `genome_summary` TEXT NULL ,
+  `chromosomes` VARCHAR(255) NULL ,
+  `genome_size` VARCHAR(255) NULL ,
+  `ploidy` VARCHAR(255) NULL ,
+  `ploidy_type` VARCHAR(255) NULL ,
+  `gc_content_genome` VARCHAR(255) NULL ,
+  `gc_content_transcriptome` VARCHAR(255) NULL ,
+  `chloroplast_genome_size` VARCHAR(255) NULL ,
+  `chloroplast_accession_number` VARCHAR(255) NULL ,
+  `mitochondria_genome_size` VARCHAR(255) NULL ,
+  `mitochondria_accession_number` VARCHAR(255) NULL ,
   `resources` TEXT NULL ,
   `selected_references` TEXT NULL ,
   `file_name` VARCHAR(255) NULL ,
   `updated_at` DATETIME NULL ,
   `user_id` INT NULL ,
+  `legume_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `pathogens`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `pathogens` ;
+
+CREATE  TABLE IF NOT EXISTS `pathogens` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `legume_id` INT NOT NULL ,
+  `name` VARCHAR(255) NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -203,11 +253,37 @@ INSERT INTO roles (`id`, `name`) VALUES (4, 'system_user');
 COMMIT;
 
 -- -----------------------------------------------------
+-- Data for table `legumes`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO legumes (`id`, `name`) VALUES (1, 'Arachis hypogaea (peanut)');
+INSERT INTO legumes (`id`, `name`) VALUES (2, 'Cajanus cajan (pigeon pea)');
+INSERT INTO legumes (`id`, `name`) VALUES (3, 'Cicer arietinum (chickpea)');
+INSERT INTO legumes (`id`, `name`) VALUES (4, 'Glycine max (soybean)');
+INSERT INTO legumes (`id`, `name`) VALUES (5, 'Lens culinaris (lentil)');
+INSERT INTO legumes (`id`, `name`) VALUES (6, 'Lotus japonicus (bridsfoot trefoil)');
+INSERT INTO legumes (`id`, `name`) VALUES (7, 'Lupinus angustifolius (blue lupin)');
+INSERT INTO legumes (`id`, `name`) VALUES (8, 'Medicago sativa (alfalfa)');
+INSERT INTO legumes (`id`, `name`) VALUES (9, 'Medicago truncatula (barrel medic)');
+INSERT INTO legumes (`id`, `name`) VALUES (10, 'Pisum sativum (garden pea)');
+INSERT INTO legumes (`id`, `name`) VALUES (11, 'Phaseolus coccineus (scarlet runner bean)');
+INSERT INTO legumes (`id`, `name`) VALUES (12, 'Phaseolus vulgaris (common bean)');
+INSERT INTO legumes (`id`, `name`) VALUES (13, 'Vicia faba (broad bean)');
+INSERT INTO legumes (`id`, `name`) VALUES (14, 'Vigna radiata (mung bean)');
+INSERT INTO legumes (`id`, `name`) VALUES (15, 'Vigna unguiculata (cowpea)');
+INSERT INTO legumes (`id`, `name`) VALUES (16, 'Chamaecrista fasciculata (partridge pea)');
+INSERT INTO legumes (`id`, `name`) VALUES (17, 'Lupinus albus (white lupin)');
+INSERT INTO legumes (`id`, `name`) VALUES (18, 'Trifolium pratense (red clover)');
+
+COMMIT;
+
+-- -----------------------------------------------------
 -- Data for table `medtr_contents`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO medtr_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`) VALUES (1, '', '', '', '', NULL, NULL, NULL);
+INSERT INTO medtr_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9);
 
 COMMIT;
 
@@ -216,7 +292,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO phavu_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO phavu_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12);
 
 COMMIT;
 
@@ -225,6 +301,6 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lotja_contents (`id`, `overview`, `genome_summary`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO lotja_contents (`id`, `overview`, `season`, `economic_type`, `economic_importance`, `nodulation_type`, `nodulation_information`, `scientific_importance`, `origin_lat`, `origin_long`, `flowering_type`, `flowering_information`, `pollination_type`, `pollination_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `genome_summary`, `chromosomes`, `genome_size`, `ploidy`, `ploidy_type`, `gc_content_genome`, `gc_content_transcriptome`, `chloroplast_genome_size`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_accession_number`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
 
 COMMIT;
