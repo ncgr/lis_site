@@ -32,12 +32,12 @@ class UserProfilesController < ApplicationController
   #
   def destroy
     @profile = User.find(params[:id])
-    unless User.destroy params[:id]
-      flash[:error] = "Unable to delete user."
-      render :action => "show"
-    else
+    if @profile.destroy
       flash[:notice] = "Successfully deleted user."
       redirect_to user_profiles_path
+    else
+      flash[:error] = "Unable to delete user."
+      render :action => "show"
     end
   end
 
