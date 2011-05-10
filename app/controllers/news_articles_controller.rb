@@ -4,6 +4,8 @@ class NewsArticlesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   filter_access_to :new, :create, :edit, :update, :destroy
   
+  before_filter :set_tool_bar, :only => [:new, :create, :edit]
+  
   def index
     # HTML
     @articles = NewsArticle.order("timestamp DESC").page(params[:page])

@@ -1,0 +1,25 @@
+<script type="text/javascript" src="http://comparative-legumes.org/javascripts/ckeditor/ckeditor.js"></script>
+
+<h1>Add News Article</h1>
+<p><%= link_to raw("Return &raquo;"), news_articles_path %></p>
+<%= form_for @article, :html => {:onsubmit => "processingOnSubmit()"} do |f| %>
+    <%= render "shared/error_messages", :target => @article %>
+	<p>
+        <%= f.label :title, "Title:" %><br />
+        <%= f.text_field :title %>
+    </p>
+    <p>
+        <%= f.label :body, "Details:" %><br />
+        <%= f.text_area :body, :id => "ckeditor_body" %>
+    </p>
+	<p><%= f.submit "Add News Article", :id => "submit", :class => "submit" %></p>
+<% end %>
+
+<script type="text/javascript">
+    var ids = ["ckeditor_body"];
+    ids.each(function (id) {
+        CKEDITOR.replace(id, {
+            toolbar : "<%= @tool_bar %>"
+        });
+    });
+</script>

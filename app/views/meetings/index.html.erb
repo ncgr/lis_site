@@ -1,0 +1,27 @@
+<h1>Meetings</h1>
+<%= paginate @meetings %>
+<p><%= link_to raw("Add Meeting &raquo;"), new_meeting_path %></p>
+<% if @meetings.length > 0 %>
+    <table>
+    	<tr>
+			<th><%= kaminari_sort_by(:meetings_path, "Title") %></th>
+			<th><%= kaminari_sort_by(:meetings_path, "Start Date") %></th>
+			<th><%= kaminari_sort_by(:meetings_path, "End Date") %></th>
+			<th>Action</th>
+    	</tr>
+		<% @meetings.each do |m| %>
+            <tr>
+            	<td><%= m.title %></td>
+            	<td><%= m.start_date %></td>
+            	<td><%= m.end_date %></td>
+            	<td>
+            		<%= link_to "Edit", edit_meeting_path(m) %> | 
+					<%= link_to "Delete", meeting_path(m), :method => :delete, :confirm => 'Are you sure?' %>
+				</td>
+            </tr>
+        <% end %>
+    </table>
+<% else %>
+    <p>There are no meetings to view at this time. Please check back again soon.</p>
+<% end %>
+<%= paginate @meetings %>

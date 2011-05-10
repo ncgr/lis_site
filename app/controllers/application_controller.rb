@@ -40,4 +40,13 @@ class ApplicationController < ActionController::Base
     return '%s %s' % [safe_col, safe_dir] # sql order by clause
   end
   
+  private
+  def set_tool_bar
+    if (has_role? :superuser)
+      @tool_bar = "AdminToolbar"
+    else
+      @tool_bar = "MemberToolbar"
+    end
+  end
+  
 end
