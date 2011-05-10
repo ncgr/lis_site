@@ -11,6 +11,11 @@
         <%= link_to 'Manage users', user_profiles_path %><br />
         <%= link_to 'Create user', new_user_information_registration_path %><br />
     </p>
+	<p><strong>Front Pages</strong></p>
+	<p>
+		<%= link_to 'Manage News Articles', news_articles_path %><br />
+        <%= link_to 'Manage Meetings', meetings_path %><br />
+	</p>
 <% end %>
 
 <% if has_role? :admin %>

@@ -1,0 +1,43 @@
+<script type="text/javascript" src="http://comparative-legumes.org/javascripts/ckeditor/ckeditor.js"></script>
+
+<h1>Edit Meeting</h1>
+<p><%= link_to raw("Return &raquo;"), meetings_path %></p>
+<%= form_for @meeting, :html => {:onsubmit => "processingOnSubmit()"} do |f| %>
+    <%= render "shared/error_messages", :target => @meeting %>
+    <p>
+        <%= f.label :title, "Title:" %><br />
+        <%= f.text_field :title %>
+    </p>
+	<p>
+        <%= f.label :url, "URL (include http://):" %><br />
+        <%= f.text_field :url %>
+    </p>
+    <p>
+        <%= f.label :start_date, "Start Date:" %><br />
+        <%= f.text_field :start_date, :id => "start_date" %>
+    </p>
+	<p>
+        <%= f.label :end_date, "End Date (Same as Start Date if one day.):" %><br />
+        <%= f.text_field :end_date, :id => "end_date" %>
+    </p>
+    <p><%= f.submit "Update Meeting", :id => "submit", :class => "submit" %></p>
+<% end %>
+
+<script type="text/javascript">
+    $j(function($) {
+       var dates = $( "#start_date, #end_date" ).datepicker({
+            changeMonth: true,
+            numberOfMonths: 2,
+            dateFormat: 'yy-mm-dd',
+            onSelect: function( selectedDate ) {
+                var option = this.id == "start_date" ? "minDate" : "maxDate",
+                    instance = $( this ).data( "datepicker" ),
+                    date = $.datepicker.parseDate(
+                        instance.settings.dateFormat ||
+                        $.datepicker._defaults.dateFormat,
+                        selectedDate, instance.settings );
+                dates.not( this ).datepicker( "option", option, date );
+            }
+        });
+    });
+</script>

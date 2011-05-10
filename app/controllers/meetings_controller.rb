@@ -4,8 +4,12 @@ class MeetingsController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
   
+  before_filter :set_tool_bar, :only => [:new, :create, :edit]
+  
   def index
-    @meetings = Meeting.order("start_date ASC").all
+    order_by = check_kaminari_sort(Meeting, params[:sort], params[:dir])
+    order_by = Meeting::DEFAULT_ORDER if order_by.nil?
+    @meetings = Meeting.order(order_by).page(params[:page])
   end
   
   def new
