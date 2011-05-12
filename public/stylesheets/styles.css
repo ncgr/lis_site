@@ -12,7 +12,7 @@ body {
 	font-family: Tahoma, Geneva, sans-serif;	
 }
 
-a {
+a, .condense_control {
 	color: #ff6600;
 	text-decoration: none;
 }
@@ -271,9 +271,14 @@ ol.web li {
 }
 
 /*** Phylogenetic Tree ***/
+#tree {
+	maring: 0 0 10px 0;
+	width: 100%;
+	height: auto;
+}
 
 #tree-container {
-    margin: 20px 0 20px 10px;
+    margin: 20px 0 10px 10px;
 	padding: 0;
 	width: 350px;
 	float: left;
@@ -283,6 +288,7 @@ ol.web li {
 	margin: 0 0 20px 10px;
 	padding: 0;
 	width: 500px;
+	height: auto;
 	float: right;
 }
 
@@ -291,7 +297,7 @@ ol.web li {
 	padding: 0;
 	width: 100%;
 	position: relative;
-	height: 450px;
+	height: 280px;
 }
 
 /*** End Tree ***/
@@ -390,6 +396,35 @@ div#zoom.edgy a#zoom_close {
 div#zoom.edgy #zoom_content {
 	margin:20px;
 	position:relative;
+}
+/*** End ***/
+
+/*** Google Map ***/
+#species-map {
+	width: 100%;
+	height: 400px;
+}
+
+#species-map p {
+	font-size: 11px;
+	line-height: 11px;
+    letter-spacing: 1px;
+    
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#map-info {
+	margin: 0 0 5px 0;
+	width: 100%;
+	height: 120px;
+	overflow: auto;
+}
+
+#map-info p img {
+    padding: 0 2px 0 4px;
+    float: right;
+    height: 100px;
 }
 /*** End ***/
 

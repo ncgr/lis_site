@@ -18,6 +18,7 @@ authorization do
     has_permission_on :user_profiles, :to => [:manage, :manage_roles]
     has_permission_on :news_articles, :to => [:manage]
     has_permission_on :meetings,      :to => [:manage]
+    has_permission_on :pages,         :to => [:manage]
   end
     
   role :admin do

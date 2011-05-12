@@ -24,7 +24,11 @@ LisSite::Application.routes.draw do
     end
   end
 
-  resources :pages, :only => :show
+  resources :pages, :only => [:index, :show, :edit, :update] do
+    collection do
+      get :legume_origins
+    end
+  end
 
   root :to => "home#index"
 end

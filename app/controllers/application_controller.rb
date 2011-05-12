@@ -26,14 +26,13 @@ class ApplicationController < ActionController::Base
   # Validate Model's sortable columns and direction.
   #
   def check_kaminari_sort(klass, column, dir)
-    return nil unless column
     begin
       unless klass::SORTABLE_COLUMNS.include? column
         raise ArgumentError, "Column (#{column.to_s}) is not sortable for model #{klass.to_s}. See #{klass.to_s}::SORTABLE_COLUMNS"
       end
     rescue ArgumentError => e
       puts e.message
-      return nil
+      return klass::DEFAULT_ORDER
     end
     safe_col = column
     safe_dir = (dir == 'asc') ? 'asc' : 'desc'    
