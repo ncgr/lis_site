@@ -1,25 +1,15 @@
 <% title 'Species' %>
 
 <h1>Species</h1>
-<div id="tree-container">
-	<div id="phylogenetic-tree"></div>
+<div id="tree">
+	<div id="tree-container">
+	    <div id="phylogenetic-tree"></div>
+	</div>
+	<div id="tree-text">
+	    <%= raw(@page.body) %>
+	</div>
 </div>
-<div id="tree-text">
-	<h4>Species Text</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at lacinia risus. 
-	Donec id nibh erat, sit amet rutrum orci. Duis vitae dolor tortor, nec viverra magna. 
-	Sed porta elementum arcu at dictum. Nullam lacinia nisl non mauris cursus imperdiet 
-	tincidunt ante rutrum. Proin quis metus vitae diam venenatis pretium suscipit non purus. 
-	Vestibulum ac elit eu turpis euismod venenatis. Nulla fringilla gravida lectus in adipiscing. 
-	Curabitur mollis erat non tortor tempus fermentum. Sed in molestie leo. In vel augue nisl, 
-	eget aliquet velit. Cum sociis natoque penatibus et magnis dis parturient montes, 
-	nascetur ridiculus mus. Phasellus in quam ac nulla posuere varius. Aenean tincidunt, 
-	felis a fermentum rutrum, eros neque iaculis quam, eget dictum orci lectus sed purus. 
-	Sed vitae nulla id risus suscipit mollis eu ac dolor. Suspendisse auctor lectus in dolor 
-	tincidunt in commodo elit dapibus. Donec risus lacus, viverra in adipiscing in, eleifend 
-	sed ante. Sed turpis est, pulvinar eget feugiat sed, scelerisque vitae quam. Nullam rutrum 
-	imperdiet consequat.</p>
-</div>
+
 <script type="text/javascript">
 	newick = "((((((Glycine_max:0.20,(Phaseolus_vulgaris:0.15,(Vigna_unguiculata:0.10,Vigna_radiata:0.10)" + 
 	   ":0.05):0.05):0.05,Cajanus_cajan:0.25):0.05,((((Medicago_truncatula:0.10,Trifolium_pratense:0.10):0.05," + 
@@ -30,3 +20,20 @@
     graphics = new jsGraphics("phylogenetic-tree");
 	drawTreeNew(graphics, tree);
 </script>
+
+<div style="clear: both;"></div>
+
+<h3>Origins of Diversity</h3>
+<div id="species-map"></div>
+
+<% if Rails.env.production? %>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA4wAmhxg-Q3-a9xRXziHTNBRzwF7mj-HdfUCsromzsrVn_x2z1RSwT8jRBRm5FviNHw5RorqBR816Rw" 
+        type="text/javascript">
+    </script>
+<% else %>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA4wAmhxg-Q3-a9xRXziHTNBSvYsv58hxf4Prj2Ygf7ubNN4YMixRjoz7Gj88A-SmDDlxaelSU8rCrLg" 
+        type="text/javascript">
+    </script>
+<% end %>
+
+<script type="text/javascript" src="/javascripts/googlemap.js"></script>

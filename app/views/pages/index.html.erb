@@ -1,0 +1,24 @@
+<h1>Pages</h1>
+<%= paginate @pages %>
+<% if @pages.length > 0 %>
+    <table>
+    	<tr>
+			<th><%= kaminari_sort_by(:pages_path, "Title") %></th>
+			<th><%= kaminari_sort_by(:pages_path, "Updated At") %></th>
+    	</tr>
+		<% i = 1 %>
+		<% @pages.each do |p| %>
+		    <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
+            <tr class="<%= style %>">
+            	<td><%= link_to p.title.humanize, edit_page_path(p) %></td>
+            	<td><%= p.updated_at.to_s(:date_time_long) unless p.updated_at.blank? %></td>
+            </tr>
+			<% i += 1 %>
+        <% end %>
+    </table>
+<% else %>
+    <p>There are no pages to view at this time. Please check back again soon.</p>
+<% end %>
+<%= paginate @pages %>
+
+<%= render :partial => "user_profiles/shared/links" %>

@@ -1,7 +1,11 @@
 <h1>Development Activity</h1>
 <%= paginate @activities %>
-<% @activities.each do |n| %>
-	<p class="activity_date"><%= display_time(Time.parse(n.date)) %></p>
-	<p class="activity"><%= n.body %></p>
+<% if @activities.length > 0 %>
+	<% @activities.each do |n| %>
+		<p class="activity_date"><%= display_time(Time.parse(n.date)) %></p>
+		<p class="activity"><%= n.body %></p>
+	<% end %>
+<% else %>
+    <p>There are no development activities to view at this time. Please check back again soon.</p>
 <% end %>
 <%= paginate @activities %>

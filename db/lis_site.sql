@@ -134,8 +134,10 @@ DROP TABLE IF EXISTS `legumes` ;
 CREATE  TABLE IF NOT EXISTS `legumes` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(255) NOT NULL ,
+  `short_name` VARCHAR(255) NOT NULL ,
   PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `name_UNIQUE` (`name` ASC) )
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) ,
+  UNIQUE INDEX `short_name_UNIQUE` (`short_name` ASC) )
 ENGINE = InnoDB;
 
 
@@ -188,11 +190,13 @@ CREATE  TABLE IF NOT EXISTS `lotja_contents` (
   `season` VARCHAR(255) NULL ,
   `economic_type` VARCHAR(255) NULL ,
   `economic_importance` TEXT NULL ,
-  `nodulation_type` VARCHAR(255) NULL ,
-  `nodulation_information` TEXT NULL ,
   `scientific_importance` TEXT NULL ,
   `origin_lat` VARCHAR(255) NULL ,
   `origin_long` VARCHAR(255) NULL ,
+  `nodulation_type` VARCHAR(255) NULL ,
+  `nodulation_information` TEXT NULL ,
+  `nodulator_species` VARCHAR(255) NULL ,
+  `nodulator_taxon_id` VARCHAR(255) NULL ,
   `flowering_type` VARCHAR(255) NULL ,
   `flowering_information` TEXT NULL ,
   `pollination_type` VARCHAR(255) NULL ,
@@ -235,6 +239,22 @@ CREATE  TABLE IF NOT EXISTS `pathogens` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `pages`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `pages` ;
+
+CREATE  TABLE IF NOT EXISTS `pages` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `title` VARCHAR(255) NULL ,
+  `body` TEXT NULL ,
+  `updated_at` DATETIME NULL ,
+  `user_id` INT NULL ,
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `title_UNIQUE` (`title` ASC) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -257,24 +277,24 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO legumes (`id`, `name`) VALUES (1, 'Arachis hypogaea (peanut)');
-INSERT INTO legumes (`id`, `name`) VALUES (2, 'Cajanus cajan (pigeon pea)');
-INSERT INTO legumes (`id`, `name`) VALUES (3, 'Cicer arietinum (chickpea)');
-INSERT INTO legumes (`id`, `name`) VALUES (4, 'Glycine max (soybean)');
-INSERT INTO legumes (`id`, `name`) VALUES (5, 'Lens culinaris (lentil)');
-INSERT INTO legumes (`id`, `name`) VALUES (6, 'Lotus japonicus (bridsfoot trefoil)');
-INSERT INTO legumes (`id`, `name`) VALUES (7, 'Lupinus angustifolius (blue lupin)');
-INSERT INTO legumes (`id`, `name`) VALUES (8, 'Medicago sativa (alfalfa)');
-INSERT INTO legumes (`id`, `name`) VALUES (9, 'Medicago truncatula (barrel medic)');
-INSERT INTO legumes (`id`, `name`) VALUES (10, 'Pisum sativum (garden pea)');
-INSERT INTO legumes (`id`, `name`) VALUES (11, 'Phaseolus coccineus (scarlet runner bean)');
-INSERT INTO legumes (`id`, `name`) VALUES (12, 'Phaseolus vulgaris (common bean)');
-INSERT INTO legumes (`id`, `name`) VALUES (13, 'Vicia faba (broad bean)');
-INSERT INTO legumes (`id`, `name`) VALUES (14, 'Vigna radiata (mung bean)');
-INSERT INTO legumes (`id`, `name`) VALUES (15, 'Vigna unguiculata (cowpea)');
-INSERT INTO legumes (`id`, `name`) VALUES (16, 'Chamaecrista fasciculata (partridge pea)');
-INSERT INTO legumes (`id`, `name`) VALUES (17, 'Lupinus albus (white lupin)');
-INSERT INTO legumes (`id`, `name`) VALUES (18, 'Trifolium pratense (red clover)');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (1, 'Arachis hypogaea (peanut)', 'arahy');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (2, 'Cajanus cajan (pigeon pea)', 'cajca');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (3, 'Cicer arietinum (chickpea)', 'cicar');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (4, 'Glycine max (soybean)', 'glyma');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (5, 'Lens culinaris (lentil)', 'lencu');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (6, 'Lotus japonicus (bridsfoot trefoil)', 'lotja');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (7, 'Lupinus angustifolius (blue lupin)', 'lupan');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (8, 'Medicago sativa (alfalfa)', 'medsa');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (9, 'Medicago truncatula (barrel medic)', 'medtr');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (10, 'Pisum sativum (garden pea)', 'pea');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (11, 'Phaseolus coccineus (scarlet runner bean)', 'phacn');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (12, 'Phaseolus vulgaris (common bean)', 'phavu');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (13, 'Vicia faba (broad bean)', 'vicfa');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (14, 'Vigna radiata (mung bean)', 'vigra');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (15, 'Vigna unguiculata (cowpea)', 'vigun');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (16, 'Chamaecrista fasciculata (partridge pea)', 'chafs');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (17, 'Lupinus albus (white lupin)', 'lupal');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (18, 'Trifolium pratense (red clover)', 'tripr');
 
 COMMIT;
 
@@ -301,6 +321,20 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lotja_contents (`id`, `overview`, `season`, `economic_type`, `economic_importance`, `nodulation_type`, `nodulation_information`, `scientific_importance`, `origin_lat`, `origin_long`, `flowering_type`, `flowering_information`, `pollination_type`, `pollination_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `genome_summary`, `chromosomes`, `genome_size`, `ploidy`, `ploidy_type`, `gc_content_genome`, `gc_content_transcriptome`, `chloroplast_genome_size`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_accession_number`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
+INSERT INTO lotja_contents (`id`, `overview`, `season`, `economic_type`, `economic_importance`, `scientific_importance`, `origin_lat`, `origin_long`, `nodulation_type`, `nodulation_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_information`, `pollination_type`, `pollination_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `genome_summary`, `chromosomes`, `genome_size`, `ploidy`, `ploidy_type`, `gc_content_genome`, `gc_content_transcriptome`, `chloroplast_genome_size`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_accession_number`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `pages`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (1, 'about', NULL, NULL, NULL);
+INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (2, 'collaborators', NULL, NULL, NULL);
+INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (3, 'links', NULL, NULL, NULL);
+INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (4, 'participating_groups', NULL, NULL, NULL);
+INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (5, 'species', NULL, NULL, NULL);
+INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;

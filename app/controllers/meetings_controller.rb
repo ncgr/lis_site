@@ -8,7 +8,6 @@ class MeetingsController < ApplicationController
   
   def index
     order_by = check_kaminari_sort(Meeting, params[:sort], params[:dir])
-    order_by = Meeting::DEFAULT_ORDER if order_by.nil?
     @meetings = Meeting.order(order_by).page(params[:page])
   end
   

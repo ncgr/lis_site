@@ -9,7 +9,6 @@ class UserProfilesController < ApplicationController
   #
   def index
     order_by = check_kaminari_sort(User, params[:sort], params[:dir])
-    order_by = User::DEFAULT_ORDER if order_by.nil?
     @profiles = User.order(order_by).includes(:roles).page(params[:page])
   end
 
