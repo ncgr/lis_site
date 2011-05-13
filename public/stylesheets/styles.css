@@ -271,11 +271,6 @@ ol.web li {
 }
 
 /*** Phylogenetic Tree ***/
-#tree {
-	maring: 0 0 10px 0;
-	width: 100%;
-	height: auto;
-}
 
 #tree-container {
     margin: 20px 0 10px 10px;
@@ -297,7 +292,7 @@ ol.web li {
 	padding: 0;
 	width: 100%;
 	position: relative;
-	height: 280px;
+	height: 300px;
 }
 
 /*** End Tree ***/
