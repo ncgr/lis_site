@@ -9,8 +9,10 @@
 			<th><%= kaminari_sort_by(:meetings_path, "End Date") %></th>
 			<th>Action</th>
     	</tr>
+		<% i = 1 %>
 		<% @meetings.each do |m| %>
-            <tr>
+		    <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
+            <tr class="<%= style %>">
             	<td><%= m.title %></td>
             	<td><%= m.start_date %></td>
             	<td><%= m.end_date %></td>
@@ -19,6 +21,7 @@
 					<%= link_to "Delete", meeting_path(m), :method => :delete, :confirm => 'Are you sure?' %>
 				</td>
             </tr>
+			<% i += 1 %>
         <% end %>
     </table>
 <% else %>
