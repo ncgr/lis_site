@@ -14,7 +14,6 @@ CREATE  TABLE IF NOT EXISTS `development_activities` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `body` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `date` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
-  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -282,7 +281,7 @@ INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (2, 'Cajanus cajan (pige
 INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (3, 'Cicer arietinum (chickpea)', 'cicar');
 INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (4, 'Glycine max (soybean)', 'glyma');
 INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (5, 'Lens culinaris (lentil)', 'lencu');
-INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (6, 'Lotus japonicus (bridsfoot trefoil)', 'lotja');
+INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (6, 'Lotus japonicus (birdsfoot trefoil)', 'lotja');
 INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (7, 'Lupinus angustifolius (blue lupin)', 'lupan');
 INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (8, 'Medicago sativa (alfalfa)', 'medsa');
 INSERT INTO legumes (`id`, `name`, `short_name`) VALUES (9, 'Medicago truncatula (barrel medic)', 'medtr');
