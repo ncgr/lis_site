@@ -12,4 +12,7 @@ gem 'declarative_authorization', '~> 0.5.2'
 
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'rspec-rails', '~> 2.5'
+  gem 'factory_girl_rails', '~> 1.1.beta1'
 end
+
