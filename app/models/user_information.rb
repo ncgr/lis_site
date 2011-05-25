@@ -65,7 +65,7 @@ class UserInformation < ActiveRecord::Base
   #
   def set_user_role
     role = Role.where({:name => "system_user"}).first
-    raise "Error: unable to find role: system_user" unless role
+    raise RuntimeError, "Error: unable to find role: system_user" unless role
     user_role = UserRole.new
     user_role.role_id = role.id
     user_role.user_id = self.id
