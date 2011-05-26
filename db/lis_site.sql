@@ -254,6 +254,24 @@ CREATE  TABLE IF NOT EXISTS `pages` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `sessions`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sessions` ;
+
+CREATE  TABLE IF NOT EXISTS `sessions` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `session_id` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
+  `data` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
+  `created_at` DATETIME NULL DEFAULT NULL ,
+  `updated_at` DATETIME NULL DEFAULT NULL ,
+  PRIMARY KEY (`id`) ,
+  INDEX `index_sessions_on_session_id` (`session_id` ASC) ,
+  INDEX `index_sessions_on_updated_at` (`updated_at` ASC) )
+ENGINE = InnoDB
+AUTO_INCREMENT = 4;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -25,9 +25,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  ##################
-  # Added by kas
-  ##################
+  ## Added by KAS ##
 
   # Controller Macros
   config.extend ControllerMacros, :type => :controller
