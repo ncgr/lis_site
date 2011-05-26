@@ -47,18 +47,14 @@ module ControllerMacros
     end
   end
   
+  # 
+  # Default role is set to system_user in UserInformation after_create.
+  #
   def login_system_user
     before(:each) do
       @request.env["devise.mapping"] = Devise.mappings[:user]
       @user = Factory.create(:user_information)
       @user = User.find(@user.id)
-
-      # Set role to system_user ## default
-      role = Role.where({:name => "system_user"}).first
-      added = []
-      added << {:user_id => @user.id, :role_id => role.id}
-      UserRole.create!(added)
-
       sign_in @user
     end
   end

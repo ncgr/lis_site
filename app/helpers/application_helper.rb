@@ -58,8 +58,8 @@ module ApplicationHelper
     dir = (params[:dir].downcase == "desc") ? "asc" : "desc"
     
     if params[:dir] && col == params[:sort]
-        up = " <img src=/images/up_arrow.png alt="" />"
-        down = " <img src=/images/down_arrow.png alt="" />"
+        up = image_tag("asc_arrow.png")
+        down = image_tag("desc_arrow.png")
         title = (dir == "desc") ? title + up : title + down
     end
     
