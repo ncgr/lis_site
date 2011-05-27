@@ -268,8 +268,7 @@ CREATE  TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`id`) ,
   INDEX `index_sessions_on_session_id` (`session_id` ASC) ,
   INDEX `index_sessions_on_updated_at` (`updated_at` ASC) )
-ENGINE = InnoDB
-AUTO_INCREMENT = 4;
+ENGINE = InnoDB;
 
 
 
