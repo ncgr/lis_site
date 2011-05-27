@@ -10,6 +10,13 @@ describe UserInformation do
     UserInformation.count.should == 0
   end
   
+  it "fails validation with no params (using error_on)" do
+    UserInformation.new.should have(1).error_on(:username)
+    UserInformation.new.should have(1).error_on(:password)
+    UserInformation.new.should have(1).error_on(:first_name)
+    UserInformation.new.should have(1).error_on(:last_name)
+  end
+  
   it "fails validation with no username (using errors_on)" do
     Factory.build(:user_information,
       :username               => nil,
@@ -86,5 +93,11 @@ describe UserInformation do
     Factory.create(:user_information)
     @user = UserInformation.first
     @user.should respond_to(:email)
+  end
+  
+  it "fails validation on username unique (using errors_on)" do
+    lambda { 
+      Factory.create(:user_information)
+    }.should raise_error
   end
 end
