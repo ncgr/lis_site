@@ -11,7 +11,7 @@ describe NewsArticlesController do
   end
 
   describe "GET index without logging in" do
-    it "redirects to home page" do
+    it "should get index" do
       get :index
       response.should be_success
     end
