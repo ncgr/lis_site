@@ -17,6 +17,8 @@ tar czf lis_site-release.tar.gz \
     lis_site/README \
     lis_site/script \
     lis_site/test \
+    lis_site/.rspec \
+    lis_site/spec \
     lis_site/vendor 
 
 # omitted files:

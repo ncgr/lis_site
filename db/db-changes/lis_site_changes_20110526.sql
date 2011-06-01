@@ -18,11 +18,7 @@ CHANGE nodulation_information nodulation_type_information TEXT ,
 CHANGE flowering_information flowering_type_information TEXT ,
 CHANGE pollination_information pollination_type_information TEXT ; 
 
-INSERT INTO `pages` SET id = 6, title = 'welcome' body = '<h4>Welcome</h4>
-<p>
-    The mission of LIS is to facilitate discoveries and crop improvement in the legumes -- critical components of global agriculture. Please send us your questions, suggestions, and contributions!<br />
-    <a href="mailto:lis_feedback@ncgr.org?subject=LIS%20Site%20Feedback">lis_feedback@ncgr.org</a>
-</p>' ;
+INSERT INTO `pages` SET id = 6, title = 'welcome', body = '<h4>Welcome</h4><p>The mission of LIS is to facilitate discoveries and crop improvement in the legumes -- critical components of global agriculture. Please send us your questions, suggestions, and contributions!<br /><a href="mailto:lis_feedback@ncgr.org?subject=LIS%20Site%20Feedback">lis_feedback@ncgr.org</a></p>' ;
 
 ALTER TABLE `users`
 DROP COLUMN `invitation_token` ,
