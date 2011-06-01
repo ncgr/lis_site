@@ -1,9 +1,5 @@
 <% content_for :rightcol do %>
-	<h4>Welcome</h4>
-	<p>The mission of LIS is to facilitate discoveries and crop improvement in the legumes -- 
-	critical components of global agriculture. Please send us your questions, suggestions, 
-	and contributions! 
-	<%= mail_to "lis_feedback@ncgr.org", "lis_feedback@ncgr.org", :encode => "javascript" %></p>
+	<%= raw(@welcome.body) %>
 	<hr />
 	<h4>Meetings</h4>
 	<% unless @meetings.blank? %>

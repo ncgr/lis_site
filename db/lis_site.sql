@@ -93,17 +93,10 @@ CREATE  TABLE IF NOT EXISTS `users` (
   `updated_at` DATETIME NULL DEFAULT NULL ,
   `first_name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   `last_name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
-  `invitation_token` VARCHAR(60) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
-  `invitation_sent_at` DATETIME NULL DEFAULT NULL ,
-  `invitation_limit` INT(11) NULL DEFAULT NULL ,
-  `invited_by_id` INT(11) NULL DEFAULT NULL ,
-  `invited_by_type` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `index_users_on_username` (`username` ASC) ,
   UNIQUE INDEX `index_users_on_reset_password_token` (`reset_password_token` ASC) ,
-  UNIQUE INDEX `index_users_on_unlock_token` (`unlock_token` ASC) ,
-  INDEX `index_users_on_invitation_token` (`invitation_token` ASC) ,
-  INDEX `index_users_on_invited_by_id` (`invited_by_id` ASC) )
+  UNIQUE INDEX `index_users_on_unlock_token` (`unlock_token` ASC) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
@@ -187,19 +180,17 @@ CREATE  TABLE IF NOT EXISTS `lotja_contents` (
   `id` INT NOT NULL ,
   `overview` TEXT NULL ,
   `season` VARCHAR(255) NULL ,
-  `economic_type` VARCHAR(255) NULL ,
-  `economic_importance` TEXT NULL ,
   `scientific_importance` TEXT NULL ,
   `origin_lat` VARCHAR(255) NULL ,
   `origin_long` VARCHAR(255) NULL ,
   `nodulation_type` VARCHAR(255) NULL ,
-  `nodulation_information` TEXT NULL ,
+  `nodulation_type_information` TEXT NULL ,
   `nodulator_species` VARCHAR(255) NULL ,
   `nodulator_taxon_id` VARCHAR(255) NULL ,
   `flowering_type` VARCHAR(255) NULL ,
-  `flowering_information` TEXT NULL ,
+  `flowering_type_information` TEXT NULL ,
   `pollination_type` VARCHAR(255) NULL ,
-  `pollination_information` TEXT NULL ,
+  `pollination_type_information` TEXT NULL ,
   `self_incompatibility` VARCHAR(255) NULL ,
   `inbreeding` VARCHAR(255) NULL ,
   `wiki_link` VARCHAR(255) NULL ,
@@ -337,7 +328,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lotja_contents (`id`, `overview`, `season`, `economic_type`, `economic_importance`, `scientific_importance`, `origin_lat`, `origin_long`, `nodulation_type`, `nodulation_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_information`, `pollination_type`, `pollination_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `genome_summary`, `chromosomes`, `genome_size`, `ploidy`, `ploidy_type`, `gc_content_genome`, `gc_content_transcriptome`, `chloroplast_genome_size`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_accession_number`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
+INSERT INTO lotja_contents (`id`, `overview`, `season`, `scientific_importance`, `origin_lat`, `origin_long`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `genome_summary`, `chromosomes`, `genome_size`, `ploidy`, `ploidy_type`, `gc_content_genome`, `gc_content_transcriptome`, `chloroplast_genome_size`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_accession_number`, `resources`, `selected_references`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
 
 COMMIT;
 
@@ -351,6 +342,6 @@ INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (2, 'c
 INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (3, 'links', NULL, NULL, NULL);
 INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (4, 'participating_groups', NULL, NULL, NULL);
 INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (5, 'species', NULL, NULL, NULL);
-INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (NULL, NULL, NULL, NULL, NULL);
+INSERT INTO pages (`id`, `title`, `body`, `updated_at`, `user_id`) VALUES (6, 'welcome', NULL, NULL, NULL);
 
 COMMIT;

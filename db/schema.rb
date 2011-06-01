@@ -28,19 +28,17 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table "lotja_contents", :force => true do |t|
     t.text     "overview"
     t.string   "season"
-    t.string   "economic_type"
-    t.text     "economic_importance"
     t.text     "scientific_importance"
     t.string   "origin_lat"
     t.string   "origin_long"
     t.string   "nodulation_type"
-    t.text     "nodulation_information"
+    t.text     "nodulation_type_information"
     t.string   "nodulator_species"
     t.string   "nodulator_taxon_id"
     t.string   "flowering_type"
-    t.text     "flowering_information"
+    t.text     "flowering_type_information"
     t.string   "pollination_type"
-    t.text     "pollination_information"
+    t.text     "pollination_type_information"
     t.string   "self_incompatibility"
     t.string   "inbreeding"
     t.string   "wiki_link"
@@ -149,15 +147,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "invitation_token",     :limit => 60
-    t.datetime "invitation_sent_at"
-    t.integer  "invitation_limit"
-    t.integer  "invited_by_id"
-    t.string   "invited_by_type"
   end
 
-  add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
-  add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
