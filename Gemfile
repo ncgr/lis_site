@@ -7,12 +7,13 @@ gem 'kaminari', '~> 0.11.0'
 gem 'truncate_html', '~> 0.5.0'
 gem 'devise', '~> 1.2.1'
 gem 'rubycas-client', '~> 2.2.1'
-gem 'devise_cas_authenticatable'
+gem 'devise_cas_authenticatable', '1.0.0.alpha6'
 gem 'declarative_authorization', '~> 0.5.2'
 
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rspec-rails', '~> 2.5'
   gem 'factory_girl_rails', '~> 1.1.beta1'
+  gem 'rcov'
 end
 

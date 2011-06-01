@@ -3,3 +3,4 @@ tmp/
 .tmp_*
 *.log
 vendor/plugins/
+coverage/
