@@ -71,7 +71,6 @@ describe NewsArticlesController do
     login_superuser
     before(:each) do
       @news_article = Factory.build(:news_article)
-      NewsArticle.stub!(:find).with("21").and_return(@news_article)
       NewsArticle.should_receive(:find).with("21").and_return(@news_article)
     end
     it "should find news_article and return object" do

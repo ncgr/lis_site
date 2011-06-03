@@ -81,7 +81,6 @@ describe UserProfilesController do
     login_superuser
     before(:each) do
       @user = Factory.build(:user_information)
-      User.stub!(:find).with("7").and_return(@user)
       User.should_receive(:find).with("7").and_return(@user)
     end
     it "should find user and return object" do
