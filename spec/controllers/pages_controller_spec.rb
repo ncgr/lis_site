@@ -60,7 +60,6 @@ describe PagesController do
     login_superuser
     before(:each) do
       @page = Factory.build(:page)
-      Page.stub!(:find).with("1").and_return(@page)
       Page.should_receive(:find).with("1").and_return(@page)
     end
     it "should find meeting and return object" do

@@ -89,7 +89,6 @@ describe MeetingsController do
     login_superuser
     before(:each) do
       @meeting = Factory.build(:meeting)
-      Meeting.stub!(:find).with("1").and_return(@meeting)
       Meeting.should_receive(:find).with("1").and_return(@meeting)
     end
     it "should find meeting and return object" do
