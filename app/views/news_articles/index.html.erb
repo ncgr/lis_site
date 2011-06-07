@@ -12,11 +12,13 @@
 		<div style="clear: both;"></div>
 		<%= truncate_html(n.body, :length => 500) %>
 		<p class="small_right"><%= link_to raw("Read More &raquo;"), news_article_path(n) %></p>
-	   <p>
-	   	   <%= link_to "Edit", edit_news_article_path(n) if permitted_to? :edit, :news_articles %> | 
-		   <%= link_to "Delete", news_article_path(n), :method => :delete, 
-                :confirm => 'Are you sure?' if permitted_to? :destroy, :news_articles %>
-	   </p>
+		<% permitted_to?(:edit, :news_articles) && permitted_to?(:destroy, :news_articles) do %>
+		    <p>
+		   	   <%= link_to "Edit", edit_news_article_path(n) %> | 
+			   <%= link_to "Delete", news_article_path(n), :method => :delete, 
+	                :confirm => 'Are you sure?' %>
+		    </p>
+		<% end %>
 		<% if i < num %>
 			<hr />
 		<% end; i += 1 %>
