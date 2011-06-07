@@ -58,6 +58,14 @@ describe NewsArticlesController do
       response.should render_template('new')
     end
   end
+  
+  describe "GET new while logged in as admin" do
+    login_admin
+    it "should get new" do
+      get :new
+      response.should render_template('new')
+    end
+  end
 
   describe "POST new while logged in as superuser" do
     login_superuser
@@ -66,8 +74,16 @@ describe NewsArticlesController do
       response.should be_success
     end
   end
+  
+  describe "POST new while logged in as admin" do
+    login_admin
+    it "should create new object" do
+      post :create, :news_article => Factory.build(:news_article)
+      response.should be_success
+    end
+  end
 
-  describe "PUT news_article while logged in as superuser" do
+  describe "Edit and Update news_article while logged in as superuser" do
     login_superuser
     before(:each) do
       @news_article = Factory.build(:news_article)
@@ -82,6 +98,22 @@ describe NewsArticlesController do
       response.should be_redirect
     end
   end
+  
+  describe "Edit and Update news_article while logged in as admin" do
+    login_admin
+    before(:each) do
+      @news_article = Factory.build(:news_article)
+      NewsArticle.should_receive(:find).with("213").and_return(@news_article)
+    end
+    it "should find news_article and return object" do
+      get :edit, :id => "213"
+      response.should render_template('edit')
+    end
+    it "should update object" do
+      put :update, :id => "213", :news_article => {} 
+      response.should be_redirect
+    end
+  end
 
   describe "DELETE news_article while logged in as superuser" do
     login_superuser
@@ -91,6 +123,18 @@ describe NewsArticlesController do
     end
     it "should destroy object" do
       delete :destroy, :id => "11"
+      response.should be_redirect
+    end
+  end
+  
+  describe "DELETE news_article while logged in as admin" do
+    login_admin
+    before(:each) do
+      NewsArticle.stub!(:find).with("111") { mock_news_article }
+      mock_news_article.should_receive(:destroy).and_return(true)
+    end
+    it "should destroy object" do
+      delete :destroy, :id => "111"
       response.should be_redirect
     end
   end

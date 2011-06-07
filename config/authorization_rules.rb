@@ -24,6 +24,9 @@ authorization do
   role :admin do
     includes :base
     has_permission_on :user_profiles, :to => [:read]
+    has_permission_on :news_articles, :to => [:manage]
+    has_permission_on :meetings,      :to => [:manage]
+    has_permission_on :pages,         :to => [:manage]
   end
 
   role :editor do

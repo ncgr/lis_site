@@ -29,12 +29,7 @@ describe Meeting do
   end
   
   it "has one record" do
-    Meeting.create!(
-      :title => "one", 
-      :url => "http://google.com", 
-      :start_date => "2001-01-01",
-      :end_date => "2001-01-01"
-    )
+    Factory.create(:meeting)
     Meeting.count.should == 1
   end
 end

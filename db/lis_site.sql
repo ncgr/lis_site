@@ -180,7 +180,6 @@ CREATE  TABLE IF NOT EXISTS `lotja_contents` (
   `id` INT NOT NULL ,
   `overview` TEXT NULL ,
   `taxon_id` VARCHAR(255) NULL ,
-  `season` VARCHAR(255) NULL ,
   `scientific_importance` TEXT NULL ,
   `origin_lat` VARCHAR(255) NULL ,
   `origin_long` VARCHAR(255) NULL ,
@@ -261,7 +260,6 @@ CREATE  TABLE IF NOT EXISTS `lotja_genome_summaries` (
   `chromosomes` VARCHAR(255) NULL ,
   `genome_size` VARCHAR(255) NULL ,
   `genome_size_information` TEXT NULL ,
-  `ploidy` VARCHAR(255) NULL ,
   `ploidy_type` VARCHAR(255) NULL ,
   `gc_content_genome` VARCHAR(255) NULL ,
   `gc_content_genome_information` TEXT NULL ,
@@ -370,7 +368,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lotja_contents (`id`, `overview`, `taxon_id`, `season`, `scientific_importance`, `origin_lat`, `origin_long`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
+INSERT INTO lotja_contents (`id`, `overview`, `taxon_id`, `scientific_importance`, `origin_lat`, `origin_long`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
 
 COMMIT;
 
@@ -393,7 +391,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lotja_genome_summaries (`id`, `genome_summary`, `chromosomes`, `genome_size`, `genome_size_information`, `ploidy`, `ploidy_type`, `gc_content_genome`, `gc_content_genome_information`, `gc_content_transcriptome`, `gc_content_transcriptome_information`, `chloroplast_genome_size`, `chloroplast_genome_size_information`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_genome_size_information`, `mitochondria_accession_number`, `lotja_content_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO lotja_genome_summaries (`id`, `genome_summary`, `chromosomes`, `genome_size`, `genome_size_information`, `ploidy_type`, `gc_content_genome`, `gc_content_genome_information`, `gc_content_transcriptome`, `gc_content_transcriptome_information`, `chloroplast_genome_size`, `chloroplast_genome_size_information`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_genome_size_information`, `mitochondria_accession_number`, `lotja_content_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 
 COMMIT;
 

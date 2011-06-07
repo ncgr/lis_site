@@ -6,7 +6,7 @@ describe DevelopmentActivity do
   end
   
   it "has one record" do
-    DevelopmentActivity.create!(:body => "test one", :date => Date.parse("2011-01-01"))
+    Factory.create(:development_activity)
     DevelopmentActivity.count.should == 1
   end
 end

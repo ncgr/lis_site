@@ -47,9 +47,9 @@ describe MeetingsController do
 
   describe "GET index while logged in as admin" do
     login_admin
-    it "redirects to home page" do
+    it "should get index" do
       get :index
-      response.should be_redirect
+      response.should be_success
     end
   end
 
@@ -76,6 +76,14 @@ describe MeetingsController do
       response.should render_template('new')
     end
   end
+  
+  describe "GET new while logged in as admin" do
+    login_admin
+    it "should get new" do
+      get :new
+      response.should render_template('new')
+    end
+  end
 
   describe "POST new while logged in as superuser" do
     login_superuser
@@ -84,8 +92,16 @@ describe MeetingsController do
       response.should be_success
     end
   end
+  
+  describe "POST new while logged in as admin" do
+    login_admin
+    it "should create new object" do
+      post :create, :meeting => Factory.build(:meeting)
+      response.should be_success
+    end
+  end
 
-  describe "PUT meeting while logged in as superuser" do
+  describe "Edit and Update meeting while logged in as superuser" do
     login_superuser
     before(:each) do
       @meeting = Factory.build(:meeting)
@@ -101,14 +117,42 @@ describe MeetingsController do
     end
   end
 
+  describe "Edit and Update meeting while logged in as admin" do
+    login_admin
+    before(:each) do
+      @meeting = Factory.build(:meeting)
+      Meeting.should_receive(:find).with("51").and_return(@meeting)
+    end
+    it "should find meeting and return object" do
+      get :edit, :id => "51"
+      response.should render_template('edit')
+    end
+    it "should update object" do
+      put :update, :id => "51", :meeting => {}
+      response.should be_redirect
+    end
+  end
+
   describe "DELETE meeting while logged in as superuser" do
     login_superuser
     before(:each) do
-      Meeting.stub!(:find).with("1") { mock_meeting }
+      Meeting.stub!(:find).with("15") { mock_meeting }
       mock_meeting.should_receive(:destroy).and_return(true)
     end
     it "should destroy object" do
-      delete :destroy, :id => "1"
+      delete :destroy, :id => "15"
+      response.should be_redirect
+    end
+  end
+  
+  describe "DELETE meeting while logged in as admin" do
+    login_admin
+    before(:each) do
+      Meeting.stub!(:find).with("18") { mock_meeting }
+      mock_meeting.should_receive(:destroy).and_return(true)
+    end
+    it "should destroy object" do
+      delete :destroy, :id => "18"
       response.should be_redirect
     end
   end
