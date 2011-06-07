@@ -6,7 +6,7 @@ describe Legume do
   end
   
   it "has one record" do
-    Legume.create!(:name => "legume", :short_name => "leg")
+    Factory.create(:legume)
     Legume.count.should == 1
   end
 end

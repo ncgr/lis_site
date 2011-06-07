@@ -23,9 +23,9 @@ describe PagesController do
 
   describe "GET index while logged in as admin" do
     login_admin
-    it "redirects to home page" do
+    it "should get index" do
       get :index
-      response.should be_redirect
+      response.should be_success
     end
   end
 
@@ -56,7 +56,7 @@ describe PagesController do
     end
   end
 
-  describe "PUT meeting while logged in as superuser" do
+  describe "Edit and Update page while logged in as superuser" do
     login_superuser
     before(:each) do
       @page = Factory.build(:page)
@@ -68,6 +68,22 @@ describe PagesController do
     end
     it "should update object" do
       put :update, :id => "1", :page => {}
+      response.should be_redirect
+    end
+  end
+  
+  describe "Edit and Update page while logged in as admin" do
+    login_admin
+    before(:each) do
+      @page = Factory.build(:page)
+      Page.should_receive(:find).with("14").and_return(@page)
+    end
+    it "should find meeting and return object" do
+      get :edit, :id => "14"
+      response.should render_template('edit')
+    end
+    it "should update object" do
+      put :update, :id => "14", :page => {}
       response.should be_redirect
     end
   end
