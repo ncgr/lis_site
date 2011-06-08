@@ -180,7 +180,7 @@ CREATE  TABLE IF NOT EXISTS `lotja_contents` (
   `id` INT NOT NULL ,
   `overview` TEXT NULL ,
   `taxon_id` VARCHAR(255) NULL ,
-  `scientific_importance` TEXT NULL ,
+  `special_interest` TEXT NULL ,
   `origin_lat` VARCHAR(255) NULL ,
   `origin_long` VARCHAR(255) NULL ,
   `nodulation_type` VARCHAR(255) NULL ,
@@ -277,19 +277,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lotja_resources`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `lotja_resources` ;
-
-CREATE  TABLE IF NOT EXISTS `lotja_resources` (
-  `id` INT NOT NULL ,
-  `resources` TEXT NULL ,
-  `lotja_content_id` INT NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `lotja_selected_references`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `lotja_selected_references` ;
@@ -298,6 +285,39 @@ CREATE  TABLE IF NOT EXISTS `lotja_selected_references` (
   `id` INT NOT NULL ,
   `selected_references` TEXT NULL ,
   `lotja_content_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `reference_datasets`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `reference_datasets` ;
+
+CREATE  TABLE IF NOT EXISTS `reference_datasets` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `legume_id` INT NOT NULL ,
+  `reference_dataset_type` VARCHAR(255) NULL ,
+  `description` VARCHAR(255) NULL ,
+  `source` VARCHAR(255) NULL ,
+  `url` VARCHAR(255) NULL ,
+  `is_public` TINYINT NULL DEFAULT 1 ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `resources`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `resources` ;
+
+CREATE  TABLE IF NOT EXISTS `resources` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `legume_id` INT NOT NULL ,
+  `resource_type` VARCHAR(255) NULL ,
+  `description` VARCHAR(255) NULL ,
+  `url` VARCHAR(255) NULL ,
+  `is_public` TINYINT NULL DEFAULT 1 ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -368,7 +388,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lotja_contents (`id`, `overview`, `taxon_id`, `scientific_importance`, `origin_lat`, `origin_long`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
+INSERT INTO lotja_contents (`id`, `overview`, `taxon_id`, `special_interest`, `origin_lat`, `origin_long`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `file_name`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
 
 COMMIT;
 
@@ -392,15 +412,6 @@ COMMIT;
 START TRANSACTION;
 USE `lis_rails`;
 INSERT INTO lotja_genome_summaries (`id`, `genome_summary`, `chromosomes`, `genome_size`, `genome_size_information`, `ploidy_type`, `gc_content_genome`, `gc_content_genome_information`, `gc_content_transcriptome`, `gc_content_transcriptome_information`, `chloroplast_genome_size`, `chloroplast_genome_size_information`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_genome_size_information`, `mitochondria_accession_number`, `lotja_content_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
-
-COMMIT;
-
--- -----------------------------------------------------
--- Data for table `lotja_resources`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `lis_rails`;
-INSERT INTO lotja_resources (`id`, `resources`, `lotja_content_id`) VALUES (1, NULL, 1);
 
 COMMIT;
 
