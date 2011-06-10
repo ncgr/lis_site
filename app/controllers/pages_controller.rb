@@ -32,8 +32,4 @@ class PagesController < ApplicationController
     end
   end
   
-  def legume_origins
-    @legumes = Legume.where({:short_name => "lotja"}).all
-  end
-
 end

@@ -229,6 +229,10 @@ ol.web li {
 	padding: 0 0 0 5px;
 }
 
+.grey {
+	color: #c0c0c0;
+}
+
 #main {
 	margin-top: 10px;
 	margin-bottom: 20px;
@@ -273,7 +277,7 @@ ol.web li {
 /*** Phylogenetic Tree ***/
 
 #tree-container {
-    margin: 20px 0 10px 10px;
+    margin: 0 0 10px 10px;
 	padding: 0;
 	width: 350px;
 	float: left;

@@ -17,6 +17,50 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string "date"
   end
 
+  create_table "glyma_contents", :force => true do |t|
+    t.text     "overview"
+    t.string   "taxon_id"
+    t.text     "special_interest"
+    t.string   "nodulation_type"
+    t.text     "nodulation_type_information"
+    t.string   "nodulator_species"
+    t.string   "nodulator_taxon_id"
+    t.string   "flowering_type"
+    t.text     "flowering_type_information"
+    t.string   "pollination_type"
+    t.text     "pollination_type_information"
+    t.string   "self_incompatibility"
+    t.string   "inbreeding"
+    t.string   "wiki_link"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "legume_id",                    :null => false
+  end
+
+  create_table "glyma_genome_summaries", :force => true do |t|
+    t.text    "genome_summary"
+    t.string  "chromosomes"
+    t.string  "genome_size"
+    t.text    "genome_size_information"
+    t.string  "ploidy_type"
+    t.string  "gc_content_genome"
+    t.text    "gc_content_genome_information"
+    t.string  "gc_content_transcriptome"
+    t.text    "gc_content_transcriptome_information"
+    t.string  "chloroplast_genome_size"
+    t.text    "chloroplast_genome_size_information"
+    t.string  "chloroplast_accession_number"
+    t.string  "mitochondria_genome_size"
+    t.text    "mitochondria_genome_size_information"
+    t.string  "mitochondria_accession_number"
+    t.integer "glyma_content_id",                     :null => false
+  end
+
+  create_table "glyma_selected_references", :force => true do |t|
+    t.text    "selected_references"
+    t.integer "glyma_content_id",    :null => false
+  end
+
   create_table "legumes", :force => true do |t|
     t.string "name",       :null => false
     t.string "short_name", :null => false
@@ -29,8 +73,6 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "taxon_id"
     t.text     "overview"
     t.text     "special_interest"
-    t.string   "origin_lat"
-    t.string   "origin_long"
     t.string   "nodulation_type"
     t.text     "nodulation_type_information"
     t.string   "nodulator_species"
@@ -40,9 +82,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "pollination_type"
     t.text     "pollination_type_information"
     t.string   "self_incompatibility"
-    t.string   "inbreeding"
     t.string   "wiki_link"
-    t.string   "file_name"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "legume_id",                    :null => false
@@ -74,12 +114,45 @@ ActiveRecord::Schema.define(:version => 0) do
 
   create_table "medtr_contents", :force => true do |t|
     t.text     "overview"
-    t.text     "genome_summary"
-    t.text     "resources"
-    t.text     "selected_references"
-    t.string   "file_name"
+    t.string   "taxon_id"
+    t.text     "special_interest"
+    t.string   "nodulation_type"
+    t.text     "nodulation_type_information"
+    t.string   "nodulator_species"
+    t.string   "nodulator_taxon_id"
+    t.string   "flowering_type"
+    t.text     "flowering_type_information"
+    t.string   "pollination_type"
+    t.text     "pollination_type_information"
+    t.string   "self_incompatibility"
+    t.string   "wiki_link"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "legume_id",                    :null => false
+  end
+
+  create_table "medtr_genome_summaries", :force => true do |t|
+    t.text    "genome_summary"
+    t.string  "chromosomes"
+    t.string  "genome_size"
+    t.text    "genome_size_information"
+    t.string  "ploidy_type"
+    t.string  "gc_content_genome"
+    t.text    "gc_content_genome_information"
+    t.string  "gc_content_transcriptome"
+    t.text    "gc_content_transcriptome_information"
+    t.string  "chloroplast_genome_size"
+    t.text    "chloroplast_genome_size_information"
+    t.string  "chloroplast_accession_number"
+    t.string  "mitochondria_genome_size"
+    t.text    "mitochondria_genome_size_information"
+    t.string  "mitochondria_accession_number"
+    t.integer "medtr_content_id",                     :null => false
+  end
+
+  create_table "medtr_selected_references", :force => true do |t|
+    t.text    "selected_references"
+    t.integer "medtr_content_id",    :null => false
   end
 
   create_table "meetings", :force => true do |t|
