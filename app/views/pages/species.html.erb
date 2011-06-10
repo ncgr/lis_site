@@ -20,18 +20,3 @@
 </script>
 
 <div style="clear: both;"></div>
-
-<h3>Origins of Diversity</h3>
-<div id="species-map"></div>
-
-<% if Rails.env.production? %>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA4wAmhxg-Q3-a9xRXziHTNBRzwF7mj-HdfUCsromzsrVn_x2z1RSwT8jRBRm5FviNHw5RorqBR816Rw" 
-        type="text/javascript">
-    </script>
-<% else %>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA4wAmhxg-Q3-a9xRXziHTNBSvYsv58hxf4Prj2Ygf7ubNN4YMixRjoz7Gj88A-SmDDlxaelSU8rCrLg" 
-        type="text/javascript">
-    </script>
-<% end %>
-
-<script type="text/javascript" src="/javascripts/googlemap.js"></script>

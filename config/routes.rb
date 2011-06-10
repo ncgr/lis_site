@@ -19,16 +19,9 @@ LisSite::Application.routes.draw do
       get :manage_roles
       put :update_roles
     end
-    collection do
-      get :invitations 
-    end
   end
 
-  resources :pages, :only => [:index, :show, :edit, :update] do
-    collection do
-      get :legume_origins
-    end
-  end
+  resources :pages, :only => [:index, :show, :edit, :update]
 
   root :to => "home#index"
 end
