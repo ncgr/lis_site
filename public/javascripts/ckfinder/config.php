@@ -20,9 +20,18 @@
  */
 function CheckAuthentication()
 {
-    $valid_roles = ["superuser", "admin", "editor"];
-	if ($_COOKIE['tgt'] && $_COOKIE['ckfinder_role']) {
-	    if (in_array(strtolower($_COOKIE['ckfinder_role'], $valid_roles))) {
+    // Decode the user's most privileged role.
+    // The $_COOKIE['ckfinder_role'] is set on login from <subdomain>.comparative-legumes.org.
+    $cookie = $_COOKIE['ckfinder_role'];
+    $value = explode('--', $cookie);
+    $value = base64_decode($value[0]);
+    $role = preg_replace('/[^a-z]/', '', $value);
+
+    $valid_roles = array("superuser", "admin", "editor");
+
+    // $_COOKIE['tgt'] is set on login from cas.comparative-legumes.org.
+	if ($_COOKIE['tgt'] && $role) {
+	    if (in_array($role, $valid_roles)) {
 	        return true;
 	    }
 	}
