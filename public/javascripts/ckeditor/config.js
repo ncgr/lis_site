@@ -17,7 +17,7 @@ CKEDITOR.editorConfig = function( config )
 	    ['Bold','Italic','Underline','Strike','-','Subscript','Superscript','NumberedList','BulletedList'],
 	    ['Outdent','Indent','Blockquote','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
 	    '/',
-	    ['Link','Unlink','Anchor','Table','HorizontalRule','SpecialChar','PageBreak'],
+	    ['Link','Unlink','Anchor','Image','Table','HorizontalRule','SpecialChar','PageBreak'],
 	    '/',
 	    ['Styles','Format','Maximize','ShowBlocks','-','About']
 	];
@@ -31,8 +31,8 @@ CKEDITOR.editorConfig = function( config )
         ['Bold','Italic','Underline','Strike','-','Subscript','Superscript','NumberedList','BulletedList'],
         ['Outdent','Indent','Blockquote','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
         '/',
-        ['Link','Unlink','Anchor','Table','HorizontalRule','SpecialChar','PageBreak'],
+        ['Link','Unlink','Anchor','Image','Table','HorizontalRule','SpecialChar','PageBreak'],
         '/',
-        ['Maximize','ShowBlocks','-','About']
+        ['Format','Maximize','ShowBlocks','-','About']
 	];
 };
