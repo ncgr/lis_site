@@ -46,7 +46,7 @@ CREATE  TABLE IF NOT EXISTS `news_articles` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `title` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL ,
   `body` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL COMMENT 'Add \\n for a new line. Rails will replace \\n with HTML.' ,
-  `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `created_at` DATETIME NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -434,6 +434,74 @@ CREATE  TABLE IF NOT EXISTS `glyma_selected_references` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `medsa_contents`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `medsa_contents` ;
+
+CREATE  TABLE IF NOT EXISTS `medsa_contents` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `overview` TEXT NULL DEFAULT NULL ,
+  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `special_interest` TEXT NULL DEFAULT NULL ,
+  `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
+  `nodulation_type_information` TEXT NULL DEFAULT NULL ,
+  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
+  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
+  `flowering_type_information` TEXT NULL DEFAULT NULL ,
+  `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
+  `pollination_type_information` TEXT NULL DEFAULT NULL ,
+  `self_incompatibility` VARCHAR(255) NULL DEFAULT NULL ,
+  `inbreeding` VARCHAR(255) NULL DEFAULT NULL ,
+  `wiki_link` VARCHAR(255) NULL DEFAULT NULL ,
+  `updated_at` DATETIME NULL DEFAULT NULL ,
+  `user_id` INT NULL DEFAULT NULL ,
+  `legume_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `medsa_genome_summaries`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `medsa_genome_summaries` ;
+
+CREATE  TABLE IF NOT EXISTS `medsa_genome_summaries` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `genome_summary` TEXT NULL DEFAULT NULL ,
+  `chromosomes` VARCHAR(255) NULL DEFAULT NULL ,
+  `genome_size` VARCHAR(255) NULL DEFAULT NULL ,
+  `genome_size_information` TEXT NULL DEFAULT NULL ,
+  `ploidy_type` VARCHAR(255) NULL DEFAULT NULL ,
+  `gc_content_genome` VARCHAR(255) NULL DEFAULT NULL ,
+  `gc_content_genome_information` TEXT NULL DEFAULT NULL ,
+  `gc_content_transcriptome` VARCHAR(255) NULL DEFAULT NULL ,
+  `gc_content_transcriptome_information` TEXT NULL DEFAULT NULL ,
+  `chloroplast_genome_size` VARCHAR(255) NULL DEFAULT NULL ,
+  `chloroplast_genome_size_information` TEXT NULL DEFAULT NULL ,
+  `chloroplast_accession_number` VARCHAR(255) NULL DEFAULT NULL ,
+  `mitochondria_genome_size` VARCHAR(255) NULL DEFAULT NULL ,
+  `mitochondria_genome_size_information` TEXT NULL DEFAULT NULL ,
+  `mitochondria_accession_number` VARCHAR(255) NULL DEFAULT NULL ,
+  `medsa_content_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `medsa_selected_references`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `medsa_selected_references` ;
+
+CREATE  TABLE IF NOT EXISTS `medsa_selected_references` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `selected_references` TEXT NULL DEFAULT NULL ,
+  `medsa_content_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -578,5 +646,32 @@ COMMIT;
 START TRANSACTION;
 USE `lis_rails`;
 INSERT INTO glyma_selected_references (`id`, `selected_references`, `glyma_content_id`) VALUES (1, NULL, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `medsa_contents`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO medsa_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `medsa_genome_summaries`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO medsa_genome_summaries (`id`, `genome_summary`, `chromosomes`, `genome_size`, `genome_size_information`, `ploidy_type`, `gc_content_genome`, `gc_content_genome_information`, `gc_content_transcriptome`, `gc_content_transcriptome_information`, `chloroplast_genome_size`, `chloroplast_genome_size_information`, `chloroplast_accession_number`, `mitochondria_genome_size`, `mitochondria_genome_size_information`, `mitochondria_accession_number`, `medsa_content_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `medsa_selected_references`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO medsa_selected_references (`id`, `selected_references`, `medsa_content_id`) VALUES (1, NULL, 1);
 
 COMMIT;

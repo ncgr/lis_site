@@ -27,7 +27,7 @@ function CheckAuthentication()
     $value = base64_decode($value[0]);
     $role = preg_replace('/[^a-z]/', '', $value);
 
-    $valid_roles = array("superuser", "admin", "editor");
+    $valid_roles = array("superuser", "admin");
 
     // $_COOKIE['tgt'] is set on login from cas.comparative-legumes.org.
 	if ($_COOKIE['tgt'] && $role) {

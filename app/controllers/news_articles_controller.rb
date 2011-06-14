@@ -8,9 +8,9 @@ class NewsArticlesController < ApplicationController
   
   def index
     # HTML
-    @articles = NewsArticle.order("timestamp DESC").page(params[:page])
+    @articles = NewsArticle.order("created_at DESC").page(params[:page])
     # RSS Feed
-    @rss = NewsArticle.order("timestamp DESC").all
+    @rss = NewsArticle.order("created_at DESC").all
   end
   
   def new
