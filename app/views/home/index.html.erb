@@ -14,7 +14,7 @@
 	<h4>Recent News</h4>
 	<% unless @articles.blank? %>
 		<% @articles.each do |n| %>
-			<p><em><%= display_time(n.timestamp) %></em> -- <%= truncate_html(n.body.sub(/^<[a-z]+>/, ''), :length => 100) %>
+			<p><em><%= display_time(n.created_at) %></em> -- <%= truncate_html(n.body.sub(/^<[a-z]+>/, ''), :length => 100) %>
 			<p class="small_right"><%= link_to raw("Read More &raquo;"), news_articles_path %></p>
 		<% end %>
 	<% else %>

@@ -1,4 +1,5 @@
 <script type="text/javascript" src="http://comparative-legumes.org/javascripts/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/javascripts/ckfinder/ckfinder.js"></script>
 
 <h1>Edit <%= @page.title.humanize %></h1>
 <p><%= link_to raw("Return &raquo;"), pages_path %></p>
@@ -11,16 +12,14 @@
     <p>Title: <%= @page.title.humanize %></p>
 	<p>
         <%= f.label :body, "Page Body:" %><br />
-        <%= f.text_area :body, :id => "ckeditor_body" %>
+        <%= f.text_area :body %>
     </p>
     <p><%= f.submit "Update #{@page.title.humanize}", :id => "submit", :class => "submit" %></p>
 <% end %>
 
 <script type="text/javascript">
-    var ids = ["ckeditor_body"];
-    ids.each(function (id) {
-        CKEDITOR.replace(id, {
-            toolbar : "<%= @tool_bar %>"
-        });
+    CKEDITOR.replaceAll( function(textarea, config){ 
+        config.toolbar = "<%= @tool_bar %>";
     });
+    CKFinder.setupCKEditor( null, '/javascripts/ckfinder/');
 </script>
