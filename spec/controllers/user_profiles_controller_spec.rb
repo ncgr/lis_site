@@ -81,6 +81,13 @@ describe UserProfilesController do
       response.should be_success
       decode_signed_cookie(response.cookies['ckfinder_role']).should == "superuser"
     end
+    before(:each) do
+      @user = User.includes(:roles).where("roles.name != 'superuser'").first
+    end
+    it "should get show on any user account" do
+      get :show, :id => @user.id
+      response.should be_success
+    end
   end
 
   describe "GET show while logged in as admin" do
