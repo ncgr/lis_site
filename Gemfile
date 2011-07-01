@@ -8,7 +8,7 @@ gem 'kaminari', '~> 0.12.4'
 gem 'truncate_html', '~> 0.5.0'
 gem 'devise', '~> 1.2.1'
 gem 'rubycas-client', '~> 2.2.1'
-gem 'devise_cas_authenticatable', '1.0.0.alpha6'
+gem 'devise_cas_authenticatable', '1.0.0.alpha10'
 gem 'declarative_authorization', '~> 0.5.2'
 
 group :development, :test do
