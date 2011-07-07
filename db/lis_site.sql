@@ -141,12 +141,11 @@ DROP TABLE IF EXISTS `medtr_contents` ;
 CREATE  TABLE IF NOT EXISTS `medtr_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL ,
-  `taxon_id` VARCHAR(255) NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL ,
   `special_interest` TEXT NULL ,
   `nodulation_type` VARCHAR(255) NULL ,
   `nodulation_type_information` TEXT NULL ,
-  `nodulator_species` VARCHAR(255) NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL ,
   `flowering_type` VARCHAR(255) NULL ,
   `flowering_type_information` TEXT NULL ,
   `pollination_type` VARCHAR(255) NULL ,
@@ -168,12 +167,11 @@ DROP TABLE IF EXISTS `phavu_contents` ;
 CREATE  TABLE IF NOT EXISTS `phavu_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL ,
-  `taxon_id` VARCHAR(255) NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL ,
   `special_interest` TEXT NULL ,
   `nodulation_type` VARCHAR(255) NULL ,
   `nodulation_type_information` TEXT NULL ,
-  `nodulator_species` VARCHAR(255) NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL ,
   `flowering_type` VARCHAR(255) NULL ,
   `flowering_type_information` TEXT NULL ,
   `pollination_type` VARCHAR(255) NULL ,
@@ -196,12 +194,11 @@ DROP TABLE IF EXISTS `lotja_contents` ;
 CREATE  TABLE IF NOT EXISTS `lotja_contents` (
   `id` INT NOT NULL ,
   `overview` TEXT NULL ,
-  `taxon_id` VARCHAR(255) NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL ,
   `special_interest` TEXT NULL ,
   `nodulation_type` VARCHAR(255) NULL ,
   `nodulation_type_information` TEXT NULL ,
-  `nodulator_species` VARCHAR(255) NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL ,
   `flowering_type` VARCHAR(255) NULL ,
   `flowering_type_information` TEXT NULL ,
   `pollination_type` VARCHAR(255) NULL ,
@@ -210,34 +207,6 @@ CREATE  TABLE IF NOT EXISTS `lotja_contents` (
   `wiki_link` VARCHAR(255) NULL ,
   `updated_at` DATETIME NULL ,
   `user_id` INT NULL ,
-  `legume_id` INT NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `glyma_contents`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `glyma_contents` ;
-
-CREATE  TABLE IF NOT EXISTS `glyma_contents` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
-  `special_interest` TEXT NULL DEFAULT NULL ,
-  `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
-  `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
-  `flowering_type_information` TEXT NULL DEFAULT NULL ,
-  `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
-  `pollination_type_information` TEXT NULL DEFAULT NULL ,
-  `self_incompatibility` VARCHAR(255) NULL DEFAULT NULL ,
-  `inbreeding` VARCHAR(255) NULL DEFAULT NULL ,
-  `wiki_link` VARCHAR(255) NULL DEFAULT NULL ,
-  `updated_at` DATETIME NULL DEFAULT NULL ,
-  `user_id` INT NULL DEFAULT NULL ,
   `legume_id` INT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
@@ -326,6 +295,33 @@ CREATE  TABLE IF NOT EXISTS `lotja_selected_references` (
   `id` INT NOT NULL ,
   `selected_references` TEXT NULL ,
   `lotja_content_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `glyma_contents`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `glyma_contents` ;
+
+CREATE  TABLE IF NOT EXISTS `glyma_contents` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `overview` TEXT NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `special_interest` TEXT NULL DEFAULT NULL ,
+  `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
+  `nodulation_type_information` TEXT NULL DEFAULT NULL ,
+  `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
+  `flowering_type_information` TEXT NULL DEFAULT NULL ,
+  `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
+  `pollination_type_information` TEXT NULL DEFAULT NULL ,
+  `self_incompatibility` VARCHAR(255) NULL DEFAULT NULL ,
+  `inbreeding` VARCHAR(255) NULL DEFAULT NULL ,
+  `wiki_link` VARCHAR(255) NULL DEFAULT NULL ,
+  `updated_at` DATETIME NULL DEFAULT NULL ,
+  `user_id` INT NULL DEFAULT NULL ,
+  `legume_id` INT NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -451,12 +447,11 @@ DROP TABLE IF EXISTS `medsa_contents` ;
 CREATE  TABLE IF NOT EXISTS `medsa_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -519,12 +514,11 @@ DROP TABLE IF EXISTS `arahy_contents` ;
 CREATE  TABLE IF NOT EXISTS `arahy_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -587,12 +581,11 @@ DROP TABLE IF EXISTS `cajca_contents` ;
 CREATE  TABLE IF NOT EXISTS `cajca_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -655,12 +648,11 @@ DROP TABLE IF EXISTS `chafs_contents` ;
 CREATE  TABLE IF NOT EXISTS `chafs_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -723,12 +715,11 @@ DROP TABLE IF EXISTS `cicar_contents` ;
 CREATE  TABLE IF NOT EXISTS `cicar_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -791,12 +782,11 @@ DROP TABLE IF EXISTS `lencu_contents` ;
 CREATE  TABLE IF NOT EXISTS `lencu_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -859,12 +849,11 @@ DROP TABLE IF EXISTS `lupal_contents` ;
 CREATE  TABLE IF NOT EXISTS `lupal_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -927,12 +916,11 @@ DROP TABLE IF EXISTS `lupan_contents` ;
 CREATE  TABLE IF NOT EXISTS `lupan_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -995,12 +983,11 @@ DROP TABLE IF EXISTS `pea_contents` ;
 CREATE  TABLE IF NOT EXISTS `pea_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -1063,12 +1050,11 @@ DROP TABLE IF EXISTS `phacn_contents` ;
 CREATE  TABLE IF NOT EXISTS `phacn_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -1131,12 +1117,11 @@ DROP TABLE IF EXISTS `tripr_contents` ;
 CREATE  TABLE IF NOT EXISTS `tripr_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -1199,12 +1184,11 @@ DROP TABLE IF EXISTS `vicfa_contents` ;
 CREATE  TABLE IF NOT EXISTS `vicfa_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -1267,12 +1251,11 @@ DROP TABLE IF EXISTS `vigra_contents` ;
 CREATE  TABLE IF NOT EXISTS `vigra_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -1335,12 +1318,11 @@ DROP TABLE IF EXISTS `vigun_contents` ;
 CREATE  TABLE IF NOT EXISTS `vigun_contents` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `overview` TEXT NULL DEFAULT NULL ,
-  `taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
+  `grin_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `special_interest` TEXT NULL DEFAULT NULL ,
   `nodulation_type` VARCHAR(255) NULL DEFAULT NULL ,
   `nodulation_type_information` TEXT NULL DEFAULT NULL ,
-  `nodulator_species` VARCHAR(255) NULL DEFAULT NULL ,
-  `nodulator_taxon_id` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type` VARCHAR(255) NULL DEFAULT NULL ,
   `flowering_type_information` TEXT NULL DEFAULT NULL ,
   `pollination_type` VARCHAR(255) NULL DEFAULT NULL ,
@@ -1449,6 +1431,20 @@ CREATE  TABLE IF NOT EXISTS `phavu_selected_references` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `nodulators`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `nodulators` ;
+
+CREATE  TABLE IF NOT EXISTS `nodulators` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `legume_id` VARCHAR(255) NOT NULL ,
+  `species` VARCHAR(255) NULL ,
+  `ncbi_taxon_id` VARCHAR(255) NULL ,
+  PRIMARY KEY (`id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
@@ -1497,7 +1493,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO medtr_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9);
+INSERT INTO medtr_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 9);
 
 COMMIT;
 
@@ -1506,7 +1502,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO phavu_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12);
+INSERT INTO phavu_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12);
 
 COMMIT;
 
@@ -1515,16 +1511,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lotja_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
-
-COMMIT;
-
--- -----------------------------------------------------
--- Data for table `glyma_contents`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `lis_rails`;
-INSERT INTO glyma_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4);
+INSERT INTO lotja_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
 
 COMMIT;
 
@@ -1557,6 +1544,15 @@ COMMIT;
 START TRANSACTION;
 USE `lis_rails`;
 INSERT INTO lotja_selected_references (`id`, `selected_references`, `lotja_content_id`) VALUES (1, NULL, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `glyma_contents`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `lis_rails`;
+INSERT INTO glyma_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4);
 
 COMMIT;
 
@@ -1601,7 +1597,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO medsa_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8);
+INSERT INTO medsa_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 8);
 
 COMMIT;
 
@@ -1628,7 +1624,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO arahy_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO arahy_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 
 COMMIT;
 
@@ -1655,7 +1651,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO cajca_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2);
+INSERT INTO cajca_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2);
 
 COMMIT;
 
@@ -1682,7 +1678,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO chafs_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 16);
+INSERT INTO chafs_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 16);
 
 COMMIT;
 
@@ -1709,7 +1705,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO cicar_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3);
+INSERT INTO cicar_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3);
 
 COMMIT;
 
@@ -1736,7 +1732,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lencu_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5);
+INSERT INTO lencu_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5);
 
 COMMIT;
 
@@ -1763,7 +1759,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lupal_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 17);
+INSERT INTO lupal_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 17);
 
 COMMIT;
 
@@ -1790,7 +1786,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO lupan_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7);
+INSERT INTO lupan_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 7);
 
 COMMIT;
 
@@ -1817,7 +1813,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO pea_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10);
+INSERT INTO pea_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 10);
 
 COMMIT;
 
@@ -1844,7 +1840,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO phacn_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11);
+INSERT INTO phacn_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11);
 
 COMMIT;
 
@@ -1871,7 +1867,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO tripr_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 18);
+INSERT INTO tripr_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 18);
 
 COMMIT;
 
@@ -1898,7 +1894,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO vicfa_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13);
+INSERT INTO vicfa_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13);
 
 COMMIT;
 
@@ -1925,7 +1921,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO vigra_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 14);
+INSERT INTO vigra_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 14);
 
 COMMIT;
 
@@ -1952,7 +1948,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lis_rails`;
-INSERT INTO vigun_contents (`id`, `overview`, `taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `nodulator_species`, `nodulator_taxon_id`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15);
+INSERT INTO vigun_contents (`id`, `overview`, `ncbi_taxon_id`, `grin_taxon_id`, `special_interest`, `nodulation_type`, `nodulation_type_information`, `flowering_type`, `flowering_type_information`, `pollination_type`, `pollination_type_information`, `self_incompatibility`, `inbreeding`, `wiki_link`, `updated_at`, `user_id`, `legume_id`) VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 15);
 
 COMMIT;
 
