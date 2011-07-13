@@ -2,17 +2,17 @@
 
 <h1>Species</h1>
 <div id="tree-container">
-    <div id="phylogenetic-tree"></div>
+  <div id="phylogenetic-tree"></div>
 </div>
 <div id="tree-text">
-    <%= raw(@page.body) %>
+  <%= raw(@page.body) %>
 </div>
 
 <script type="text/javascript">
-	newick = "((((((Glycine_max:0.20,(Phaseolus_vulgaris:0.15,(Vigna_unguiculata:0.02,Vigna_radiata:0.02):0.13):0.05):0.05,Cajanus_cajan:0.25):0.05,(((((Medicago_truncatula:0.02,Medicago_sativa:0.02):0.08,Trifolium_pratense:0.10):0.05,(Vicia_faba:0.10,(Lens_culinaris:0.05,Pisum_sativum:0.05):0.05):0.05):0.05,Cicer_arietinum:0.20):0.05,Lotus_japonicus:0.25):0.05):0.05,Arachis_hypogaea:0.35):0.05,Lupinus_albus:0.40):0.05,Chamaecrista_fasciculata:0.45);";
-	tree = parseNewickSpecies(newick);
-    graphics = new jsGraphics("phylogenetic-tree");
-	drawTreeNew(graphics, tree);
+  newick = "((((((Glycine_max:0.20,(Phaseolus_vulgaris:0.15,(Vigna_unguiculata:0.02,Vigna_radiata:0.02):0.13):0.05):0.05,Cajanus_cajan:0.25):0.05,(((((Medicago_truncatula:0.02,Medicago_sativa:0.02):0.08,Trifolium_pratense:0.10):0.05,(Vicia_faba:0.10,(Lens_culinaris:0.05,Pisum_sativum:0.05):0.05):0.05):0.05,Cicer_arietinum:0.20):0.05,Lotus_japonicus:0.25):0.05):0.05,Arachis_hypogaea:0.35):0.05,Lupinus_albus:0.40):0.05,Chamaecrista_fasciculata:0.45);";
+  tree = parseNewickSpecies(newick);
+  graphics = new jsGraphics("phylogenetic-tree");
+  drawTreeNew(graphics, tree);
 </script>
 
 <div style="clear: both;"></div>

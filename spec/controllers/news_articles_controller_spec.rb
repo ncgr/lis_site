@@ -51,6 +51,44 @@ describe NewsArticlesController do
     end
   end
 
+  context "with render_views" do
+    render_views
+    describe "GET index while not logged in" do
+      it "should not contain link to Add News Article" do
+        get :index
+        response.body.should_not =~/Add News Article/
+      end
+    end
+    describe "GET index while logged in as superuser" do
+      login_superuser
+      it "should contain link to Add News Article" do
+        get :index
+        response.body.should =~/Add News Article/
+      end
+    end
+    describe "GET index while logged in as admin" do
+      login_admin
+      it "should contain link to Add News Article" do
+        get :index
+        response.body.should =~/Add News Article/
+      end
+    end
+    describe "GET index while logged in as editor" do
+      login_editor
+      it "should not contain link to Add News Article" do
+        get :index
+        response.body.should_not =~/Add News Article/
+      end
+    end
+    describe "GET index while logged in as system_user" do
+      login_system_user
+      it "should not contain link to Add News Article" do
+        get :index
+        response.body.should_not =~/Add News Article/
+      end
+    end
+  end
+
   describe "GET new while logged in as superuser" do
     login_superuser
     it "should get new" do
