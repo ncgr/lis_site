@@ -3,7 +3,8 @@
  * 
  * Author: Michiel Van Bel http://bioinformatics.psb.ugent.be/plaza/
  * Adapted By: Ken Seal http://comparative-legumes.org
- * 
+ *
+ * Parses Newick data and depends on wz_graphics.js to draw to the tree.  
  *---------------------------------------------------------------------------*/
 
 /*
@@ -481,22 +482,22 @@ var speciesUrls = new Array();
 
 speciesUrls["Arachis_hypogaea"] = "http://arahy.comparative-legumes.org";
 speciesUrls["Cajanus_cajan"] = "http://cajca.comparative-legumes.org";
+speciesUrls["Chamaecrista_fasciculata"] = "http://chafs.comparative-legumes.org";
 speciesUrls["Cicer_arietinum"] = "http://cicar.comparative-legumes.org";
 speciesUrls["Glycine_max"] = "http://glyma.comparative-legumes.org";
 speciesUrls["Lens_culinaris"] = "http://lencu.comparative-legumes.org";
+speciesUrls["Lotus_japonicus"] = "http://lotja.comparative-legumes.org";
+speciesUrls["Lupinus_albus"] = "http://lupal.comparative-legumes.org";
 speciesUrls["Lupinus_angustifolius"] = "http://lupan.comparative-legumes.org";
 speciesUrls["Medicago_sativa"] = "http://medsa.comparative-legumes.org";
 speciesUrls["Medicago_truncatula"] = "http://medtr.comparative-legumes.org";
-speciesUrls["Pisum_sativum"] = "http://pea.comparative-legumes.org";
 speciesUrls["Phaseolus_coccineus"] = "http://phacn.comparative-legumes.org";
 speciesUrls["Phaseolus_vulgaris"] = "http://phavu.comparative-legumes.org";
+speciesUrls["Pisum_sativum"] = "http://pea.comparative-legumes.org";
+speciesUrls["Trifolium_pratense"] = "http://tripr.comparative-legumes.org";
 speciesUrls["Vicia_faba"] = "http://vicfa.comparative-legumes.org";
 speciesUrls["Vigna_radiata"] = "http://vigra.comparative-legumes.org";
 speciesUrls["Vigna_unguiculata"] = "http://vigun.comparative-legumes.org";
-speciesUrls["Lotus_japonicus"] = "http://lotja.comparative-legumes.org";
-speciesUrls["Chamaecrista_fasciculata"] = "http://chafs.comparative-legumes.org";
-speciesUrls["Lupinus_albus"] = "http://lupal.comparative-legumes.org";
-speciesUrls["Trifolium_pratense"] = "http://tripr.comparative-legumes.org";
 
 /**
  * Draws phylogenetic tree.
