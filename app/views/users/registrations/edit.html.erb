@@ -5,34 +5,34 @@
   <%= devise_error_messages! %>
 
   <fieldset>
-      <legend>Personal Information</legend>
-          <p><%= f.label :first_name %><br />
-          <%= f.text_field :first_name %></p>
-          
-          <p><%= f.label :last_name %><br />
-          <%= f.text_field :last_name %></p>
+    <legend>Personal Information</legend>
+    <p><%= f.label :first_name %><br />
+    <%= f.text_field :first_name %></p>
+
+    <p><%= f.label :last_name %><br />
+    <%= f.text_field :last_name %></p>
   </fieldset>
-  
+
   <fieldset>
-      <legend>Username and Password</legend>
-          <p><%= f.label :username %><br />
-          <%= f.text_field :username %></p>
-          
-          <p><label>Password</label> <em>(Your password must be 6-20 characters long.)</em><br />
-          <%= f.password_field :password %></p>
-        
-          <p><label>Password Confirmation</label><br />
-          <%= f.password_field :password_confirmation %></p>
-        
-          <p><%= f.label :current_password %> <em>(To confirm your changes)</em><br />
-          <%= f.password_field :current_password %></p>
-    
-          <p><%= f.submit "Update", :class => "submit", :id => "submit" %></p>
+    <legend>Username and Password</legend>
+    <p><%= f.label :username %><br />
+    <%= f.text_field :username %></p>
+
+    <p><label>Password</label> <em>(Your password must be 6-20 characters long.)</em><br />
+    <%= f.password_field :password %></p>
+
+    <p><label>Password Confirmation</label><br />
+    <%= f.password_field :password_confirmation %></p>
+
+    <p><%= f.label :current_password %> <em>(To confirm your changes)</em><br />
+    <%= f.password_field :current_password %></p>
+
+    <p><%= f.submit "Update", :class => "submit", :id => "submit" %></p>
   </fieldset>
 <% end %>
 
 <p>
-	<%= link_to "Cancel your account?", registration_path(resource_name), :confirm => "Are you sure? This action can not be undone.", 
-        :method => :delete %><br />
-	<%= link_to "Return to your profile", user_profile_path(current_user.id) %>
+  <%= link_to "Cancel your account?", registration_path(resource_name), :confirm => "Are you sure? This action can not be undone.", 
+  :method => :delete %><br />
+  <%= link_to "Return to your profile", user_profile_path(current_user.id) %>
 </p>

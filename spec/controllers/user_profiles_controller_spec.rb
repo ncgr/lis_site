@@ -37,19 +37,30 @@ describe UserProfilesController do
     end
   end
  
-  describe "GET index while logged in as superuser" do
-    login_superuser
-    it "should get index" do
-      get :index
-      response.should be_success
+  context "with render_views" do
+    render_views
+    describe "GET index while logged in as superuser" do
+      login_superuser
+      it "should get index" do
+        get :index
+        response.should be_success
+      end
+      it "should contain Action in the body" do
+        get :index
+        response.body.should =~ /Action/
+      end
     end
-  end
 
-  describe "GET index while logged in as admin" do
-    login_admin
-    it "should get index" do
-      get :index
-      response.should be_success
+    describe "GET index while logged in as admin" do
+      login_admin
+      it "should get index" do
+        get :index
+        response.should be_success
+      end
+      it "should not contain Action in the body" do
+        get :index
+        response.should_not =~ /Action/
+      end
     end
   end
 

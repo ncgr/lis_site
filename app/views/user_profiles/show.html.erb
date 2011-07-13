@@ -1,36 +1,36 @@
 <% title 'Your Account' %>
 <% if @profile == current_user %>
-	<h2>Welcome <%= @profile.first_name %> <%= @profile.last_name %></h2>
-	<p>Use the links below to manage your account.</p>
-	<p><%= link_to "Edit your registration information", edit_user_information_registration_path %></p>
+  <h2>Welcome <%= @profile.first_name %> <%= @profile.last_name %></h2>
+  <p>Use the links below to manage your account.</p>
+  <p><%= link_to "Edit your registration information", edit_user_information_registration_path %></p>
 <% end  %>
 
 <% if has_role? :superuser %>
-	<h3>Superuser Links</h3>
-	<p>
-        <%= link_to 'Manage users', user_profiles_path %><br />
-        <%= link_to 'Create user', new_user_information_registration_path %><br />
-    </p>
-	<p><strong>Front Pages</strong></p>
-	<p>
-		<%= link_to 'Manage News Articles', news_articles_path %><br />
-        <%= link_to 'Manage Meetings', meetings_path %><br />
-        <%= link_to 'Manage Pages', pages_path %><br />
-	</p>
+  <h3>Superuser Links</h3>
+  <p>
+    <%= link_to 'Manage users', user_profiles_path %><br />
+    <%= link_to 'Create user', new_user_information_registration_path %><br />
+  </p>
+  <p><strong>Front Pages</strong></p>
+  <p>
+    <%= link_to 'Manage News Articles', news_articles_path %><br />
+    <%= link_to 'Manage Meetings', meetings_path %><br />
+    <%= link_to 'Manage Pages', pages_path %><br />
+  </p>
 <% end %>
 
 <% if has_role? :admin %>
-    <h3>Admin Links</h3>
-    <p>
-        <%= link_to 'View users', user_profiles_path %><br />
-        <%= link_to 'Create user', new_user_information_registration_path %><br />
-    </p>
-	<p><strong>Front Pages</strong></p>
-    <p>
-        <%= link_to 'Manage News Articles', news_articles_path %><br />
-        <%= link_to 'Manage Meetings', meetings_path %><br />
-        <%= link_to 'Manage Pages', pages_path %><br />
-    </p>
+  <h3>Admin Links</h3>
+  <p>
+    <%= link_to 'View users', user_profiles_path %><br />
+    <%= link_to 'Create user', new_user_information_registration_path %><br />
+  </p>
+  <p><strong>Front Pages</strong></p>
+  <p>
+    <%= link_to 'Manage News Articles', news_articles_path %><br />
+    <%= link_to 'Manage Meetings', meetings_path %><br />
+    <%= link_to 'Manage Pages', pages_path %><br />
+  </p>
 <% end %>
 
 <%= render :partial => "account_details" %>

@@ -5,35 +5,36 @@
 <%= paginate @profiles %> 
 
 <table>
-    <tr>
-        <th><%= kaminari_sort_by(:user_profiles_path, "First Name") %></th>
-        <th><%= kaminari_sort_by(:user_profiles_path, "Last Name") %></th>
-        <th><%= kaminari_sort_by(:user_profiles_path, "Email", "username") %></th>
-        <th><%= kaminari_sort_by(:user_profiles_path, "Role(s)", "roles.name") %></th>
-        <% if has_role? :superuser %>
-            <th>Action</th>
-        <% end %>
-    </tr>
-    <% i = 1 %>
-    <% @profiles.each do |user| %>
-        <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
-        <tr class="<%= style %>">
-            <td><%= link_to user.first_name, user_profile_path(user) %></td>
-            <td><%= link_to user.last_name, user_profile_path(user) %></td>
-            <td><%= user.username %></td>
-            <td><%= user.roles.collect {|r| r.name}.join(", ") %></td>
-            <% if has_role? :superuser %>
-                <td>
-                    <%= link_to 'Manage Roles', manage_roles_user_profile_path(user) %>
-                    <% if user != current_user %>
-                        &nbsp;|&nbsp;
-                        <%= link_to 'Delete', user_profile_path(user), :method => :delete, :confirm => 'Really delete user: %s %s?' % [ user.first_name, user.last_name ] %>
-                    <% end %>
-                </td>
-            <% end %>
-        </tr>
-        <% i += 1 %>
+  <tr>
+    <th><%= kaminari_sort_by(:user_profiles_path, "First Name") %></th>
+    <th><%= kaminari_sort_by(:user_profiles_path, "Last Name") %></th>
+    <th><%= kaminari_sort_by(:user_profiles_path, "Email", "username") %></th>
+    <th><%= kaminari_sort_by(:user_profiles_path, "Role(s)", "roles.name") %></th>
+    <% if has_role? :superuser %>
+      <th>Action</th>
     <% end %>
+  </tr>
+  <% i = 1 %>
+  <% @profiles.each do |user| %>
+    <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
+    <tr class="<%= style %>">
+      <td><%= link_to user.first_name, user_profile_path(user) %></td>
+      <td><%= link_to user.last_name, user_profile_path(user) %></td>
+      <td><%= user.username %></td>
+      <td><%= user.roles.collect {|r| r.name}.join(", ") %></td>
+      <% if has_role? :superuser %>
+        <td>
+          <%= link_to 'Manage Roles', manage_roles_user_profile_path(user) %>
+          <% if user != current_user %>
+            &nbsp;|&nbsp;
+            <%= link_to 'Delete', user_profile_path(user), :method => :delete,
+              :confirm => 'Really delete user: %s %s?' % [ user.first_name, user.last_name ] %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    <% i += 1 %>
+  <% end %>
 </table>
 
 <%= render :partial => "user_profiles/shared/links" %>
