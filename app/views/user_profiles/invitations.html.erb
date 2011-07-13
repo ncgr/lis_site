@@ -7,31 +7,32 @@
 <p class="right"><%= link_to raw('User Profiles &raquo;'), user_profiles_path %></p>
 
 <table>
-    <tr>
-        <th>Email</th>
-        <th>Invited By</th>
-        <th>Invitation Sent</th>
-        <th>Invitation Token</th>
-        <% if has_role? :superuser %>
-            <th>Action</th>
-        <% end %>
-    </tr>
-    <% i = 1 %>
-    <% @invitations.each do |user| %>
-        <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
-        <tr class="<%= style %>">
-            <td><%= user.username %></td>
-            <td><%= find_user_name(user.invited_by_id) %></td>
-            <td><%= user.invitation_sent_at.to_s(:date_time_long) %></td>
-            <td><%= user.invitation_token %></td>
-            <% if has_role? :superuser %>
-                <td>
-                    <%= link_to 'Delete', user_profile_path(user), :method => :delete, :confirm => 'Really delete invitation %s?' % [ user.username ] %>
-                </td>
-            <% end %>
-        </tr>
-        <% i += 1 %>
+  <tr>
+    <th>Email</th>
+    <th>Invited By</th>
+    <th>Invitation Sent</th>
+    <th>Invitation Token</th>
+    <% if has_role? :superuser %>
+      <th>Action</th>
     <% end %>
+  </tr>
+  <% i = 1 %>
+  <% @invitations.each do |user| %>
+    <% i.modulo(2) == 0 ? style = "even" : style = "odd" %>
+    <tr class="<%= style %>">
+      <td><%= user.username %></td>
+      <td><%= find_user_name(user.invited_by_id) %></td>
+      <td><%= user.invitation_sent_at.to_s(:date_time_long) %></td>
+      <td><%= user.invitation_token %></td>
+      <% if has_role? :superuser %>
+        <td>
+          <%= link_to 'Delete', user_profile_path(user), :method => :delete, 
+            :confirm => 'Really delete invitation %s?' % [ user.username ] %>
+        </td>
+      <% end %>
+    </tr>
+    <% i += 1 %>
+  <% end %>
 </table>
 
 <%= render :partial => "user_profiles/shared/links" %>
