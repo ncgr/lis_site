@@ -4,3 +4,4 @@ tmp/
 *.log
 vendor/plugins/
 coverage/
+config/database.yml
