@@ -28,15 +28,8 @@ RSpec.configure do |config|
   ## Added by KAS ##
 
   # Controller Macros
-  config.extend ControllerMacros, :type => :controller
+  config.extend DeviseMacros, :type => :controller
 
-  # Create and destroy roles for declarative_authorization.
-  def create_roles
-    ["superuser","admin","editor","system_user"].each {|r| Role.create!(:name => r)}
-  end
-
-  def destroy_roles
-    Role.all.each {|r| r.destroy}
-  end
-
+  # Role Macros
+  config.include(RoleMacros) 
 end

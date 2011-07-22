@@ -18,60 +18,38 @@ describe UserInformation do
   end
   
   it "fails validation with no username (using errors_on)" do
-    Factory.build(:user_information,
-      :username               => nil,
-      :password               => "testing",
-      :password_confirmation  => "testing",
-      :first_name             => "bob",
-      :last_name              => "bob"
+    Factory.build(:user_information, 
+      :username => nil
     ).should have(1).error_on(:username)
   end
   
   it "fails validation with poorly formatted username (using errors_on)" do
     Factory.build(:user_information,
-      :username               => "test@test",
-      :password               => "testing",
-      :password_confirmation  => "testing",
-      :first_name             => "bob",
-      :last_name              => "bob"
+      :username => "test@test",
     ).should have(1).error_on(:username)
   end
   
   it "fails validation with no password (using errors_on)" do
     Factory.build(:user_information,
-      :username               => "test@test.com",
       :password               => "",
       :password_confirmation  => "",
-      :first_name             => "bob",
-      :last_name              => "bob"
     ).should have(1).error_on(:password)
   end
   
   it "fails validation with no name (using errors_on)" do
     Factory.build(:user_information,
-      :username               => "test@test.com",
-      :password               => "testing",
-      :password_confirmation  => "testing",
       :first_name             => "",
       :last_name              => "bob"
     ).should have(1).error_on(:first_name)
     Factory.build(:user_information,
-      :username               => "test@test.com",
-      :password               => "testing",
-      :password_confirmation  => "testing",
-      :first_name             => "bob",
       :last_name              => ""
     ).should have(1).error_on(:last_name)
   end
   
   it "fails creation without role (using raise_error)" do
-    lambda { Factory.create(:user_information,
-      :username               => "test@test.com",
-      :password               => "testing",
-      :password_confirmation  => "testing",
-      :first_name             => "bob",
-      :last_name              => "bob"
-    ) }.should raise_error(RuntimeError)
+    lambda { 
+      Factory.create(:user_information) 
+    }.should raise_error(RuntimeError)
   end
   
   it "passes creation with role" do

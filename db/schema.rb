@@ -290,8 +290,6 @@ ActiveRecord::Schema.define(:version => 0) do
     t.text     "special_interest"
     t.string   "nodulation_type"
     t.text     "nodulation_type_information"
-    t.string   "nodulator_species"
-    t.string   "nodulator_taxon_id"
     t.string   "flowering_type"
     t.text     "flowering_type_information"
     t.string   "pollination_type"
@@ -468,6 +466,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "pollination_type"
     t.text     "pollination_type_information"
     t.string   "self_incompatibility"
+    t.string   "inbreeding"
     t.string   "wiki_link"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -667,20 +666,20 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   create_table "reference_datasets", :force => true do |t|
-    t.integer "legume_id",                                          :null => false
+    t.integer "legume_id",                           :null => false
     t.string  "reference_dataset_type"
     t.string  "description"
     t.string  "source"
     t.string  "url"
-    t.integer "is_public",              :limit => 1, :default => 1
+    t.integer "is_public",              :limit => 1
   end
 
   create_table "resources", :force => true do |t|
-    t.integer "legume_id",                                 :null => false
+    t.integer "legume_id",                  :null => false
     t.string  "resource_type"
     t.string  "description"
     t.string  "url"
-    t.integer "is_public",     :limit => 1, :default => 1
+    t.integer "is_public",     :limit => 1
   end
 
   create_table "roles", :force => true do |t|

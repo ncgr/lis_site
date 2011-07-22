@@ -338,7 +338,7 @@ CREATE  TABLE IF NOT EXISTS `reference_datasets` (
   `description` VARCHAR(255) NULL ,
   `source` VARCHAR(255) NULL ,
   `url` VARCHAR(255) NULL ,
-  `is_public` TINYINT NULL DEFAULT 1 ,
+  `is_public` TINYINT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -354,7 +354,7 @@ CREATE  TABLE IF NOT EXISTS `resources` (
   `resource_type` VARCHAR(255) NULL ,
   `description` VARCHAR(255) NULL ,
   `url` VARCHAR(255) NULL ,
-  `is_public` TINYINT NULL DEFAULT 1 ,
+  `is_public` TINYINT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
