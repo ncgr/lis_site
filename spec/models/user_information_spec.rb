@@ -66,13 +66,6 @@ describe UserInformation do
     @user.last_name.should == @user.last_name.capitalize
   end
   
-  it "responds to email" do
-    create_roles
-    Factory.create(:user_information)
-    @user = UserInformation.first
-    @user.should respond_to(:email)
-  end
-  
   it "fails validation on username unique (using errors_on)" do
     lambda { 
       Factory.create(:user_information)
