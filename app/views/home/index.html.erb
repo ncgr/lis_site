@@ -32,6 +32,83 @@
 	<% end %>
 <% end %>
 
+<h1>Entry Points</h1>
+
+<p><span class="title">Species Access and Data</span></p>
+<ul class="entry-point">
+  <li class="left">
+    Information, resources, and datasets for many &nbsp; legume species.
+  </li>
+  <li class="center">
+    <%= link_to "Go", page_path('species') %>
+  </li>
+  <li class="right">
+    <%= link_to image_tag("species_thumb.png", :alt => "Species"), page_path('species') %>
+  </li>
+</ul>
+
+<div class="clear"></div>
+ 
+<p><span class="title">Seqqle Sequence Search</span></p>
+<ul class="entry-point">
+  <li class="left">
+    Do multi-sequence queries against the reference legume genomes and other databases (UniProt, expression database, others).
+  </li>
+  <li class="center">
+    <%= link_to "Go", "http://search.comparative-legumes.org/seqqle" %>
+  </li>
+  <li class="right">
+    <%= link_to image_tag("seqqle_thumb.png", :alt => "Seqqle"), "http://search.comparative-legumes.org/seqqle" %>
+  </li>
+</ul>
+ 
+<div class="clear"></div>
+
+<p><span class="title">CViT Genome Search &amp; Synteny Views</span></p>
+<ul class="entry-point">
+  <li class="left">
+    Search for sequences or genes and view against whole-genome views and synteny plots of three legume reference genomes.
+  </li>
+  <li class="center">
+    <%= link_to "Go", "http://soybase.org:8085/cvit/new" %>
+  </li>
+  <li class="right">
+    <%= link_to image_tag("cvit_thumb.png", :alt => "CViT"), "http://soybase.org:8085/cvit/new" %>
+  </li>
+</ul>
+ 
+<div class="clear"></div>
+
+<p><span class="title">Genome Browsers</span></p>
+<ul class="entry-point">
+  <li class="left">
+    Chromosome- to gene-scale views of the <em>Lotus japonicus</em>, <em>Medicago truncatula</em>, and <em>Glycine max</em> (soybean) genomes.  
+  </li>
+  <li class="center">
+    <%= link_to "Go", "/pages/species#genome_browser" %>
+  </li>
+  <li class="right"> 
+    <%= link_to image_tag("browser_thumb.png", :alt => "Genome Browsers"), "/pages/species#genome_browser" %>
+  </li>
+</ul>
+ 
+<div class="clear"></div>
+
+<p><span class="title">Maps and Comparisons</span></p>
+<ul class="entry-point">
+  <li class="left">
+    Genetic maps, and comparisons to the sequenced legume reference genomes.
+  </li> 
+  <li class="center">
+    <%= link_to "Go", "http://cmap.comparative-legumes.org" %>
+  </li> 
+  <li class="right">
+    <%= link_to image_tag("maps_thumb.png", :alt => "Genetic Maps"), "http://cmap.comparative-legumes.org" %>
+  </li>
+</ul>
+
+<div class="clear"></div>
+
 <h1>Getting Started</h1>
 
 <p><span class="title">Gene &rarr; Function</span></p>
@@ -92,39 +169,7 @@
 		</ul>
 	</div>
 
-<p><span class="title">Biological Process &rarr; Gene Network</span></p>
-<ul class="web-nobullet">
-	<li>Search for differential expression in gene expression databases. 
-	<a id="tool_5_toggle" class="small" onclick="new Effect.Accordion('tool_5');">More [+]</a></li>
-</ul>
-	<div id="tool_5" class="accordion_toggle">
-		<ul class="web-nobullet-indent">
-			<li><%= link_to "Soybean transcript atlas", "http://soybase.org/soyseq/", :target => "_blank" %></li>
-			<li><%= link_to "Medicago gene expression atlas", "http://mtgea.noble.org/v2/", :target => "_blank" %></li>
-		</ul>
-	</div>
-<ul class="web-nobullet">
-	<li>Map those genes onto metabolic pathway pictures. 
-	<a id="tool_6_toggle" class="small" onclick="new Effect.Accordion('tool_6');">More [+]</a></li>
-</ul>
-	<div id="tool_6" class="accordion_toggle">
-		<ul class="web-nobullet-indent">
-			<li><%= link_to "SoyCyc soybean metabolic pathway database", "http://www.soybase.org:8082/", :target => "_blank" %></li>
-			<li><%= link_to "MedicCyc Medicago metabolic pathway database", "http://www.gramene.org/pathway/mediccyc.html/", :target => "_blank" %></li>
-		</ul>
-	</div>
-
-<p><span class="title">Haplotype or GWAS</span></p>
-<ul class="web-nobullet">
-	<li><%= link_to "Medicago truncatula HapMap project", "http://medicagohapmap.org/", :target => "_blank" %></li>
-</ul>
-
-<p><span class="title">Your Project</span></p>
-<ul class="web-nobullet">
-    <li>Have a project or data set not represented here? Please <%= mail_to "lis_feedback@ncgr.org", "contact us", :encode => "javascript" %>.</li>
-</ul>
-
 <script type="text/javascript">
 	document.observe('dom:loaded', hideAccordions);		// Hide accordions on page load
-	document.observe('unload', hideAccordions);			// Hide accordions on page unload
+	document.observe('unload', hideAccordions);			  // Hide accordions on page unload
 </script>

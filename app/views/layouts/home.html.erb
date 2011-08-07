@@ -3,7 +3,10 @@
   <head>
     <title>Legume Information System</title>
     <link rel="alternate" type="application/rss+xml" title="News Articles" href="news_articles.rss" />
-    <%= javascript_include_tag :defaults, "dropdownnav" %>
+    <%= javascript_include_tag :defaults, "dropdownnav", "jquery-1.5.1.min", "jquery-ui-1.8.13.custom.min" %>
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+    </script>
     <%= stylesheet_link_tag :all %>
     <%= csrf_meta_tag %>
   </head>
@@ -38,7 +41,7 @@
           <div id="rightcol">
             <%= yield :rightcol %>
           </div>
-          <div style="clear: both;"></div>
+          <div class="clear"></div>
         </div>
       </div>
       <%= render :partial => "shared/footer" %>

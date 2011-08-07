@@ -1,3 +1,7 @@
+/**-----------------------------------------------------------------------------
+ * Prototype
+ *----------------------------------------------------------------------------*/
+
 /**
  * Hide Accordions.
  */
@@ -49,3 +53,26 @@ function parseAndRenderPhylogeneticTree(id) {
   drawTreeNew(graphics, tree);
 }
 
+/**-----------------------------------------------------------------------------
+ * jQuery
+ *----------------------------------------------------------------------------*/
+
+jQuery(function($) {
+
+  var dates = $( "#start_date, #end_date" ).datepicker({
+    changeMonth: true,
+    numberOfMonths: 2,
+    dateFormat: 'yy-mm-dd',
+    onSelect: function( selectedDate ) {
+      var option = this.id == "start_date" ? "minDate" : "maxDate",
+      instance = $( this ).data( "datepicker" ),
+      date = $.datepicker.parseDate(
+        instance.settings.dateFormat ||
+        $.datepicker._defaults.dateFormat,
+        selectedDate, instance.settings 
+      );
+      dates.not( this ).datepicker( "option", option, date );
+    }
+  });
+
+});
