@@ -75,4 +75,11 @@ jQuery(function($) {
     }
   });
 
+  /**
+   *  Logo link to home.
+   */
+  $('#logo_left').click(function() {
+    document.location.pathname='/';
+  });
+
 });

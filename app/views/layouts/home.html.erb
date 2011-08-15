@@ -15,18 +15,21 @@
       <%= render :partial => "shared/user_nav" %>
       <div id="content">
         <div id="logo">
-          <div id="rss">
-            <%= link_to image_tag("feed.png", :alt => "RSS Feed"), news_articles_url(:rss) %>
+          <div id="logo_left"></div>
+          <div id="logo_right">
+            <div id="rss">
+              <%= link_to image_tag("feed.png", :alt => "RSS Feed"), news_articles_url(:rss) %>
+            </div>
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                  pageLanguage: 'en'
+                }, 'google_translate_element');
+              }
+            </script>
+            <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
           </div>
-          <div id="google_translate_element"></div>
-          <script type="text/javascript">
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement({
-                pageLanguage: 'en'
-              }, 'google_translate_element');
-            }
-          </script>
-          <script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
         </div>
         <div id="nav">
           <%= render :partial => "shared/nav" %>
