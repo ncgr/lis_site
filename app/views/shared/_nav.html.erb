@@ -1,21 +1,19 @@
-<ul class="level1" id="root">
-	<% if request.path != "/"%>
-		<li><%= link_to "Home", root_path %></li> 
-		<li class="sep">|</li>
-	<% end %>
+<ul class="level1 dropdown" id="root">
+	<li><%= link_to "Home", root_path %></li> 
+	<li class="sep">|</li>
 	<li><%= link_to "About", page_path('about') %></li> 
 	<li class="sep">|</li>
 	<li><%= link_to "News", news_articles_path %></li>
 	<li class="sep">|</li>
 	<li>
-		<a href="#" class="no_cursor">Search</a> 
+		<%= link_to "Search", page_path('search') %>
 		<ul class="level2"> 
 			<li><%= link_to "Seqqle search by sequence", "http://search.comparative-legumes.org/" %></li> 
 		</ul> 
 	</li> 
 	<li class="sep">|</li>
 	<li>
-		<a href="#" class="no_cursor">Maps</a> 
+		<%= link_to "Maps", page_path('maps') %>
 		<ul class="level2"> 
 			<li><%= link_to "Comparative map views", "http://cmap.comparative-legumes.org/index.html" %></li> 
 		</ul> 

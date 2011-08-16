@@ -85,10 +85,10 @@
     Chromosome- to gene-scale views of the <em>Lotus japonicus</em>, <em>Medicago truncatula</em>, and <em>Glycine max</em> (soybean) genomes.  
   </li>
   <li class="center">
-    <%= link_to "Go", "/pages/species#genome_browser" %>
+    <%= link_to "Go", page_path("genome_browsers") %>
   </li>
   <li class="right"> 
-    <%= link_to image_tag("browser_thumb.png", :alt => "Genome Browsers"), "/pages/species#genome_browser" %>
+    <%= link_to image_tag("browser_thumb.png", :alt => "Genome Browsers"), page_path("genome_browsers") %>
   </li>
 </ul>
  
@@ -143,7 +143,7 @@
 		<ul class="web-nobullet-indent">
 			<li>Genetic <%= link_to "maps and map comparisons", "http://cmap.comparative-legumes.org", :target => "_blank" %></li>
 			<li><%= link_to "QTLs and traits at SoyBase", "http://soybeanbreederstoolbox.org/search/search_results.php?category=QTLName", :target => "_blank" %></li>
-			<li><%= link_to "QTLs and traits at PhaseolusGenes", "http://phaseolusgenes.bioinformatics.ucdavis.edu/search", :target => "_blank" %></li>
+			<li><%= link_to "QTLs and traits at PhaseolusGenes", "http://phaseolusgenes.bioinformatics.ucdavis.edu/", :target => "_blank" %></li>
 		</ul>
 	</div>
 <ul class="web-nobullet">
