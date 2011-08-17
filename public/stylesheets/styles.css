@@ -213,29 +213,25 @@ ul.web-nobullet-indent li {
   width: 90%;
 }
 
-ul.web, ol.web {
+ul, ol {
   margin: 15px 20px 15px 40px;
   padding: 0;
 }
 
-ul.web li {
+ul li {
   margin: 0;
-  padding: 0 0 0 5px;
+  padding: 0 10px 0 10px;
   font-size: 14px;	
   line-height: 18px;
   letter-spacing: 1px;
-
-  width: 90%;
 }
 
-ol.web li {
+ol li {
   margin: 0;
-  padding: 0 0 0 5px;
+  padding: 0 10px 0 10px;
   font-size: 14px;	
   line-height: 18px;
   letter-spacing: 1px;
-
-  width: 90%;
 }
 
 .title {
