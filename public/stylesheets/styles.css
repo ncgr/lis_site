@@ -271,11 +271,11 @@ ol li {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 1000px;
+  width: 995px;
 }
 
 #logo {
-  margin: 10px 0 10px 15px;
+  margin: 0 0 10px 15px;
   padding: 0;
   background-image: url(../images/logo.jpg);
   background-repeat: no-repeat;
@@ -297,13 +297,12 @@ ol li {
 
 #content {
   margin: 0;
-  padding: 0;
+  padding: 10px 0 10px 0;
   background-color: #bbd1a6;
 
   width: 100%;
 
   text-align: left;
-  overflow: hidden;
 }
 
 /*** Phylogenetic Tree ***/
@@ -335,7 +334,7 @@ ol li {
 
 /*** Frame contains the left and right columns ***/
 #frame {
-  margin: 10px 15px 15px 15px;
+  margin: 10px 10px 0 15px;
   padding: 0;
 
   background-color: #efede9;
