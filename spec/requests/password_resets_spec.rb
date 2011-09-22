@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "PasswordResets" do
 
   before(:all) { create_roles }
-  before(:each) { clear_emails }  
+  before(:each) { clear_emails }
 
   it "emails user after successful password reset request" do
     user = Factory(:user_information)
