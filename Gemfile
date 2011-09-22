@@ -17,8 +17,13 @@ end
 
 group :test do
   gem 'capybara', '~> 1.1.1'
+<<<<<<< HEAD
   gem 'factory_girl_rails', '~> 1.2.0'
   gem 'database_cleaner', '~> 0.6.7'
+=======
+  gem 'database_cleaner', '~> 0.6.7'
+  gem 'factory_girl_rails', '~> 1.2.0'
+>>>>>>> c79536ddb908d58ef6dddce78c5f2fa06ac264f1
   gem 'rcov'
 end
 

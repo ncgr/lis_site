@@ -24,9 +24,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   ## Added by KAS ##
-   
-  # Database Cleaner           
-  config.before(:suite) do     
+  
+  # Database Cleaner
+  config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -46,5 +46,5 @@ RSpec.configure do |config|
   config.include(RoleMacros) 
 
   # Mailer Macros
-  config.include(MailerMacros) 
+  config.include(MailerMacros)
 end
