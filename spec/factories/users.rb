@@ -4,6 +4,6 @@ FactoryGirl.define do
     password "testing"
     password_confirmation "testing"
     first_name "bob"
-    last_name "bob"
+    last_name "smith"
   end
 end
