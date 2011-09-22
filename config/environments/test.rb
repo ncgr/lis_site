@@ -34,5 +34,5 @@ LisSite::Application.configure do
   config.active_support.deprecation = :stderr
 
   ## Added by KAS ##
-  config.action_mailer.default_url_options = { :host => 'aztec.ncgr.org:7650' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

@@ -1,5 +1,7 @@
 <% content_for :rightcol do %>
-	<%= raw(@welcome.body) %>
+  <% if @welcome %>
+	  <%= raw(@welcome.body) %>
+  <% end %>
 	<hr />
 	<h4>Meetings</h4>
 	<% unless @meetings.blank? %>
