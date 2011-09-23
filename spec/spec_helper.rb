@@ -40,7 +40,7 @@ RSpec.configure do |config|
   end
 
   # Controller Macros
-  config.extend DeviseMacros, :type => :controller
+  config.extend DeviseMacros
 
   # Role Macros
   config.include(RoleMacros) 
