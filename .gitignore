@@ -5,3 +5,5 @@ tmp/
 vendor/plugins/
 coverage/
 config/database.yml
+public/javascripts/ckfinder/config.php
+
