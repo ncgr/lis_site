@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   # Declarative authorization method.
   #
   def role_symbols
-    (roles || []).map {|r| r.name.to_sym}
+    (roles || []).map { |r| r.name.to_sym }
   end  
 
 end

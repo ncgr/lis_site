@@ -21,3 +21,4 @@ namespace :db do
     puts "#{Time.now}: Deleted #{num} meeting(s) in the database."
   end
 end
+

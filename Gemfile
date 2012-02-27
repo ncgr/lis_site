@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.11'
 
 gem 'mysql2', '~> 0.2.7'
 gem 'kaminari', '~> 0.12.4'
@@ -19,6 +19,5 @@ group :test do
   gem 'capybara', '~> 1.1.1'
   gem 'factory_girl_rails', '~> 1.2.0'
   gem 'database_cleaner', '~> 0.6.7'
-  gem 'rcov'
 end
 

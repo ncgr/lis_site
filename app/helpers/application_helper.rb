@@ -1,13 +1,6 @@
 module ApplicationHelper
   
   #
-  # Insert page title
-  #
-  def title(page_title)
-    content_for(:title) { page_title }
-  end
-  
-  #
   # Date / Time helper.
   #
   def display_time(timestamp)
@@ -25,10 +18,7 @@ module ApplicationHelper
   #
   # Start and end date helper.
   #
-  def format_start_end_date(s_date, e_date = nil)
-    
-    return dislpay_date(s_date) if e_date.nil?
-
+  def format_start_end_date(s_date, e_date)
     # Format the dates based on month and year.
     if (s_date.mon == e_date.mon) && (s_date.year == e_date.year)
       date = s_date.strftime("%b %d-").to_s + e_date.strftime("%d, %Y").to_s

@@ -6,9 +6,9 @@ module DeviseMacros
       @user = User.find(@user.id)
 
       # Set role to superuser
-      role = Role.where({:name => "superuser"}).first
+      role = Role.where({ :name => "superuser" }).first
       added = []
-      added << {:user_id => @user.id, :role_id => role.id}
+      added << { :user_id => @user.id, :role_id => role.id }
       UserRole.create!(added)
 
       sign_in @user
@@ -22,9 +22,9 @@ module DeviseMacros
       @user = User.find(@user.id)
 
       # Set role to admin
-      role = Role.where({:name => "admin"}).first
+      role = Role.where({ :name => "admin" }).first
       added = []
-      added << {:user_id => @user.id, :role_id => role.id}
+      added << { :user_id => @user.id, :role_id => role.id }
       UserRole.create!(added)
 
       sign_in @user
@@ -38,9 +38,9 @@ module DeviseMacros
       @user = User.find(@user.id)
 
       # Set role to editor
-      role = Role.where({:name => "editor"}).first
+      role = Role.where({ :name => "editor" }).first
       added = []
-      added << {:user_id => @user.id, :role_id => role.id}
+      added << { :user_id => @user.id, :role_id => role.id }
       UserRole.create!(added)
 
       sign_in @user
