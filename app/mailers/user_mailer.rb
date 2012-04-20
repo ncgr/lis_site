@@ -18,7 +18,7 @@ class UserMailer < ActionMailer::Base
   def account_canceled(user)
     @user = user
     mail(:to => user.username, :subject => "LIS Account Canceled - DO NOT REPLY")
-  end  
+  end
 
 end
 

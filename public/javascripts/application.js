@@ -69,7 +69,7 @@ jQuery(function($) {
       date = $.datepicker.parseDate(
         instance.settings.dateFormat ||
         $.datepicker._defaults.dateFormat,
-        selectedDate, instance.settings 
+        selectedDate, instance.settings
       );
       dates.not( this ).datepicker( "option", option, date );
     }

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PagesController do
 
-  before(:all) do
+  before(:each) do
     create_roles
   end
 
@@ -12,7 +12,7 @@ describe PagesController do
       response.should be_redirect
     end
   end
- 
+
   describe "GET index while logged in as superuser" do
     login_superuser
     it "should get index" do
@@ -47,7 +47,7 @@ describe PagesController do
 
   describe "Show page while not logged in" do
     before(:each) do
-      @page = Factory.build(:page)
+      @page = FactoryGirl.build(:page)
       Page.stub!(:find).with("about").and_return(@page)
     end
     it "should show page" do
@@ -56,39 +56,4 @@ describe PagesController do
     end
   end
 
-  describe "Edit and Update page while logged in as superuser" do
-    login_superuser
-    before(:each) do
-      @page = Factory.build(:page)
-      Page.should_receive(:find).with("1").and_return(@page)
-    end
-    it "should find meeting and return object" do
-      get :edit, :id => "1"
-      response.should render_template('edit')
-    end
-    it "should update object" do
-      put :update, :id => "1", :page => {}
-      response.should be_redirect
-    end
-  end
-  
-  describe "Edit and Update page while logged in as admin" do
-    login_admin
-    before(:each) do
-      @page = Factory.build(:page)
-      Page.should_receive(:find).with("14").and_return(@page)
-    end
-    it "should find meeting and return object" do
-      get :edit, :id => "14"
-      response.should render_template('edit')
-    end
-    it "should update object" do
-      put :update, :id => "14", :page => {}
-      response.should be_redirect
-    end
-  end
-
-  after(:all) do
-    destroy_roles  
-  end
 end

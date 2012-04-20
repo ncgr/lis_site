@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
 
-  # 
+  #
   # Override default method.
   #
   def new
@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render_with_scope :new
   end
 
-  # 
+  #
   # Override default method to disable sign_in.
   #
   def create
@@ -31,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords(resource)
       render_with_scope :new
-    end 
+    end
   end
 
   #

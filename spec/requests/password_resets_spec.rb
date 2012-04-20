@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe "PasswordResets" do
 
-  before(:all) { create_roles }
-  before(:each) { clear_emails }
+  before(:each) do
+    create_roles
+    clear_emails
+  end
 
   it "emails user after successful password reset request" do
     user = Factory(:user_information)
@@ -62,8 +64,6 @@ describe "PasswordResets" do
     current_path.should eq(root_path)
     page.should have_content("password was changed successfully")
   end
-
-  after(:all) { destroy_roles }
 
 end
 

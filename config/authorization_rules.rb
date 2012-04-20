@@ -7,12 +7,12 @@
 # '4', 'system_user'
 
 authorization do
-    
+
   role :base do
     # Signed in users will have a user_profiles page.
     has_permission_on :user_profiles, :to => [:show]
   end
-    
+
   role :superuser do
     includes :base
     has_permission_on :user_profiles, :to => [:manage, :manage_roles]
@@ -20,7 +20,7 @@ authorization do
     has_permission_on :meetings,      :to => [:manage]
     has_permission_on :pages,         :to => [:manage]
   end
-    
+
   role :admin do
     includes :base
     has_permission_on :user_profiles, :to => [:read]
@@ -32,11 +32,11 @@ authorization do
   role :editor do
     includes :base
   end
-    
+
   role :system_user do
     includes :base
   end
-    
+
 end
 
 privileges do
@@ -46,7 +46,7 @@ privileges do
   privilege :create, :includes => :new
   privilege :update, :includes => :edit
   privilege :delete, :includes => :destroy
-  
+
   # Others
   privilege :manage_roles, :includes => :update_roles
 end

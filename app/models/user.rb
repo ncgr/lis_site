@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :user_roles, :dependent => :destroy
   has_many :roles, :through => :user_roles
-  
+
   paginates_per 20
 
   # Include default devise modules. Others available are:
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   # :database_authenticatable --> Replaced by cas_authenticatable <--
   # :validatable, :lockable, :rememberable, :registerable, :invitable
   devise :cas_authenticatable, :trackable
-  
+
   SORTABLE_COLUMNS = ["first_name", "last_name", "username", "roles.name"]
   DEFAULT_ORDER    = "last_name ASC"
 
@@ -38,6 +38,6 @@ class User < ActiveRecord::Base
   #
   def role_symbols
     (roles || []).map { |r| r.name.to_sym }
-  end  
+  end
 
 end

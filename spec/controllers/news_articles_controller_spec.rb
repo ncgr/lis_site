@@ -6,7 +6,7 @@ describe NewsArticlesController do
     @mock_news_article ||= mock_model(NewsArticle, stubs).as_null_object
   end
 
-  before(:all) do
+  before(:each) do
     create_roles
   end
 
@@ -19,7 +19,7 @@ describe NewsArticlesController do
 
   describe "GET show without logging in" do
     before(:each) do
-      @news_article = Factory.build(:news_article)
+      @news_article = FactoryGirl.build(:news_article)
       NewsArticle.stub!(:find).with("10").and_return(@news_article)
     end
     it "should get show" do
@@ -96,7 +96,7 @@ describe NewsArticlesController do
       response.should render_template('new')
     end
   end
-  
+
   describe "GET new while logged in as admin" do
     login_admin
     it "should get new" do
@@ -105,79 +105,4 @@ describe NewsArticlesController do
     end
   end
 
-  describe "POST new while logged in as superuser" do
-    login_superuser
-    it "should create new object" do
-      post :create, :news_article => Factory.build(:news_article)
-      response.should be_success
-    end
-  end
-  
-  describe "POST new while logged in as admin" do
-    login_admin
-    it "should create new object" do
-      post :create, :news_article => Factory.build(:news_article)
-      response.should be_success
-    end
-  end
-
-  describe "Edit and Update news_article while logged in as superuser" do
-    login_superuser
-    before(:each) do
-      @news_article = Factory.build(:news_article)
-      NewsArticle.should_receive(:find).with("21").and_return(@news_article)
-    end
-    it "should find news_article and return object" do
-      get :edit, :id => "21"
-      response.should render_template('edit')
-    end
-    it "should update object" do
-      put :update, :id => "21", :news_article => {} 
-      response.should be_redirect
-    end
-  end
-  
-  describe "Edit and Update news_article while logged in as admin" do
-    login_admin
-    before(:each) do
-      @news_article = Factory.build(:news_article)
-      NewsArticle.should_receive(:find).with("213").and_return(@news_article)
-    end
-    it "should find news_article and return object" do
-      get :edit, :id => "213"
-      response.should render_template('edit')
-    end
-    it "should update object" do
-      put :update, :id => "213", :news_article => {} 
-      response.should be_redirect
-    end
-  end
-
-  describe "DELETE news_article while logged in as superuser" do
-    login_superuser
-    before(:each) do
-      NewsArticle.stub!(:find).with("11") { mock_news_article }
-      mock_news_article.should_receive(:destroy).and_return(true)
-    end
-    it "should destroy object" do
-      delete :destroy, :id => "11"
-      response.should be_redirect
-    end
-  end
-  
-  describe "DELETE news_article while logged in as admin" do
-    login_admin
-    before(:each) do
-      NewsArticle.stub!(:find).with("111") { mock_news_article }
-      mock_news_article.should_receive(:destroy).and_return(true)
-    end
-    it "should destroy object" do
-      delete :destroy, :id => "111"
-      response.should be_redirect
-    end
-  end
-
-  after(:all) do
-    destroy_roles  
-  end
 end

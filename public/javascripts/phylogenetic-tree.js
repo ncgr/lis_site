@@ -1,24 +1,24 @@
 /**
  * Phylogenetic Tree
- * 
+ *
  * Author: Michiel Van Bel http://bioinformatics.psb.ugent.be/plaza/
  * Adapted By: Ken Seal http://comparative-legumes.org
  *
- * Parses Newick data and depends on wz_graphics.js to draw to the tree.  
+ * Parses Newick data and depends on wz_graphics.js to draw to the tree.
  *---------------------------------------------------------------------------*/
 
 /*
  * Object of a node,
  * with asociated functions.
- * 
+ *
  * A node is a general abstraction, and it can
  * represent both normal internal nodes, the root node,
  * and leaves.
- * 
+ *
  * If a node is internal, it has both childrennodes and a parentnode.
  * If a node is a leave, it has a parent node, but no children.
  * If a node is the root node, it has children but no parent.
- * 
+ *
  * We give a general empty ("") name to all newly constructed nodes,
  * so we will not have any null-references.
  */
@@ -27,7 +27,7 @@ function Node(value, pn) {
   // every node can have an associated value.
   this.value = value;
   // array containing all children (can be empty)
-  this.childrenNodes = new Array(); 
+  this.childrenNodes = new Array();
   // the name of the node ("" if internal)
   this.nodeName = "";
   // the reference to the parent node
@@ -35,7 +35,7 @@ function Node(value, pn) {
   // the relative y-coord at which the node should be drawn
   this.drawHeight = -1;
   // the relative x-coord at which the node should be drawn
-  this.drawDepth = -1; 
+  this.drawDepth = -1;
 
   /** functions **/
   // returns the value of this node
@@ -47,19 +47,19 @@ function Node(value, pn) {
   // adds a child node to this node
   this.addChild = addChild;
   // returns a child (from certain index) from this node
-  this.getChild = getChild; 
+  this.getChild = getChild;
   // returns the number of children of this node
   this.numChildren = numChildren;
   // returns string representation of this node
-  this.nodeToString = nodeToString; 
+  this.nodeToString = nodeToString;
   // returns the depth (relative to root node)
-  this.getDepth = getDepth; 
+  this.getDepth = getDepth;
   // returns the number of leave-nodes that are children of this node
-  this.numLeaves = numLeaves; 
+  this.numLeaves = numLeaves;
   // returns the relative y-coord of this node
   this.getDrawHeight = getDrawHeight;
   // returns the relative x-coord of this node
-  this.getDrawDepth = getDrawDepth; 
+  this.getDrawDepth = getDrawDepth;
   // sets the relative y--coord of this node
   this.setDrawHeight = setDrawHeight;
   // sets the relative x-coord of this node
@@ -242,11 +242,11 @@ function getDepth() {
 
 /*
  * ***********************************************************
- * 
+ *
  * Some other functions, not part of the Node object. These functions are
  * specifically designed to parse a tree-structure from the newick tree
  * representation.
- * 
+ *
  * ***********************************************************
  */
 
@@ -501,10 +501,10 @@ speciesUrls["Vigna_unguiculata"] = "http://vigun.comparative-legumes.org";
 
 /**
  * Draws phylogenetic tree.
- * 
+ *
  * Canvas is a jsGraphics oject.
  * Tree is a parsedNewickSpecies() tree.
- * 
+ *
  * @param canvas
  * @param tree
  */
@@ -597,10 +597,10 @@ function drawBranchRecursive(canvas, node, startx, maxDepth) {
     var totalNodeName = node.getNodeName();
     var speciesNodeName = totalNodeName.replace(/_/g, " ");
     var newNodeName = "";
-    // 
+    //
     if (speciesUrls[totalNodeName]) {
       newNodeName = "<a class='species_tree_link' id='tree_link_"
-        + totalNodeName + "' href='" + speciesUrls[totalNodeName] 
+        + totalNodeName + "' href='" + speciesUrls[totalNodeName]
         + "'>" + speciesNodeName + "</a>";
     } else {
       newNodeName = "<span class='grey'>" + speciesNodeName + "</span>";
@@ -682,7 +682,7 @@ function containsNode(node, nodes) {
 
 /*
  * removes two used nodes from the array that should draw those nodes.
- * 
+ *
  * function removeNodes(node1,node2,nodes){ var newNodes = new Array(); for(var
  * i=0;i<nodes.length;i++){ var node = nodes[i];
  * if((node==node1)||(node==node2)){ //do nothing } else{ newNodes.push(node); } }
@@ -767,7 +767,7 @@ function getSameParentNodeIndex(nodes, startIndex, parentNode) {
 }
 
 /*
- * Sets the div as indicated to be a certain height, depending on the 
+ * Sets the div as indicated to be a certain height, depending on the
  * given tree.
  */
 function setCorrectDivHeight(tree, divid) {

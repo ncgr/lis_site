@@ -4,7 +4,7 @@ module MailerMacros
     ActionMailer::Base.deliveries.last
   end
 
-  def clear_emails             
+  def clear_emails
     ActionMailer::Base.deliveries = []
   end
 

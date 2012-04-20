@@ -2,7 +2,7 @@
 
 #
 # Creates a tarball ready to deploy.
-# 
+#
 tar czf lis_site-release.tar.gz \
     lis_site/app \
     lis_site/config \
@@ -16,12 +16,11 @@ tar czf lis_site-release.tar.gz \
     lis_site/Rakefile \
     lis_site/README \
     lis_site/script \
-    lis_site/test \
     lis_site/spec \
-    lis_site/vendor 
+    lis_site/vendor
 
 # omitted files:
-# log 
+# log
 # startServer
 # tmp
 # .rspec

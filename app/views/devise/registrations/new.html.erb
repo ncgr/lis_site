@@ -5,15 +5,15 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :id => "heehee") do |f| %>
     <%= devise_error_messages! %>
-  
+
     <fieldset>
         <legend>Create your username and password</legend>
           <p>*<label>Email</label> <em>(Your email address is your username.)</em><br />
           <%= f.text_field :username %></p>
-        
+
           <p>*<label>Password</label> <em>(Your password must be 6-20 characters long.)</em><br />
           <%= f.password_field :password %></p>
-        
+
           <p>*<label>Password Confirmation</label><br />
           <%= f.password_field :password_confirmation %></p>
     </fieldset>
@@ -22,10 +22,10 @@
         <legend>Personal Information</legend>
             <p>*<label>First Name</label><br />
             <%= f.text_field :first_name %></p>
-          
+
             <p>*<label>Last Name</label><br />
             <%= f.text_field :last_name %></p>
-          
+
             <p><%= f.submit "Register", :class => "submit" %></p>
     </fieldset>
 <% end %>

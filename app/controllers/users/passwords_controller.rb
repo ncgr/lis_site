@@ -8,8 +8,8 @@ class Users::PasswordsController < Devise::PasswordsController
     build_resource({})
     render_with_scope :new
   end
-  
-  # 
+
+  #
   # Override create to redirect home after new password request and edit on error.
   #
   def create
@@ -30,7 +30,7 @@ class Users::PasswordsController < Devise::PasswordsController
     render_with_scope :edit
   end
 
-  # 
+  #
   # Override update to redirect home after update and edit on error.
   #
   def update
@@ -38,9 +38,9 @@ class Users::PasswordsController < Devise::PasswordsController
 
     if resource.errors.empty?
       set_flash_message(:notice, :updated) if is_navigational_format?
-      respond_with resource, :location => root_path 
+      respond_with resource, :location => root_path
     else
-      render_with_scope :edit 
+      render_with_scope :edit
     end
   end
 

@@ -14,7 +14,7 @@ describe UserProfilesController do
     Base64.decode64(cookie.split('--').first).gsub(/[^a-z]/, '')
   end
 
-  before(:all) do
+  before(:each) do
     create_roles
   end
 
@@ -36,7 +36,7 @@ describe UserProfilesController do
       response.should be_redirect
     end
   end
- 
+
   context "with render_views" do
     render_views
     describe "GET index while logged in as superuser" do
@@ -83,7 +83,7 @@ describe UserProfilesController do
   describe "GET show while logged in as superuser" do
     login_superuser
     before(:each) do
-      @user = User.order("created_at DESC").first 
+      @user = User.order("created_at DESC").first
       User.should_receive(:find).with(@user.id).and_return(@user)
     end
     it "should get show and set ckfinder_role cookie" do
@@ -167,35 +167,4 @@ describe UserProfilesController do
     end
   end
 
-  describe "PUT roles while logged in as superuser" do
-    login_superuser
-    before(:each) do
-      @user = Factory.build(:user_information)
-      User.should_receive(:find).with("7").and_return(@user)
-    end
-    it "should find user and return object" do
-      get :manage_roles, :id => "7"
-      response.should render_template('manage_roles')
-    end
-    it "should update object" do
-      put :update_roles, :id => "7", :user_role => {}
-      response.should be_redirect
-    end
-  end
-
-  describe "DELETE user while logged in as superuser" do
-    login_superuser
-    before(:each) do
-      User.stub!(:find).with("8") { mock_user }
-      mock_user.should_receive(:destroy).and_return(true)
-    end
-    it "should destroy object" do
-      delete :destroy, :id => "8"
-      response.should be_redirect
-    end
-  end
-
-  after(:all) do
-    destroy_roles  
-  end
 end

@@ -1,8 +1,8 @@
-/** 
+/**
  * Javascript to generate the markers on the Google Map.
- *    
- * See the Google Maps API http://code.google.com/apis/maps/index.html 
- * and http://econym.org.uk/gmap/ for more information. 
+ *
+ * See the Google Maps API http://code.google.com/apis/maps/index.html
+ * and http://econym.org.uk/gmap/ for more information.
  * Thanks to both for compiling such great resources.
  * --------------------------------------------------------------------
  */
@@ -40,7 +40,7 @@ function loadMap() {
           overview = overview.substring(0, 300);
 
           var html = "<p><strong>" + name + "</strong></p>";
-          html += "<div id='map-info'><p><img src='http://" + short_name + ".comparative-legumes.org/images/" + short_name + ".png'" + 
+          html += "<div id='map-info'><p><img src='http://" + short_name + ".comparative-legumes.org/images/" + short_name + ".png'" +
           "alt='' />" + overview + " ...</p></div>";
           html += "<p><a href='http://" + short_name + ".comparative-legumes.org'>Read More &raquo;</a></p>";
 

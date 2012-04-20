@@ -1,6 +1,6 @@
 <h1>Invitations</h1>
 
-<%= paginate @invitations %> 
+<%= paginate @invitations %>
 
 <p class="right"><%= link_to raw('User Profiles &raquo;'), user_profiles_path %></p>
 
@@ -24,7 +24,7 @@
       <td><%= user.invitation_token %></td>
       <% if has_role? :superuser %>
         <td>
-          <%= link_to 'Delete', user_profile_path(user), :method => :delete, 
+          <%= link_to 'Delete', user_profile_path(user), :method => :delete,
             :confirm => 'Really delete invitation %s?' % [ user.username ] %>
         </td>
       <% end %>

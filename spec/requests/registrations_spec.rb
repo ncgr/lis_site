@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe "Registrations" do
 
-  before(:all) { create_roles }
-  before(:each) { clear_emails }
+  before(:each) do
+    create_roles
+    clear_emails
+  end
 
   #
   # I need to use UserObserver.instance to test email delivery.
@@ -24,12 +26,10 @@ describe "Registrations" do
 
     current_path.should eq(root_path)
     page.should have_content("You have signed up successfully")
-    
+
     observer.after_create(UserInformation.last)
     last_email.to.should include("testing@test.com")
   end
-
-  after(:all) { destroy_roles }
 
 end
 

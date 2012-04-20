@@ -1,6 +1,6 @@
 
 class HomeController < ApplicationController
-  
+
   # Home page
   def index
     @articles = NewsArticle.order("created_at DESC").limit(1)

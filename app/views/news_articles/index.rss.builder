@@ -2,7 +2,7 @@
 # RSS Feed for News Articles
 #
 
-xml.instruct! :xml, :version => "1.0" 
+xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0" do
   xml.channel do
     xml.title "Recent News"

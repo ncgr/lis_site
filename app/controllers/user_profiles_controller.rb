@@ -4,7 +4,7 @@ class UserProfilesController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
 
-  # 
+  #
   # Superuser index
   #
   def index
@@ -12,7 +12,7 @@ class UserProfilesController < ApplicationController
     @profiles = User.order(order_by).includes(:roles).page(params[:page])
   end
 
-  # 
+  #
   # Any user may view their profile. Only superusers may
   # view all profiles.
   #
@@ -26,7 +26,7 @@ class UserProfilesController < ApplicationController
     end
   end
 
-  # 
+  #
   # Superuser destroy
   #
   def destroy
@@ -40,7 +40,7 @@ class UserProfilesController < ApplicationController
     end
   end
 
-  # 
+  #
   # Manage user's role
   #
   def manage_roles
@@ -72,7 +72,7 @@ class UserProfilesController < ApplicationController
       logger.error e.inspect
       logger.error "backtrace:\n" + e.backtrace.join("\n")
       render :action => 'manage_roles'
-      return      
+      return
     end
     flash[:notice] = 'Successfully updated roles.'
     redirect_to user_profiles_path

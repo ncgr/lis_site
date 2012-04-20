@@ -28,7 +28,7 @@ describe ApplicationHelper do
       helper.format_start_end_date(
         Time.new, Time.new.advance(:years => 1)
       ).should match(/-/)
-    end 
+    end
   end
 
   describe "#kaminari_sort_by" do
@@ -56,8 +56,8 @@ describe ApplicationHelper do
         :page => 1
       }
       helper.stub!(:params).and_return { params }
-      helper.kaminari_sort_by(:pages_path, "Sort Me").should eq(
-        %Q(<a href="/pages?dir=asc&amp;page=1&amp;sort=sort_me">Sort Me<img alt="Desc_arrow" src="/images/desc_arrow.png" /></a>)
+      helper.kaminari_sort_by(:pages_path, "Sort Me").should include(
+        %Q(/pages?dir=asc&amp;page=1&amp;sort=sort_me">Sort Me)
       )
     end
 
@@ -68,8 +68,8 @@ describe ApplicationHelper do
         :page => 2
       }
       helper.stub!(:params).and_return { params }
-      helper.kaminari_sort_by(:pages_path, "Sort Me").should eq(
-        %Q(<a href="/pages?dir=desc&amp;page=2&amp;sort=sort_me">Sort Me<img alt="Asc_arrow" src="/images/asc_arrow.png" /></a>)
+      helper.kaminari_sort_by(:pages_path, "Sort Me").should include(
+        %Q(/pages?dir=desc&amp;page=2&amp;sort=sort_me">Sort Me)
       )
     end
 
