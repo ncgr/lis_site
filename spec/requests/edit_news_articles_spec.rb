@@ -18,16 +18,10 @@ describe "EditNewsArticles" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "Manage News Articles"
-    current_path.should eq(news_articles_path)
-
     visit edit_news_article_path(@news_article.id)
-    current_path.should eq(edit_news_article_path(@news_article.id))
 
     click_button "Update News Article"
-    current_path.should eq(news_articles_path)
     page.should have_content("Successfully updated news article.")
   end
 
@@ -40,16 +34,10 @@ describe "EditNewsArticles" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "Manage News Articles"
-    current_path.should eq(news_articles_path)
-
     visit edit_news_article_path(@news_article.id)
-    current_path.should eq(edit_news_article_path(@news_article.id))
 
     click_button "Update News Article"
-    current_path.should eq(news_articles_path)
     page.should have_content("Successfully updated news article.")
   end
 
@@ -62,7 +50,6 @@ describe "EditNewsArticles" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
 
     page.body.should_not include("Manage News Articles")
 
@@ -79,12 +66,15 @@ describe "EditNewsArticles" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
 
     page.body.should_not include("Manage News Articles")
 
     visit edit_news_article_path(@news_article.id)
     page.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
+  end
+
+  after(:all) do
+    Capybara.use_default_driver
   end
 
 end

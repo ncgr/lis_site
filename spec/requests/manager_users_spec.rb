@@ -18,18 +18,12 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "Manage users"
-    current_path.should eq(user_profiles_path)
-
     click_link "Manage Roles"
-    current_path.should eq(manage_roles_user_profile_path(@user))
 
     # Check all available roles.
     check "user_role_"
     click_button "Update Roles"
-    current_path.should eq(user_profiles_path)
     page.should have_content("Successfully updated roles.")
   end
 
@@ -44,10 +38,7 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "Create user"
-    current_path.should eq(new_user_information_registration_path)
 
     fill_in "user_information_username", :with => "newuser@test.com"
     fill_in "user_information_password", :with => "testing"
@@ -55,7 +46,6 @@ describe "ManagerUsers" do
     fill_in "user_information_first_name", :with => "test"
     fill_in "user_information_last_name", :with => "test"
     click_button "Register"
-    current_path.should eq(root_path)
     page.should have_content("Welcome! You have signed up successfully. Please sign in to continue.")
 
     observer.after_create(UserInformation.last)
@@ -73,10 +63,7 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "Create user"
-    current_path.should eq(new_user_information_registration_path)
 
     fill_in "user_information_username", :with => "newuser@test.com"
     fill_in "user_information_password", :with => "testing"
@@ -84,7 +71,6 @@ describe "ManagerUsers" do
     fill_in "user_information_first_name", :with => "test"
     fill_in "user_information_last_name", :with => "test"
     click_button "Register"
-    current_path.should eq(root_path)
     page.should have_content("Welcome! You have signed up successfully. Please sign in to continue.")
 
     observer.after_create(UserInformation.last)
@@ -100,10 +86,7 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "View users"
-    current_path.should eq(user_profiles_path)
 
     page.body.should_not include("Manage Roles")
   end
@@ -117,7 +100,6 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
 
     page.body.should_not include("Create user")
     page.body.should_not include("View users")
@@ -131,7 +113,6 @@ describe "ManagerUsers" do
     fill_in "user_information_password_confirmation", :with => @user.password
     fill_in "user_information_current_password", :with => @user.password
     click_button "Update"
-    current_path.should eq(root_path)
     page.should have_content("You updated your account successfully.")
   end
 
@@ -144,7 +125,6 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
 
     page.body.should_not include("Create user")
     page.body.should_not include("View users")
@@ -158,7 +138,6 @@ describe "ManagerUsers" do
     fill_in "user_information_password_confirmation", :with => @user.password
     fill_in "user_information_current_password", :with => @user.password
     click_button "Update"
-    current_path.should eq(root_path)
     page.should have_content("You updated your account successfully.")
   end
 
@@ -171,8 +150,6 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     visit user_profiles_path
     page.body.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
 
@@ -189,13 +166,15 @@ describe "ManagerUsers" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     visit user_profiles_path
     page.body.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
 
     visit manage_roles_user_profile_path(@user)
     page.body.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
+  end
+
+  after(:all) do
+    Capybara.use_default_driver
   end
 
 end

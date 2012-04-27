@@ -24,7 +24,6 @@ describe "Registrations" do
     fill_in "user_information_last_name", :with => "User"
     click_button "Register"
 
-    current_path.should eq(root_path)
     page.should have_content("You have signed up successfully")
 
     observer.after_create(UserInformation.last)

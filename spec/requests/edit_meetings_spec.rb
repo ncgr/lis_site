@@ -18,16 +18,10 @@ describe "EditMeetings" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "Manage Meetings"
-    current_path.should eq(meetings_path)
-
     visit edit_meeting_path(@meeting.id)
-    current_path.should eq(edit_meeting_path(@meeting.id))
 
     click_button "Update Meeting"
-    current_path.should eq(meetings_path)
     page.should have_content("Successfully updated meeting.")
   end
 
@@ -40,16 +34,10 @@ describe "EditMeetings" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
-
     click_link "Manage Meetings"
-    current_path.should eq(meetings_path)
-
     visit edit_meeting_path(@meeting.id)
-    current_path.should eq(edit_meeting_path(@meeting.id))
 
     click_button "Update Meeting"
-    current_path.should eq(meetings_path)
     page.should have_content("Successfully updated meeting.")
   end
 
@@ -62,7 +50,6 @@ describe "EditMeetings" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
 
     page.body.should_not include("Manage Meetings")
 
@@ -79,12 +66,15 @@ describe "EditMeetings" do
     click_button "LOGIN"
 
     click_link @user.username
-    current_path.should eq(user_profile_path(@user.id))
 
     page.body.should_not include("Manage Meetings")
 
     visit edit_meeting_path(@meeting.id)
     page.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
+  end
+
+  after(:all) do
+    Capybara.use_default_driver
   end
 
 end
