@@ -11,7 +11,7 @@ gem 'devise_cas_authenticatable', '1.1.1'
 gem 'declarative_authorization', '~> 0.5.2'
 
 group :development, :test do
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'debugger', :require => 'debugger'
   gem 'rspec-rails', '~> 2.6'
 end
 
