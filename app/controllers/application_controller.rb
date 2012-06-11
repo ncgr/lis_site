@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
   def set_ckfinder_cookie
     if user_signed_in?
       roles = current_user.roles
-      roles.sort_by! {|r| r.id}
+      roles.sort_by! { |r| r.id }
       cookies.signed[:ckfinder_role] = { :value => roles[0].name.downcase, :domain => :all }
     else
       cookies.delete :ckfinder_role, :domain => :all
