@@ -22,3 +22,11 @@ namespace :db do
   end
 end
 
+namespace :session do
+  desc "Delete stale sessions where last updated > 1 hour ago."
+  task :delete_sessions => :environment do
+    num = Session.sweep
+    puts "#{Time.now}: Deleted #{num} session(s) in the database."
+  end
+end
+

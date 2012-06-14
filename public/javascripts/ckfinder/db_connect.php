@@ -5,7 +5,7 @@ require 'database.php';
 /**
  * Connect to and select database.
  *
- * @return boolean
+ * @return
  */
 function dbConnect() {
     global $db;
@@ -22,10 +22,7 @@ function dbConnect() {
 /**
  * Execute SQL query.
  *
- * String $sql
- * String $resultFunc
- *
- * @return Array
+ * @return
  */
 function execQuery($sql, $resultFunc = "") {
     $conn = dbConnect();
@@ -42,9 +39,7 @@ function execQuery($sql, $resultFunc = "") {
 /**
  * Convert SQL query results to an array.
  *
- * Int $result
- *
- * @return Array
+ * @return
  */
 function dbResultToArray($result) {
     $resArray = array();
