@@ -6,14 +6,6 @@ describe UserProfilesController do
     @mock_user ||= mock_model(User, stubs).as_null_object
   end
 
-  #
-  # Descode signed cookies created after a user successfully logs in.
-  # app/controllers/application_controller.rb
-  #
-  def decode_signed_cookie(cookie)
-    Base64.decode64(cookie.split('--').first).gsub(/[^a-z]/, '')
-  end
-
   before(:each) do
     create_roles
   end
@@ -86,11 +78,9 @@ describe UserProfilesController do
       @user = User.order("created_at DESC").first
       User.should_receive(:find).with(@user.id).and_return(@user)
     end
-    it "should get show and set ckfinder_role cookie" do
-      request.cookies['ckfinder_role'] = nil
+    it "should get show" do
       get :show, :id => @user.id
       response.should be_success
-      decode_signed_cookie(response.cookies['ckfinder_role']).should == "superuser"
     end
     before(:each) do
       @user = User.includes(:roles).where("roles.name != 'superuser'").first
@@ -107,11 +97,9 @@ describe UserProfilesController do
       @user = User.order("created_at DESC").first
       User.should_receive(:find).with(@user.id).and_return(@user)
     end
-    it "should get show and set ckfinder_role cookie" do
-      request.cookies['ckfinder_role'] = nil
+    it "should get show" do
       get :show, :id => @user.id
       response.should be_success
-      decode_signed_cookie(response.cookies['ckfinder_role']).should == "admin"
     end
   end
 
@@ -121,11 +109,9 @@ describe UserProfilesController do
       @user = User.order("created_at DESC").first
       User.should_receive(:find).with(@user.id).and_return(@user)
     end
-    it "should get show and set ckfinder_role cookie" do
-      request.cookies['ckfinder_role'] = nil
+    it "should get show" do
       get :show, :id => @user.id
       response.should be_success
-      decode_signed_cookie(response.cookies['ckfinder_role']).should == "editor"
     end
   end
 
@@ -135,11 +121,9 @@ describe UserProfilesController do
       @user = User.order("created_at DESC").first
       User.should_receive(:find).with(@user.id).and_return(@user)
     end
-    it "should get show and set ckfinder_role cookie" do
-      request.cookies['ckfinder_role'] = nil
+    it "should get show" do
       get :show, :id => @user.id
       response.should be_success
-      decode_signed_cookie(response.cookies['ckfinder_role']).should == "systemuser"
     end
   end
 
