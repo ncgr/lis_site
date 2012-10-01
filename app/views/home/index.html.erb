@@ -36,6 +36,20 @@
 
 <h1>Entry Points</h1>
 
+<p><span class="title">Sequence Search</span></p>
+<ul class="entry-point">
+  <li class="left">
+    <%= link_to raw("Search sequenced legume genomes &raquo;"),
+      "http://search.comparative-legumes.org/quorum/jobs/new?genome" %> <br />
+    <%= link_to raw("Search genes/proteins/gene families &raquo;"),
+      "http://search.comparative-legumes.org/quorum/jobs/new?gene" %> <br />
+    <%= link_to raw("Advanced sequence search &raquo;"),
+      "http://search.comparative-legumes.org/quorum/jobs/new" %> <br />
+  </li>
+</ul>
+
+<div class="clear"></div>
+
 <p><span class="title">Species Access and Data</span></p>
 <ul class="entry-point">
   <li class="left">
@@ -46,21 +60,6 @@
   </li>
   <li class="right">
     <%= link_to image_tag("species_thumb.png", :alt => "Species"), page_path('species') %>
-  </li>
-</ul>
-
-<div class="clear"></div>
-
-<p><span class="title">Seqqle Sequence Search</span></p>
-<ul class="entry-point">
-  <li class="left">
-    Do multi-sequence queries against the reference legume genomes and other databases (UniProt, expression database, others).
-  </li>
-  <li class="center">
-    <%= link_to "Go", "http://search.comparative-legumes.org/seqqle/" %>
-  </li>
-  <li class="right">
-    <%= link_to image_tag("seqqle_thumb.png", :alt => "Seqqle"), "http://search.comparative-legumes.org/seqqle/" %>
   </li>
 </ul>
 
