@@ -103,7 +103,7 @@ Examples:
 
 ATTENTION: The trailing slash is required.
 */
-$baseDir = '/user/legs/web/comparative-legumes.org/htdocs/public' . $baseUrl;
+$baseDir = '/user/legs/web/comparative-legumes.org/htdocs/lis_site/public' . $baseUrl;
 
 /*
  * ### Advanced Settings
