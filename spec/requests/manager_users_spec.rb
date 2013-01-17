@@ -5,18 +5,13 @@ describe "ManagerUsers" do
   before(:each) do
     create_roles
     clear_emails
-    Capybara.current_driver = :selenium
-    set_host "silicon.ncgr.org:53330"
+    set_host
   end
 
   it "as superuser can update roles" do
     @user = create_user("superuser")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
     click_link "Manage users"
     click_link "Manage Roles"
@@ -33,10 +28,6 @@ describe "ManagerUsers" do
     @user = create_user("superuser")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
     click_link "Create user"
 
@@ -58,10 +49,6 @@ describe "ManagerUsers" do
     @user = create_user("admin")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
     click_link "Create user"
 
@@ -81,10 +68,6 @@ describe "ManagerUsers" do
     @user = create_user("admin")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
     click_link "View users"
 
@@ -95,10 +78,6 @@ describe "ManagerUsers" do
     @user = create_user("editor")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
 
     page.body.should_not include("Create user")
@@ -120,10 +99,6 @@ describe "ManagerUsers" do
     @user = create_user("system_user")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
 
     page.body.should_not include("Create user")
@@ -145,10 +120,6 @@ describe "ManagerUsers" do
     @user = create_user("editor")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
     visit user_profiles_path
     page.body.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
@@ -161,20 +132,12 @@ describe "ManagerUsers" do
     @user = create_user("system_user")
     visit root_path
     click_link "Sign In"
-    fill_in "Username", :with => @user.username
-    fill_in "Password", :with => @user.password
-    click_button "LOGIN"
-
     click_link @user.username
     visit user_profiles_path
     page.body.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
 
     visit manage_roles_user_profile_path(@user)
     page.body.should have_content("Sorry, your account has insufficient privileges for the requested resource.")
-  end
-
-  after(:all) do
-    Capybara.use_default_driver
   end
 
 end
