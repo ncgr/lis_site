@@ -5,4 +5,6 @@ class Page < ActiveRecord::Base
 
   SORTABLE_COLUMNS = ["title", "updated_at"]
   DEFAULT_ORDER    = "title ASC"
+
+  attr_accessible :body
 end
