@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702154709) do
+ActiveRecord::Schema.define(:version => 20130118165213) do
 
   create_table "arahy_contents", :force => true do |t|
     t.text     "overview"
@@ -668,11 +668,6 @@ ActiveRecord::Schema.define(:version => 20120702154709) do
     t.text    "mitochondria_genome_size_information"
     t.string  "mitochondria_accession_number"
     t.integer "phavu_content_id",                     :null => false
-  end
-
-  create_table "phavu_resources", :force => true do |t|
-    t.text    "resources"
-    t.integer "phavu_content_id", :null => false
   end
 
   create_table "phavu_selected_references", :force => true do |t|
