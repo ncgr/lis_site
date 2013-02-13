@@ -1,4 +1,3 @@
-
 class DevelopmentActivitiesController < ApplicationController
 
   def index

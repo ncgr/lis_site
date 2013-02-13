@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
-        respond_with resource, :location => redirect_location(resource_name, resource)
+        respond_with resource, :location => after_sign_up_path_for(resource)
       else
         set_flash_message :notice, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
         expire_session_data_after_sign_in!
@@ -65,14 +65,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with user, :location => destroy_user_session_path
   end
 
-  private
+  protected
 
   # Override default
   # Authenticates the current scope and gets a copy of the current resource.
   # We need to use a copy because we don't want actions like update changing
   # the current user in place.
   def authenticate_scope!
-    send(:"authenticate_user!", true)
+    send(:"authenticate_user!", :force => true)
     self.resource = resource_class.to_adapter.get!(send(:"current_user").to_key)
   end
 

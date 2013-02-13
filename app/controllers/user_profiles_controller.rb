@@ -1,4 +1,3 @@
-
 class UserProfilesController < ApplicationController
 
   before_filter :authenticate_user!
