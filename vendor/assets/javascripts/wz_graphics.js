@@ -748,7 +748,7 @@ function jsGraphics(cnv, wnd)
 				| (2 << (Math.floor((fAngZ %= 360.0)/180.0) << 3))
 				| ((fAngA >= fAngZ) << 16),
 		aBndA = new Array(b+1), aBndZ = new Array(b+1);
-		
+
 		// Set up radial boundary lines
 		fAngA *= Math.PI/180.0;
 		fAngZ *= Math.PI/180.0;
@@ -938,7 +938,7 @@ text both horizontally (e.g. right) and vertically within that rectangle */
 		this._mkDiv(xl, yt, w, h);
 		this._mkDiv(xl, yb, w, h);
 	};
-	
+
 	this._mkArcDiv = function(x, y, oy, cx, cy, iOdds, aBndA, aBndZ, iSects)
 	{
 		var xrDef = cx + x + (iOdds & 0xffff), y2, h = oy - y, xl, xr, w;

@@ -76,7 +76,7 @@ describe UserProfilesController do
     login_superuser
     before(:each) do
       @user = User.order("created_at DESC").first
-      User.should_receive(:find).with(@user.id).and_return(@user)
+      User.should_receive(:find).with(@user.id.to_s).and_return(@user)
     end
     it "should get show" do
       get :show, :id => @user.id
@@ -95,7 +95,7 @@ describe UserProfilesController do
     login_admin
     before(:each) do
       @user = User.order("created_at DESC").first
-      User.should_receive(:find).with(@user.id).and_return(@user)
+      User.should_receive(:find).with(@user.id.to_s).and_return(@user)
     end
     it "should get show" do
       get :show, :id => @user.id
@@ -107,7 +107,7 @@ describe UserProfilesController do
     login_editor
     before(:each) do
       @user = User.order("created_at DESC").first
-      User.should_receive(:find).with(@user.id).and_return(@user)
+      User.should_receive(:find).with(@user.id.to_s).and_return(@user)
     end
     it "should get show" do
       get :show, :id => @user.id
@@ -119,7 +119,7 @@ describe UserProfilesController do
     login_system_user
     before(:each) do
       @user = User.order("created_at DESC").first
-      User.should_receive(:find).with(@user.id).and_return(@user)
+      User.should_receive(:find).with(@user.id.to_s).and_return(@user)
     end
     it "should get show" do
       get :show, :id => @user.id

@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.20'
+gem 'rails', '3.2.12'
 
-gem 'mysql2', '~> 0.2.7'
-gem 'kaminari', '~> 0.12.4'
+gem 'mysql2', '~> 0.3.11'
+gem 'kaminari', '~> 0.14.1'
 gem 'truncate_html', '~> 0.5.0'
 gem 'devise', '~> 1.5.4'
 gem 'rubycas-client', '~> 2.2.1'
@@ -12,9 +12,16 @@ gem 'declarative_authorization', '~> 0.5.2'
 
 gem 'rack-maintenance_mode'
 
+gem 'prototype-rails'
+
+group :assets do
+  gem 'uglifier', ">= 1.0.3"
+end
+
 group :development, :test do
   gem 'debugger', :require => 'debugger'
   gem 'rspec-rails', '~> 2.6'
+  gem 'thin'
 end
 
 group :test do
