@@ -1,5 +1,7 @@
 class UserProfilesController < ApplicationController
 
+  force_ssl
+
   before_filter :authenticate_user!
   filter_access_to :all
 

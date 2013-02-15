@@ -2,7 +2,7 @@
 
 <h1>Add Meeting</h1>
 <p><%= link_to raw("Return &raquo;"), meetings_path %></p>
-<%= form_for @meeting, :html => {:onsubmit => "processingOnSubmit()"} do |f| %>
+<%= form_for @meeting do |f| %>
   <%= render "shared/error_messages", :target => @meeting %>
   <p>
     <%= f.label :title, "Title:" %><br />

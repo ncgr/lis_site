@@ -11,6 +11,13 @@ require 'database_cleaner'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+# We don't want SSL redirects in our test suite
+module ActionController::ForceSSL::ClassMethods
+  def force_ssl(options = {})
+    # noop
+  end
+end
+
 RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = false
@@ -20,7 +27,7 @@ RSpec.configure do |config|
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
 
-  config.extend DeviseMacros, :type => :controller
+  config.extend DeviseControllerMacros, :type => :controller
   config.include(RoleMacros)
   config.include(UserMacros)
   config.include(MailerMacros)

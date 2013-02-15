@@ -1,5 +1,7 @@
 class NewsArticlesController < ApplicationController
 
+  force_ssl :only => [:new, :create, :edit, :update, :destroy]
+
   before_filter :authenticate_user!, :except => [:index, :show]
   filter_access_to :new, :create, :edit, :update, :destroy
 

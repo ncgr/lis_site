@@ -3,7 +3,7 @@
 
 <h1>Add News Article</h1>
 <p><%= link_to raw("Return &raquo;"), news_articles_path %></p>
-<%= form_for @article, :html => {:onsubmit => "processingOnSubmit()"} do |f| %>
+<%= form_for @article do |f| %>
   <%= render "shared/error_messages", :target => @article %>
   <p>
     <%= f.label :title, "Title:" %><br />

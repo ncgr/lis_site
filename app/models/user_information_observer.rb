@@ -1,4 +1,3 @@
-
 class UserInformationObserver < ActiveRecord::Observer
 
   #

@@ -77,4 +77,9 @@ LisSite::Application.configure do
 
   # Observers
   config.active_record.observers = :user_information_observer
+
+  # Devise
+  config.to_prepare { Devise::CasSessionsController.force_ssl }
+  config.to_prepare { Devise::RegistrationsController.force_ssl }
+  config.to_prepare { Devise::PasswordsController.force_ssl }
 end

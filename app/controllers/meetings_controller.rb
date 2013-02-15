@@ -1,5 +1,7 @@
 class MeetingsController < ApplicationController
 
+  force_ssl :only => [:new, :create, :edit, :update, :destroy]
+
   before_filter :authenticate_user!
   filter_access_to :all
 

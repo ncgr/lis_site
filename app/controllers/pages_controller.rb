@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  force_ssl :only => [:edit, :update]
+
   before_filter :authenticate_user!, :except => [:show, :legume_origins]
   filter_access_to :index, :edit, :update
 

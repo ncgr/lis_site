@@ -7,7 +7,7 @@
   <p>Last updated by <%= @page.user.first_name %> <%= @page.user.last_name %> on
   <%= @page.updated_at.to_s(:date_time_long) %>.</p>
 <% end %>
-<%= form_for @page, :html => {:onsubmit => "processingOnSubmit()"} do |f| %>
+<%= form_for @page do |f| %>
   <%= render "shared/error_messages", :target => @page %>
   <p>Title: <%= @page.title.humanize %></p>
   <p>
@@ -18,8 +18,8 @@
 <% end %>
 
 <script type="text/javascript">
-  CKEDITOR.replaceAll( function(textarea, config){
+  CKEDITOR.replaceAll(function(textarea, config){
     config.toolbar = "<%= @tool_bar %>";
   });
-  CKFinder.setupCKEditor( null, '/javascripts/ckfinder/');
+  CKFinder.setupCKEditor(null, '/javascripts/ckfinder/');
 </script>

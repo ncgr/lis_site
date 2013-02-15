@@ -1,6 +1,7 @@
 module UserMacros
 
   def create_user(role)
+    https!
     user = FactoryGirl.create(:user_information)
     role = Role.where({ :name => "#{role}" }).first
     UserRole.where({ :user_id => user.id }).first.destroy

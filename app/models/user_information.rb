@@ -10,6 +10,8 @@ class UserInformation < ActiveRecord::Base
   # Use the table users.
   self.table_name = "users"
 
+  alias_attribute :email, :username
+
   before_save :format_user_information, :if => :should_validate?
   after_create :set_user_role
 
@@ -18,8 +20,7 @@ class UserInformation < ActiveRecord::Base
   # NOTE: We are using authlogic_sha512 encryption because it's
   # compatible with Ruby CAS Server Authlogic encryptor.
   # See https://github.com/gunark/rubycas-server for more information.
-  devise :database_authenticatable, :registerable,
-    :recoverable, :encryptable, :encryptor => :authlogic_sha512
+  devise :database_authenticatable, :registerable, :recoverable, :encryptable
 
   attr_accessible :username, :password, :password_confirmation,
     :first_name, :last_name
@@ -70,14 +71,6 @@ class UserInformation < ActiveRecord::Base
     user_role.role_id = role.id
     user_role.user_id = self.id
     user_role.save!
-  end
-
-  #
-  # Devise expects email to be our username. Ruby CAS expects username to be username.
-  # So...
-  #
-  def email
-    self.username if self.username
   end
 
 end

@@ -1,4 +1,3 @@
-
 class UserMailer < ActionMailer::Base
   default :from => "do-not-reply@comparative-legumes.org"
   @@bcc = []

@@ -37,3 +37,10 @@ LisSite::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
+
+# We don't want SSL redirects in our test suite
+module ActionController::ForceSSL::ClassMethods
+  def force_ssl(options = {})
+    # noop
+  end
+end

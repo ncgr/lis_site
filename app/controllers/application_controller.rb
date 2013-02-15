@@ -1,8 +1,14 @@
-
 class ApplicationController < ActionController::Base
 
   before_filter :set_ckfinder_session
   protect_from_forgery
+
+  #
+  # Redirect to HTTP after sign out.
+  #
+  def after_sign_out_path_for(resource_or_scope)
+    root_url(:protocol => 'http')
+  end
 
   #
   # I pitty the fool!

@@ -12,7 +12,7 @@ describe "PasswordResets" do
     visit new_user_information_password_path
     fill_in "user_information_username", :with => user.username
     click_button "Send me reset password instructions"
-    page.should have_content("instructions about how to reset your password shortly")
+    page.should have_content("instructions about how to reset your password")
     last_email.to.should include(user.username)
   end
 

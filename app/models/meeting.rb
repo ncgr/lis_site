@@ -1,4 +1,3 @@
-
 class Meeting < ActiveRecord::Base
   paginates_per 20
   SORTABLE_COLUMNS = ["title", "start_date", "end_date"]
