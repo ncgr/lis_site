@@ -1,3 +1,4 @@
+<% protocol = request.ssl? ? 'https://' : 'http://' %>
 <ul class="level1" id="dropdown">
 	<li><%= link_to "Home", root_path %></li>
 	<li class="sep">|</li>
@@ -8,42 +9,42 @@
 	<li>
 		<%= link_to "Search", page_path('search') %>
 		<ul class="level2">
-      <li><%= link_to "Search sequenced legume genomes", "http://search.comparative-legumes.org/quorum/jobs/new?genome" %></li>
-      <li><%= link_to "Search genes/proteins/gene families", "http://search.comparative-legumes.org/quorum/jobs/new?gene" %></li>
-      <li><%= link_to "Advanced sequence search", "http://search.comparative-legumes.org/quorum/jobs/new" %></li>
-			<li><%= link_to "CViT search by sequence", "http://cvit.comparative-legumes.org" %></li>
-      <li><%= link_to "Leggle Gene Family Pages", "http://leggle.comparative-legumes.org" %></li>
+      <li><%= link_to "Search sequenced legume genomes", protocol + "search.comparative-legumes.org/quorum/jobs/new?genome" %></li>
+      <li><%= link_to "Search genes/proteins/gene families", protocol + "search.comparative-legumes.org/quorum/jobs/new?gene" %></li>
+      <li><%= link_to "Advanced sequence search", protocol + "search.comparative-legumes.org/quorum/jobs/new" %></li>
+			<li><%= link_to "CViT search by sequence", protocol + "cvit.comparative-legumes.org" %></li>
+      <li><%= link_to "Leggle Gene Family Pages", protocol + "leggle.comparative-legumes.org" %></li>
 		</ul>
 	</li>
 	<li class="sep">|</li>
 	<li>
 		<%= link_to "Maps", page_path('maps') %>
 		<ul class="level2">
-			<li><%= link_to "Comparative map views", "http://cmap.comparative-legumes.org/index.html" %></li>
+			<li><%= link_to "Comparative map views", protocol + "cmap.comparative-legumes.org/index.html" %></li>
 		</ul>
 	</li>
 	<li class="sep">|</li>
 	<li>
 		<%= link_to "Species", page_path('species') %>
     <ul class="level2">
-      <li><%= link_to "Arachis hypogaea", "http://arahy.comparative-legumes.org" %></li>
-      <li><%= link_to "Cajanus cajan", "http://cajca.comparative-legumes.org" %></li>
-      <li><%= link_to "Chamaecrista fasciculata", "http://chafs.comparative-legumes.org" %></li>
-      <li><%= link_to "Cicer arietinum", "http://cicar.comparative-legumes.org" %></li>
-      <li><%= link_to "Glycine max", "http://glyma.comparative-legumes.org" %></li>
-      <li><%= link_to "Lens culinaris", "http://lencu.comparative-legumes.org" %></li>
-      <li><%= link_to "Lotus japonicus", "http://lotja.comparative-legumes.org" %></li>
-      <li><%= link_to "Lupinus albus", "http://lupal.comparative-legumes.org" %></li>
-      <li><%= link_to "Lupinus angustifolious", "http://lupan.comparative-legumes.org" %></li>
-			<li><%= link_to "Medicago sativa", "http://medsa.comparative-legumes.org" %></li>
-      <li><%= link_to "Medicago truncatula", "http://medtr.comparative-legumes.org" %></li>
-      <li><%= link_to "Phaseolus coccineus", "http://phacn.comparative-legumes.org" %></li>
-      <li><%= link_to "Phaseolus vulgaris", "http://phavu.comparative-legumes.org" %></li>
-      <li><%= link_to "Pisum sativum", "http://pea.comparative-legumes.org" %></li>
-      <li><%= link_to "Trifolium pratense", "http://tripr.comparative-legumes.org" %></li>
-      <li><%= link_to "Vicia faba", "http://vicfa.comparative-legumes.org" %></li>
-      <li><%= link_to "Vigna radiata", "http://vigra.comparative-legumes.org" %></li>
-      <li><%= link_to "Vigna unguiculata", "http://vigun.comparative-legumes.org" %></li>
+      <li><%= link_to "Arachis hypogaea", protocol + "arahy.comparative-legumes.org" %></li>
+      <li><%= link_to "Cajanus cajan", protocol + "cajca.comparative-legumes.org" %></li>
+      <li><%= link_to "Chamaecrista fasciculata", protocol + "chafs.comparative-legumes.org" %></li>
+      <li><%= link_to "Cicer arietinum", protocol + "cicar.comparative-legumes.org" %></li>
+      <li><%= link_to "Glycine max", protocol + "glyma.comparative-legumes.org" %></li>
+      <li><%= link_to "Lens culinaris", protocol + "lencu.comparative-legumes.org" %></li>
+      <li><%= link_to "Lotus japonicus", protocol + "lotja.comparative-legumes.org" %></li>
+      <li><%= link_to "Lupinus albus", protocol + "lupal.comparative-legumes.org" %></li>
+      <li><%= link_to "Lupinus angustifolious", protocol + "lupan.comparative-legumes.org" %></li>
+			<li><%= link_to "Medicago sativa", protocol + "medsa.comparative-legumes.org" %></li>
+      <li><%= link_to "Medicago truncatula", protocol + "medtr.comparative-legumes.org" %></li>
+      <li><%= link_to "Phaseolus coccineus", protocol + "phacn.comparative-legumes.org" %></li>
+      <li><%= link_to "Phaseolus vulgaris", protocol + "phavu.comparative-legumes.org" %></li>
+      <li><%= link_to "Pisum sativum", protocol + "pea.comparative-legumes.org" %></li>
+      <li><%= link_to "Trifolium pratense", protocol + "tripr.comparative-legumes.org" %></li>
+      <li><%= link_to "Vicia faba", protocol + "vicfa.comparative-legumes.org" %></li>
+      <li><%= link_to "Vigna radiata", protocol + "vigra.comparative-legumes.org" %></li>
+      <li><%= link_to "Vigna unguiculata", protocol + "vigun.comparative-legumes.org" %></li>
     </ul>
 	</li>
 	<li class="sep">|</li>
