@@ -1,6 +1,13 @@
 module ApplicationHelper
 
   #
+  # Return current protocol.
+  #
+  def protocol
+    request.ssl? ? 'https://' : 'http://'
+  end
+
+  #
   # Date / Time helper.
   #
   def display_time(timestamp)

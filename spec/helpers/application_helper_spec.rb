@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe ApplicationHelper do
+  describe "#protocol" do
+    it "returns current protocol" do
+      @request.env['HTTPS'] = 'on'
+      helper.protocol.should eq('https://')
+
+      @request.env['HTTPS'] = 'off'
+      helper.protocol.should eq('http://')
+    end
+  end
+
   describe "#display_time" do
     it "prints formatted time" do
       helper.display_time(Time.new).should be_kind_of(String)
