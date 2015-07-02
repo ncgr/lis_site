@@ -1,3 +1,15 @@
+<script type="text/javascript">
+ $j(document).ready( function() {
+   if (! document.referrer.toLowerCase().match(/comparative\-legumes\.org/) ) {
+     var go = confirm('The data and tools served by this site have been '+
+		      'migrated to our new site at legumeinfo.org; Click OK '+
+		      'to be redirected to the new site or Cancel if you  ' +
+		      'would like to stay on this archival site.');
+     if(go){ window.location.href = "http://legumeinfo.org/"; }
+   }
+ });
+</script>
+
 <% content_for :rightcol do %>
   <% if @welcome %>
 	  <%= raw(@welcome.body) %>
